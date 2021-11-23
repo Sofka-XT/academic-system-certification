@@ -1,27 +1,10 @@
-# Automatizacion Proyecto Academic System
+# Automatizacion Proyecto Academic System - HU07 CRUD TRAINING
 
 -----------------------------------
 
 *Juan Daniel Gonzalez Puerta*
 
-*Juan David Flórez*
-
-*Harold Calderón*
-
-*Cristian David Ayala Pulgarin* 
-
-*David Urrego Zapata*
-
-*Antonio Coque*
-
-*Valeria Gallego Restrepo* 
-
 *Teodoro Calle Lara*
-
-*Jose Anderson Carmona* 
-
-*Yeison Ortega*
-
 
 -----------------------------------
 #### Fecha Noviembre 2021
