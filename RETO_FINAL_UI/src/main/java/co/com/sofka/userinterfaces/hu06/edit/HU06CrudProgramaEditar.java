@@ -1,4 +1,4 @@
-package co.com.sofka.userinterfaces.hu06;
+package co.com.sofka.userinterfaces.hu06.edit;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
@@ -34,6 +34,10 @@ public class HU06CrudProgramaEditar extends PageObject {
 
     public static final Target DURACION_CATEGORIA2_CUrSO = Target
             .the("duracionCategoria2Curso")
+            .located(xpath("  "));
+
+    public static final Target SUBMIT = Target
+            .the("submit")
             .located(xpath("  "));
 
     public static final Target ELIMINAR_UN_CURSO = Target
