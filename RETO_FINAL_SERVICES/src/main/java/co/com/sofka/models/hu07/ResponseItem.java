@@ -1,6 +1,5 @@
 package co.com.sofka.models.hu07;
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;

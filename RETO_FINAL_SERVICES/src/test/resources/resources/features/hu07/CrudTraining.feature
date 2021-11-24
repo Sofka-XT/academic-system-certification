@@ -9,3 +9,4 @@ Feature: HU07
   Scenario: ver un training en sofkau
     When quiero ver un training nuevo
     Then deberia ver el training de manera correcta
+

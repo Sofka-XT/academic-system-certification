@@ -4,9 +4,9 @@ public enum Dictionary {
     CREATE_TRAINING("/CreateTraining"),
     DELETE("delete/"),
     GET_ALL_TRAININGS("/Trainings"),
-    GET_ONE_TRAINING("/Training/"),
+    GET_ONE_TRAINING("/Training"),
     UPDATE_TRAINING("/updateTraining"),
-    THE_RESPONSE_CODE("El codigo de respuesta fue: ");
+    THE_RESPONSE_CODE("El código de respuesta HTTP/HTTPS debe ser: ");
 
 
     private final String value;
