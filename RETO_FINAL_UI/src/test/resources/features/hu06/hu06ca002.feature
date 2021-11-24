@@ -1,6 +1,5 @@
 # new feature
 # Tags: optional
-
 Feature: Historia de Usuario 06 CA003
   Yo como: Coach,
   Quiero: Eliminar los diferentes programas de Sofka U
