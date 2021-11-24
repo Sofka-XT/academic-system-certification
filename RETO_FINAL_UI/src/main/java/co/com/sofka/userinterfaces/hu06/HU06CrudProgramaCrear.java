@@ -6,7 +6,7 @@ import net.serenitybdd.screenplay.targets.Target;
 import static org.openqa.selenium.By.id;
 import static org.openqa.selenium.By.xpath;
 
-public class HU06CrudPrograma extends PageObject {
+public class HU06CrudProgramaCrear extends PageObject {
     public static final Target USER_NAME = Target
             .the("NombreUsuario")
             .located(id("  "));
