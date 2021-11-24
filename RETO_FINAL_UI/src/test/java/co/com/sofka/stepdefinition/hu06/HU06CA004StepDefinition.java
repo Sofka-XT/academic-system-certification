@@ -8,7 +8,7 @@ import io.cucumber.java.en.When;
 public class HU06CA004StepDefinition extends Setup {
 
     @Given("El coach se encuentra en el menú principal")
-    public void elCoachSeEncuentraEnElMenúPrincipal() {
+    public void elCoachSeEncuentraEnElMenuPrincipal() {
     }
 
     @When("El mentor selecciona programas activos")
