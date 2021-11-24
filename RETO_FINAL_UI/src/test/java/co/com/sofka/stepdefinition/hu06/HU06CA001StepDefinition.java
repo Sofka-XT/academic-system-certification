@@ -7,7 +7,7 @@ import io.cucumber.java.en.When;
 
 public class HU06CA001StepDefinition extends Setup {
     @Given("El coach se encuentra en la ruta de creación de programa")
-    public void elCoachSeEncuentraEnLaRutaDeCreaciónDePrograma() {
+    public void elCoachSeEncuentraEnLaRutaDeCreacionDePrograma() {
     }
 
     @When("El mentor ingresa el nombre del programa y escoge un curso o los cursos necesarios para el programa")
@@ -15,11 +15,11 @@ public class HU06CA001StepDefinition extends Setup {
     }
 
     @Then("Se creará exitosamente el programa y se debe notificar.")
-    public void seCrearáExitosamenteElProgramaYSeDebeNotificar() {
+    public void seCrearaExitosamenteElProgramaYSeDebeNotificar() {
     }
 
     @When("El mentor no ingresa el nombre del programa y no selecciona ningún curso")
-    public void elMentorNoIngresaElNombreDelProgramaYNoSeleccionaNingúnCurso() {
+    public void elMentorNoIngresaElNombreDelProgramaYNoSeleccionaNingunCurso() {
     }
 
     @Then("Se debe notificar que no es posible crear el programa.")
@@ -35,7 +35,7 @@ public class HU06CA001StepDefinition extends Setup {
     }
 
     @When("El mentor ingresa el nombre del programa y no selecciona ningún curso")
-    public void elMentorIngresaElNombreDelProgramaYNoSeleccionaNingúnCurso() {
+    public void elMentorIngresaElNombreDelProgramaYNoSeleccionaNingunCurso() {
     }
 
     @Then("Se debe notificar que no es posible crear el programa sin el asignar al menos un curso.")
