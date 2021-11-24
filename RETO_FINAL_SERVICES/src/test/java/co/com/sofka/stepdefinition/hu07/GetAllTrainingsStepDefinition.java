@@ -31,10 +31,10 @@ public class GetAllTrainingsStepDefinition extends SetUpHu07 {
                 GetAllTrainingsTask.fromPage("")
         );
 
-        responseItem = new ResponseItemQuestion()
+        /*responseItem = new ResponseItemQuestion()
                 .answeredBy(actor).getResponse().stream().collect(Collectors.toList()).get(0);
 
-        responseItem.getName();
+        responseItem.getName();*/
     }
 
     @Then("deberia ver el training de manera correcta")
