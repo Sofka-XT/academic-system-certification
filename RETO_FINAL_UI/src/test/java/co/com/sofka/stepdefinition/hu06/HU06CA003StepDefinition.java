@@ -52,5 +52,5 @@ public class HU06CA003StepDefinition extends Setup {
     public void el_curso_eliminado_de_dicho_programa_debe_retirarse_correctamente_y_en_el_orden_estipilado_se_debe_conservar() {
 
     }
-    
+
 }
