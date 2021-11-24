@@ -47,6 +47,15 @@ Los recursos a probar son:
 
 ----------------------------------------
 
-link plan de pruebas
+## **link plan de Pruebas General:**
 
 https://docs.google.com/document/d/1K9MwgIolQnTi3gp8TTrsmnEuyG0adkV2/edit?usp=sharing&ouid=113975053607794699933&rtpof=true&sd=true
+----------------------------------------
+
+- **Plan de pruebas HU07:**
+
+https://docs.google.com/document/d/1jh5niYqKLfq8ZOk78NVh_bn78gpjJCUO/edit?usp=sharing&ouid=113975053607794699933&rtpof=true&sd=true
+
+- **Plan de pruebas HU06:**
+
+https://docs.google.com/document/d/1sqQ5BO4Fqy3yDkalVCjXNMrtjHiA7Wof/edit?usp=sharing&ouid=110722096528972289154&rtpof=true&sd=true
