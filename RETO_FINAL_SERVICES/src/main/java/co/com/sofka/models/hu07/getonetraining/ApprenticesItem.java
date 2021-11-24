@@ -1,4 +1,4 @@
-package co.com.sofka.models.hu07;
+package co.com.sofka.models.hu07.getonetraining;
 
 public class ApprenticesItem{
 	private String emailAddress;

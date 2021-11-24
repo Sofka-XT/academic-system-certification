@@ -1,18 +1,14 @@
-package co.com.sofka.models.hu07;
+package co.com.sofka.models.hu07.getonetraining;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.time.LocalDate;
 import java.util.List;
 
-public class ResponseItem{
+public class Response{
 	private List<CoachesItem> coaches;
 	private String trainingId;
 	private String name;
 	private String program;
 	private List<ApprenticesItem> apprentices;
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	private LocalDate startingDate;
+	private String startingDate;
 
 	public List<CoachesItem> getCoaches(){
 		return coaches;
@@ -34,7 +30,7 @@ public class ResponseItem{
 		return apprentices;
 	}
 
-	public LocalDate getStartingDate(){
+	public String getStartingDate(){
 		return startingDate;
 	}
 }

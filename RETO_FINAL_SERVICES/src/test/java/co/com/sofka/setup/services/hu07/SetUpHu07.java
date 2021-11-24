@@ -10,7 +10,6 @@ import java.util.HashMap;
 
 public class SetUpHu07 {
     protected static final String BASE_URL = "http://localhost:8080";
-    private final HashMap<String, Object> headers = new HashMap<>();
     protected static final String ACTOR_NAME = "Titanes";
     protected Actor actor;
 
@@ -21,7 +20,6 @@ public class SetUpHu07 {
 
     private void setUpActorAndApi(){
         actor.can(CallAnApi.at(BASE_URL));
-        headers.put("Content-Type", ContentType.JSON.toString());
     }
 
     protected void setUp(){
