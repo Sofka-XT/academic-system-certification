@@ -5,7 +5,7 @@ import net.serenitybdd.screenplay.targets.Target;
 
 import static org.openqa.selenium.By.xpath;
 
-public class InfoCurso extends PageObject {
+public class CourseInfo extends PageObject {
 
     public static final Target COURSE_NAME = Target
             .the("Nombre curso")

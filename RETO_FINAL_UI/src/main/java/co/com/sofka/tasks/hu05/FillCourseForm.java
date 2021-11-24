@@ -5,7 +5,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Scroll;
 
-import static co.com.sofka.userinterfaces.hu005.InfoCurso.COURSE_NAME;
+import static co.com.sofka.userinterfaces.hu005.CourseInfo.COURSE_NAME;
 
 public class FillCourseForm implements Task {
     @Override

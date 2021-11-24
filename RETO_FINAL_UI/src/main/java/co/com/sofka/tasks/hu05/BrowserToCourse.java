@@ -3,13 +3,13 @@ package co.com.sofka.tasks.hu05;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 
-public class BrowserToCurso implements Task {
+public class BrowserToCourse implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo();
     }
 
-    public static BrowserToCurso browserToCurso(){
-        return new BrowserToCurso();
+    public static BrowserToCourse browserToCurso(){
+        return new BrowserToCourse();
     }
 }

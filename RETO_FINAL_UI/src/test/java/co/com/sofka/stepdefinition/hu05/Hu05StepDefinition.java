@@ -3,7 +3,7 @@ package co.com.sofka.stepdefinition.hu05;
 import co.com.sofka.stepdefinition.Setup;
 import io.cucumber.java.en.*;
 
-import static co.com.sofka.tasks.hu05.BrowserToCurso.browserToCurso;
+import static co.com.sofka.tasks.hu05.BrowserToCourse.browserToCurso;
 import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
