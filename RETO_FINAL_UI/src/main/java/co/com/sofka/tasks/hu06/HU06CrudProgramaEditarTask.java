@@ -55,7 +55,7 @@ public class HU06CrudProgramaEditarTask implements Task {
 
                 Scroll.to(ELIMINAR_UN_CURSO),
                 Click.on(ELIMINAR_UN_CURSO)
-                
+
                 );
     }
 }
