@@ -1,8 +1,11 @@
-Feature: Como usuario quiero navegar al modulo buzz
-  para dar clic al Most liked posts
-  y poder elegir un post para darle like; comentarlo; y compartirlo
+Feature: HU07
+  Yo como: Coach
+  Quiero: crear trainings a partir de programas
+  Para: poder asignar aprendices y coaches.
 
-  Scenario: dar like, comentar y compartir post con chrome
-    Given el usuario necesita comertar,compartir dar like, inicia sesion el usuario Admin, con la contraseña admin123
-    When  abro el tercer post mas comentado del modulo buzz
-    Then podre dar like, comentar: La vida es elegir, puedes elegir ser una víctima o cualquier otra cosa que te propongas. EL GUERRERO PACÍFICO y compartir
+  Background:
+    Given que tengo acceso al gestor de
+
+  Scenario: Crear un training en sofkau
+    When quiero crear un training nuevo
+    Then deberia crear el training de manera correcta

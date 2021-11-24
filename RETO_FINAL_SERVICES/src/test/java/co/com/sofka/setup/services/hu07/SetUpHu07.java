@@ -5,8 +5,8 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 
 
-public class Hu07 {
-    protected static final String BASE_URL = "https://jsonplaceholder.typicode.com";
+public class SetUpHu07 {
+    protected static final String BASE_URL = "http://localhost:8080";
     protected static final String ACTOR_NAME = "Titanes";
     protected Actor actor;
 
