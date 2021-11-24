@@ -8,8 +8,8 @@ import io.cucumber.java.en.When;
 public class HU06CA003StepDefinition extends Setup {
 
 
-    @Given("que el coach se encuentra en la seccion de editar cursos")
-    public void que_el_coach_se_encuentra_en_la_seccion_de_editar_cursos() {
+    @Given("que el coach se encuentra en la seccion de editar programa")
+    public void queElCoachSeEncuentraEnLaSeccionDeEditarPrograma() {
 
     }
 
@@ -18,13 +18,13 @@ public class HU06CA003StepDefinition extends Setup {
 
     }
 
-    @Then("este cambio se debe guardar exitosamente en dicho curso")
-    public void este_cambio_se_debe_guardar_exitosamente_en_dicho_curso() {
+    @Then("este cambio se debe guardar exitosamente en dicho programa")
+    public void esteCambioSeDebeGuardarExitosamenteEnDichoPrograma() {
 
     }
 
-    @When("el coah proceda a editar el nombre de un programa y deje este campo vaccio")
-    public void el_coah_proceda_a_editar_el_nombre_de_un_programa_y_deje_este_campo_vaccio() {
+    @When("el coah proceda a editar el nombre de un programa y deje este campo vacio")
+    public void elCoahProcedaAEditarElNombreDeUnProgramaYDejeEsteCampoVacio() {
 
     }
 
