@@ -8,7 +8,6 @@ import net.thucydides.core.annotations.Managed;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static co.com.sofka.util.Log4jValues.LOG4J_PROPERTIES_FILE_PATH;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
@@ -18,11 +17,9 @@ public class Setup {
     protected static final String USER_DIR = System.getProperty("user.dir");
 
     @Managed()
-
     protected static WebDriver driver;
 
     protected void setupBrowser(WebDriver browser) {
-        setUpLog4j2();
         browser.manage().deleteAllCookies();
         browser.manage().window().maximize();
     }
@@ -33,15 +30,17 @@ public class Setup {
     }
 
     protected void actorSetupTheBrowser(String actorName) {
-
+        setUpLog4j2();
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         setupBrowser(driver);
         setupUser(actorName, driver);
+
     }
 
     protected void setUpLog4j2() {
         PropertyConfigurator.configure(
                 USER_DIR + LOG4J_PROPERTIES_FILE_PATH.getValue());
     }
+
 }
