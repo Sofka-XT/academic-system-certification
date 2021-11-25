@@ -38,8 +38,8 @@ public class HU06CA003StepDefinition extends Hu06 {
 
     }
 
-    @When("El coach edite el nombre de un programa con un numero de caracteres fuera del rango \\(menos de {int} y mas de {int})")
-    public void elCoachEditeElNombreDeUnProgramaConUnNumeroDeCaracteresFueraDelRangoMenosDeYMasDe(Integer int1, Integer int2) {
+    @When("El coach edite el nombre de un programa con un numero de caracteres fuera del rango \\(menos de tres y mas de cien)")
+    public void el_coach_edite_el_nombre_de_un_programa_con_un_numero_de_caracteres_fuera_del_rango_menos_de_tres_y_mas_de_cien() {
 
     }
 

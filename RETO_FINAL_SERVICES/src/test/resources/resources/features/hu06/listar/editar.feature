@@ -10,7 +10,7 @@ Feature: Yo como coach
     Then entonces el los cambios definidos se deben guardar correctamente y  retornar un status OK
 
   Scenario: Edicion de nombre fallido
-    When El coach edite el nombre de un programa con un numero de caracteres fuera del rango (menos de 3 y mas de 100)
+    When El coach edite el nombre de un programa con un numero de caracteres fuera del rango (menos de tres y mas de cien)
     Then entonces el los cambios definidos no se deben guardar  y  retornar un status FAIL
 
   Scenario: Agregar curso exitoso
