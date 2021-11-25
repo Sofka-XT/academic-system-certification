@@ -7,7 +7,7 @@ import static co.com.sofka.tasks.hu05.BrowserToCourse.browserToCurso;
 import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
-public class Hu05StepDefinition extends Setup {
+public class Hu05CreateCourseStepDefinition extends Setup {
     private static final String ACTOR = "Coach";
 
     @Given("doy click sobre la opcion Crear nuevo curso")
