@@ -4,11 +4,18 @@ import co.com.sofka.stepdefinition.Setup;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.serenitybdd.screenplay.waits.WaitUntil;
+
+import java.util.Set;
 
 import static co.com.sofka.tasks.hu05.BrowserToCourse.browserToCurso;
 import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
+import static co.com.sofka.tasks.loginWithGoogle.FillGoogleAutenticationForm.fillAutenticationForm;
+import static co.com.sofka.tasks.loginWithGoogle.LoginWithGoogle.loginWithGoogle;
+import static co.com.sofka.userinterfaces.hu01.DashBoardPage.LOGOUTCOUCH;
 import static co.com.sofka.util.hu005.User.COACH;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 
 public class Hu05CreateCourseStepDefinition extends Setup {
@@ -25,9 +32,27 @@ public class Hu05CreateCourseStepDefinition extends Setup {
                 browserToCurso()
         );
 
+        theActorInTheSpotlight().attemptsTo(
+                loginWithGoogle()
+        );
+        String currentWindow = getDriver().getWindowHandle();
+        Set<String> allWindows = getDriver().getWindowHandles();
+        for(String window : allWindows){
+            if(!window.contentEquals(currentWindow)){
+                getDriver().switchTo().window(window);
+                break;
+            }
+        }
+        theActorInTheSpotlight().attemptsTo(
+                fillAutenticationForm()
+
+        );
+        getDriver().switchTo().window(currentWindow);
+        WaitUntil.the(LOGOUTCOUCH, isVisible()).forNoMoreThan(10).seconds();
+
     }
 
-    @When("llene el formulario con todos los campos y de clic sobre el boton crear")
+    @When("llene el formulario con todos los campos y doy clic sobre el boton crear")
     public void llene_el_formulario_con_todos_los_campos_y_de_clic_sobre_guardar() {
 
     }
