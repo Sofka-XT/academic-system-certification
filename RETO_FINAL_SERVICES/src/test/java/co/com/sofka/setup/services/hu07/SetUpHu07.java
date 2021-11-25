@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 
 public class SetUpHu07 {
-    protected static final String BASE_URL = "http://localhost:8080";
+    protected static final String BASE_URL = "https://vast-everglades-55825.herokuapp.com";
     protected static final String ACTOR_NAME = "Titanes";
     protected Actor actor;
 

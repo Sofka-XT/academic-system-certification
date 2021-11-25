@@ -15,13 +15,13 @@ public class GetOneTrainingTask implements Task {
 
     private String id;
 
-    public GetOneTrainingTask (String status) {
-        this.id = status;
+    public GetOneTrainingTask (String id) {
+        this.id = id;
     }
 
-    public static Performable fromPage(String status)
+    public static Performable fromPage(String id)
     {
-        return instrumented(GetOneTrainingTask.class,status);
+        return instrumented(GetOneTrainingTask.class,id);
     }
 
     @Override
@@ -30,8 +30,7 @@ public class GetOneTrainingTask implements Task {
                 Get.resource(GET_ONE_TRAINING.getValue()+id).
                         with(requestSpecification ->
                                 requestSpecification.contentType(
-                                ContentType.JSON
-                                )
+                                ContentType.JSON)
                         )
         );
     }
