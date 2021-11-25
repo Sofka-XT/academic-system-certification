@@ -6,10 +6,11 @@ Feature: HU01 - autenticacion op2
   Background:
     Given el usuario se encuentra en la pagina login
 
+  @ignore
   Scenario: uno - Existencia de elemento de login en la loginPage
     Then  deberia visualizar el boton de ingreso
 
-  @ignore
+
   Scenario: dos - Login exitoso
     When  realiza login a la plataforma
     Then  deberia visualizar la pagina principal correspondiente a su rol
@@ -25,7 +26,7 @@ Feature: HU01 - autenticacion op2
     And   Refresaca la pagina
     Then  deberia poder visualizar la pagina a la que accede
 
-  @ignore
+
   Scenario: cinco - Cierre de sesion
     When  realiza login exitosamente
     And   realiza logout

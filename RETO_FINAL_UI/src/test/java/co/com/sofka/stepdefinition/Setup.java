@@ -34,4 +34,8 @@ public class Setup {
         setupBrowser(driver);
         setupUser(actorName, driver);
     }
+
+    protected WebDriver getDriver(){
+        return driver;
+    }
 }
