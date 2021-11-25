@@ -1,4 +1,4 @@
-package co.com.sofka.tasks.hu06;
+package co.com.sofka.tasks.hu06.edit;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -6,7 +6,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 
-import static co.com.sofka.userinterfaces.hu06.HU06CrudProgramaEditar.*;
+import static co.com.sofka.userinterfaces.hu06.edit.HU06CrudProgramaEditar.*;
 
 public class HU06CrudProgramaEditarTask implements Task {
     private String nombrePrograma;
@@ -31,10 +31,6 @@ public class HU06CrudProgramaEditarTask implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-
-                Scroll.to(BTN_EDITAR_PROGRAMA),
-                Click.on(BTN_EDITAR_PROGRAMA),
-
                 Scroll.to(EDIT_NAME_PROGRAM),
                 Enter.theValue(this.nombrePrograma).into(EDIT_NAME_PROGRAM),
 
@@ -53,9 +49,15 @@ public class HU06CrudProgramaEditarTask implements Task {
                 Scroll.to(DURACION_CATEGORIA2_CUrSO),
                 Enter.theValue(this.duracionCurso2).into(DURACION_CATEGORIA2_CUrSO),
 
-                Scroll.to(ELIMINAR_UN_CURSO),
-                Click.on(ELIMINAR_UN_CURSO)
-                
+                Scroll.to(SUBMIT),
+                Click.on(SUBMIT)
+
                 );
     }
+
+    public static HU06CrudProgramaEditarTask editarProgramaCompleto(){
+        return new HU06CrudProgramaEditarTask();
+    }
+
+
 }

@@ -5,15 +5,26 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static co.com.sofka.tasks.hu06.delete.HU06CrudProgramaEliminarTask.eliminarPrograma;
+import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+
 public class HU06CA002StepDefinition extends Setup {
+    private static final String ACTOR_NAME = "Coach";
+
     @Given("que el coach se encuentra en la seccion de eliminar programa")
     public void que_el_coach_se_encuentra_en_la_seccion_de_eliminar_programa() {
-
+        actorSetupTheBrowser(ACTOR_NAME);
+        theActorInTheSpotlight().attemptsTo(
+                openLandingPage()
+        );
     }
 
     @When("el coah proceda a seleccionar  un programa ya existente y para su eliminacion y pulse el boton de confirmar")
     public void el_coah_proceda_a_seleccionar_un_programa_ya_existente_y_para_su_eliminacion_y_pulse_el_boton_de_confirmar() {
-
+        theActorInTheSpotlight().attemptsTo(
+                eliminarPrograma()
+        );
     }
 
     @Then("este cambio se debe guardar exitosamente  y debe notificarse")
