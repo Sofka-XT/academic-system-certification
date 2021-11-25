@@ -1,6 +1,5 @@
 package co.com.sofka.stepdefinition.hu01;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 

@@ -14,8 +14,8 @@ public class HU01StepDefinitionCinco {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
-    @Then("deberia visualizar la pagina de login")
-    public void deberiaVisualizarLaPaginaDeLogin() {
+    @Then("se tendra que mostrar la login page")
+    public void seTendraQueMostrarLaLoginPage() {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }

@@ -1,24 +1,35 @@
 package co.com.sofka.stepdefinition.hu01;
 
+import co.com.sofka.stepdefinition.Setup;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 
-public class HU01StepDefinitionUno {
+import static co.com.sofka.questions.hu01.LoginValidation.loginValidation;
+import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static org.hamcrest.CoreMatchers.equalTo;
 
-    @Given("el usuario no esta autenticado")
-    public void elUsuarioNoEstaAutenticado() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+public class HU01StepDefinitionUno extends Setup {
+
+    private static final String ACTOR_NAME = "User";
+
+    @Given("el usuario se encuentra en la pagina login")
+    public void elUsuarioSeEncuentraEnLaPaginaLogin() {
+        actorSetupTheBrowser(ACTOR_NAME);
+        theActorInTheSpotlight().attemptsTo(
+                openLandingPage()
+        );
     }
-    @When("ingresa a la pagina de login")
-    public void ingresaALaPaginaDeLogin() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
+
     @Then("deberia visualizar el boton de ingreso")
     public void deberiaVisualizarElBotonDeIngreso() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        theActorInTheSpotlight().should(
+                seeThat(
+                        loginValidation()
+                                .loginValidationMessage("Iniciar sesión con Google")
+                                .is(),equalTo(true)
+                )
+        );
     }
 }
