@@ -7,8 +7,11 @@ import net.serenitybdd.screenplay.actions.Clear;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 
+import static co.com.sofka.userinterfaces.hu01.DashBoardPage.ROLE;
 import static co.com.sofka.userinterfaces.hu01.LoginPage.LOGIN_BUTTON;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class LoginWithGoogle implements Task {
 
@@ -33,6 +36,7 @@ public class LoginWithGoogle implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+                WaitUntil.the(LOGIN_BUTTON, isVisible()).forNoMoreThan(10).seconds(),
                 Scroll.to(LOGIN_BUTTON),
                 Click.on(LOGIN_BUTTON)
 

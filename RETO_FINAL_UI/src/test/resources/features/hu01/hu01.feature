@@ -10,7 +10,7 @@ Feature: HU01 - autenticacion op2
   Scenario: uno - Existencia de elemento de login en la loginPage
     Then  deberia visualizar el boton de ingreso
 
-
+  @ignore
   Scenario: dos - Login exitoso
     When  realiza login a la plataforma
     Then  deberia visualizar la pagina principal correspondiente a su rol

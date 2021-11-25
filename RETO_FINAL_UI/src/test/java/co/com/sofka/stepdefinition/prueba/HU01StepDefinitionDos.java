@@ -16,6 +16,7 @@ import static co.com.sofka.tasks.loginWithGoogle.LoginWithGoogle.loginWithGoogle
 import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
 import static co.com.sofka.userinterfaces.hu01.DashBoardPage.LOGOUTCOUCH;
 import static co.com.sofka.userinterfaces.hu01.DashBoardPage.ROLE;
+import static co.com.sofka.userinterfaces.hu01.LoginPage.LOGIN_BUTTON;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
@@ -75,10 +76,6 @@ public class HU01StepDefinitionDos extends Setup {
     @When("realiza login exitosamente")
     public void realizaLoginExitosamente() {
 
-       /* actorSetupTheBrowser(ACTOR_NAME);
-        theActorInTheSpotlight().attemptsTo(
-                openLandingPage()
-        );*/
         theActorInTheSpotlight().attemptsTo(
                 loginWithGoogle()
         );
@@ -92,10 +89,8 @@ public class HU01StepDefinitionDos extends Setup {
         }
         theActorInTheSpotlight().attemptsTo(
                 fillAutenticationForm()
-
         );
         getDriver().switchTo().window(currentWindow);
-        WaitUntil.the(LOGOUTCOUCH, isVisible()).forNoMoreThan(10).seconds();
     }
     @When("realiza logout")
     public void realizaLogout() {
@@ -105,6 +100,7 @@ public class HU01StepDefinitionDos extends Setup {
     }
     @Then("se tendra que mostrar la login page")
     public void seTendraQueMostrarLaLoginPage() {
+        WaitUntil.the(LOGIN_BUTTON, isVisible()).forNoMoreThan(10).seconds();
         theActorInTheSpotlight().should(
                 seeThat(
                         loginValidation()

@@ -13,7 +13,8 @@ public class DashBoardPage extends PageObject {
 
     public static final Target LOGOUTCOUCH = Target
             .the("logoutCouch")
-            .located(xpath("//*[@id=\"sideBar_menu flex_column_center\"]/ul/a[7]"));
+            .located(xpath("//*[@id=\"sideBar_menu flex_column_center\"]/ul/a[8]"));
+
     public static final Target LOGOUTSTUDENT = Target
             .the("logoutStudent")
             .located(xpath("//*[@id=\"dashboard\"]/aside/nav/ul/a[2]"));
@@ -21,6 +22,7 @@ public class DashBoardPage extends PageObject {
     public static final Target SIGNOUT = Target
             .the("logout")
             .located(xpath("//*[@id=\"dashboard\"]/aside/nav/ul/a[2]"));
+    
 
 
 
