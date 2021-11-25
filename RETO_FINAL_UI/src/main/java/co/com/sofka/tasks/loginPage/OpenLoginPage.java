@@ -1,8 +1,6 @@
 package co.com.sofka.tasks.loginPage;
 
-import co.com.sofka.tasks.landingpage.OpenLandingPage;
 import co.com.sofka.userinterfaces.hu01.LoginPage;
-import co.com.sofka.userinterfaces.landingpage.LandingPage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Open;

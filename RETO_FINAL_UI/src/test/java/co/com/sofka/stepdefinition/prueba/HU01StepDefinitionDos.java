@@ -4,17 +4,17 @@ import co.com.sofka.stepdefinition.Setup;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+
 import java.util.Set;
 
-
 import static co.com.sofka.questions.hu01.LoginValidation.loginValidation;
+import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
 import static co.com.sofka.tasks.loginWithGoogle.DoLogoutAsCoach.doLogoutAsCoach;
 import static co.com.sofka.tasks.loginWithGoogle.FillGoogleAutenticationForm.fillAutenticationForm;
 import static co.com.sofka.tasks.loginWithGoogle.LoginWithGoogle.loginWithGoogle;
-import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
-import static co.com.sofka.userinterfaces.hu01.DashBoardPage.LOGOUTCOUCH;
 import static co.com.sofka.userinterfaces.hu01.DashBoardPage.ROLE;
 import static co.com.sofka.userinterfaces.hu01.LoginPage.LOGIN_BUTTON;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
@@ -62,15 +62,7 @@ public class HU01StepDefinitionDos extends Setup {
                 WaitUntil.the(ROLE, isVisible()).forNoMoreThan(10).seconds(),
                 Ensure.that(ROLE).text().isEqualToIgnoringCase("COACH")
         );
-        /*
-        theActorInTheSpotlight().should(
-                seeThat(
-                        loginQuestion()
-                                .loginQuestionMessage("APPRENTICE")
-                                .is(),equalTo(true)
-                )
-        );
-*/
+
     }
 
     @When("realiza login exitosamente")
@@ -108,5 +100,46 @@ public class HU01StepDefinitionDos extends Setup {
                                 .is(),equalTo(true)
                 )
         );
+
     }
+
+    @When("se autentica en la plataforma")
+    public void seAutenticaEnLaPlataforma() {
+        System.out.println(driver.getCurrentUrl());
+        theActorInTheSpotlight().attemptsTo(
+                loginWithGoogle()
+        );
+        String currentWindow = getDriver().getWindowHandle();
+        Set<String> allWindows = getDriver().getWindowHandles();
+        for(String window : allWindows){
+            if(!window.contentEquals(currentWindow)){
+                getDriver().switchTo().window(window);
+                break;
+            }
+        }
+        theActorInTheSpotlight().attemptsTo(
+                fillAutenticationForm()
+        );
+        getDriver().switchTo().window(currentWindow);
+
+
+    }
+    @When("Refresaca la pagina")
+    public void refresacaLaPagina() {
+
+    }
+    @Then("deberia poder visualizar la pagina a la que accede")
+    public void deberiaPoderVisualizarLaPaginaALaQueAccede() {
+        WaitUntil.the(ROLE, isVisible()).forNoMoreThan(10).seconds();
+
+
+        theActorInTheSpotlight().attemptsTo(
+                WaitUntil.the(ROLE, isVisible()).forNoMoreThan(10).seconds(),
+                Ensure.that(ROLE).text().isEqualToIgnoringCase("COACH"),
+                Open.url(driver.getCurrentUrl()),
+                WaitUntil.the(ROLE, isVisible()).forNoMoreThan(10).seconds(),
+                Ensure.that(ROLE).text().isEqualToIgnoringCase("COACH")
+                );
+    }
+
 }
