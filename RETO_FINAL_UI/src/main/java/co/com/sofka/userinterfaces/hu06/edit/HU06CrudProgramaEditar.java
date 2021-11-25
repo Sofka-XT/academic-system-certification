@@ -41,10 +41,13 @@ public class HU06CrudProgramaEditar extends PageObject {
             .located(xpath("  "));
 
     public static final Target ELIMINAR_UN_CURSO = Target
-            .the("seleccionarUnCurso")
+            .the("eliminarUnCurso")
             .located(xpath("  "));
 
+    ////////////
 
-
+    public static final Target ELIMINAR_UN_PROGRAMA= Target
+            .the("eliminarUnPrograma")
+            .located(xpath(" "));
 
 }

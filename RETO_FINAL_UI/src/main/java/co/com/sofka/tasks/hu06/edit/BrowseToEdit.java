@@ -1,5 +1,6 @@
 package co.com.sofka.tasks.hu06.edit;
 
+import co.com.sofka.tasks.hu06.create.BrowseToCreate;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
@@ -15,5 +16,9 @@ public class BrowseToEdit implements Task {
                 Click.on(BTN_EDITAR_PROGRAMA)
         );
 
+    }
+
+    public static BrowseToEdit browseToEdit() {
+        return new BrowseToEdit();
     }
 }

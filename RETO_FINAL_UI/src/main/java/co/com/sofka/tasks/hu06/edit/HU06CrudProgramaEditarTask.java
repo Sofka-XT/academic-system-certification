@@ -54,4 +54,10 @@ public class HU06CrudProgramaEditarTask implements Task {
 
                 );
     }
+
+    public static HU06CrudProgramaEditarTask editarProgramaCompleto(){
+        return new HU06CrudProgramaEditarTask();
+    }
+
+
 }

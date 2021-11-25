@@ -46,4 +46,8 @@ public class HU06CrudProgramaEditarTaskNoName implements Task {
                 Click.on(SUBMIT)
                 );
     }
+
+    public static HU06CrudProgramaEditarTaskNoName editarProgramaAgregandoCursos(){
+        return new HU06CrudProgramaEditarTaskNoName();
+    }
 }

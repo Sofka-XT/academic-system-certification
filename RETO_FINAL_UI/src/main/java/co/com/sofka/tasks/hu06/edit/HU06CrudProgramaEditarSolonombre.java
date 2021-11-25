@@ -9,10 +9,10 @@ import net.serenitybdd.screenplay.actions.Scroll;
 import static co.com.sofka.userinterfaces.hu06.edit.HU06CrudProgramaEditar.EDIT_NAME_PROGRAM;
 import static co.com.sofka.userinterfaces.hu06.edit.HU06CrudProgramaEditar.SUBMIT;
 
-public class HU06CrudProgramaEditarTaskNoCurses implements Task {
+public class HU06CrudProgramaEditarSolonombre implements Task {
     private String nombrePrograma;
 
-    public HU06CrudProgramaEditarTaskNoCurses usingNombrePrograma(String nombrePrograma) {
+    public HU06CrudProgramaEditarSolonombre setNombrePrograma(String nombrePrograma) {
         this.nombrePrograma = nombrePrograma;
         return this;
     }
@@ -26,6 +26,10 @@ public class HU06CrudProgramaEditarTaskNoCurses implements Task {
                 Scroll.to(SUBMIT),
                 Click.on(SUBMIT)
         );
-
     }
+
+    public static HU06CrudProgramaEditarSolonombre editarSolonombre(){
+        return new HU06CrudProgramaEditarSolonombre();
+    }
+
 }

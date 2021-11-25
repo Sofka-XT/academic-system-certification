@@ -16,4 +16,8 @@ public class HU06CrudProgramaEditarTaskEliminar implements Task {
                 Click.on(ELIMINAR_UN_CURSO)
         );
     }
+
+    public static HU06CrudProgramaEditarTaskEliminar eliminarCurso(){
+        return new HU06CrudProgramaEditarTaskEliminar();
+    }
 }
