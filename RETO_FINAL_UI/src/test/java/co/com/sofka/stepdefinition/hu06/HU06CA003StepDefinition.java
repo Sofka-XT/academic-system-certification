@@ -18,6 +18,7 @@ public class HU06CA003StepDefinition extends Setup {
 
     private static final String ACTOR_NAME = "Coach";
 
+
     @Given("que el coach se encuentra en la seccion de editar programa")
     public void queElCoachSeEncuentraEnLaSeccionDeEditarPrograma() {
         actorSetupTheBrowser(ACTOR_NAME);
@@ -33,7 +34,7 @@ public class HU06CA003StepDefinition extends Setup {
     public void el_coah_proceda_a_editar_el_nombre_de_un_programa_ya_existente_y_pulse_el_boton_de_guardar() {
         theActorInTheSpotlight().attemptsTo(
                 editarSolonombre()
-                        .setNombrePrograma("asdasda")
+                        .setNombrePrograma("")
         );
     }
 
