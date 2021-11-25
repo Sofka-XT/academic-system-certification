@@ -8,10 +8,15 @@ import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
 import static co.com.sofka.util.Hu05.Actor.COACH;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
+<<<<<<< HEAD:RETO_FINAL_UI/src/test/java/co/com/sofka/stepdefinition/hu05/Hu05StepDefinition.java
 
 
 public class Hu05StepDefinition extends Setup {
     private static final String ACTOR = COACH.getValue();
+=======
+public class Hu05CreateCourseStepDefinition extends Setup {
+    private static final String ACTOR = "Coach";
+>>>>>>> f7b39254af9d6606bc4cd8bf9849e87d080f34d7:RETO_FINAL_UI/src/test/java/co/com/sofka/stepdefinition/hu05/Hu05CreateCourseStepDefinition.java
 
     @Given("doy click sobre la opcion Crear curso")
     public void doy_click_sobre_la_opcion_Crear_nuevo_curso() {
