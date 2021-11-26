@@ -78,5 +78,4 @@ public class HU06CA003Modelo {
         return new HU06CA003Modelo();
     }
 
-
 }
