@@ -18,15 +18,17 @@ public class GetOneProgram implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+        System.out.println(idPrograma);
+
         actor.attemptsTo(
-                Get.resource("/program/get"+idPrograma)
+                Get.resource("/program/get/"+idPrograma)
                         .with(requestSpecification -> requestSpecification
                                 .contentType(ContentType.JSON))
         );
     }
 
-    public static GetOneProgram getOneProgram(String idPrograma){
-        return instrumented(GetOneProgram.class, idPrograma);
+    public static GetOneProgram getOneProgram(){
+        return new GetOneProgram();
     }
 
 }

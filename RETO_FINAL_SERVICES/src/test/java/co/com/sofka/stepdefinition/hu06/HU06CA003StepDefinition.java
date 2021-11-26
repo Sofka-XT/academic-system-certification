@@ -3,19 +3,25 @@ package co.com.sofka.stepdefinition.hu06;
 import co.com.sofka.models.hu06.HU06CA003Modelo;
 import co.com.sofka.models.hu06.Programa;
 import co.com.sofka.questions.hu06.GetProgramaById;
+import co.com.sofka.questions.hu06.ResponseCode;
 import co.com.sofka.setup.services.hu06.Hu06;
 
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.hamcrest.Matcher;
 
+import static co.com.sofka.tasks.hu06.GetOneProgram.getOneProgram;
 import static co.com.sofka.tasks.hu06.PutEdirProgram.putEdirSoloNombre;
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static org.apache.http.HttpStatus.SC_OK;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 public class HU06CA003StepDefinition extends Hu06 {
 
     private HU06CA003Modelo modelo = new HU06CA003Modelo();
-    private Programa programaRecivido;
+    private Programa programaRecibido;
 
     @Given("El coah se encuentre el la pagina de edicion de proegramas")
     public void elCoahSeEncuentreElLaPaginaDeEdicionDeProegramas() {
@@ -46,9 +52,20 @@ public class HU06CA003StepDefinition extends Hu06 {
 
     @Then("entonces el los cambios definidos se deben guardar correctamente y  retornar un status OK")
     public void entoncesElLosCambiosDefinidosSeDebenGuardarCorrectamenteYRetornarUnStatusOK() {
-        programaRecivido = new GetProgramaById().answeredBy(actor);
-        System.out.println(programaRecivido.getName());
+        actor.attemptsTo(
+                getOneProgram()
+                        .usingIdPrograma(modelo.getIdPrograma())//Aca el ide de nueva consulta
+        );
+
+        programaRecibido = new GetProgramaById().answeredBy(actor);
+
+        actor.should(
+                seeThat("el titulo debe coincidir",act ->programaRecibido.getName(),equalTo(modelo.getNombrePrograma()))
+        );
+
+
     }
+
 
     @When("El coach edite el nombre de un programa con un numero de caracteres fuera del rango \\(menos de tres y mas de cien)")
     public void el_coach_edite_el_nombre_de_un_programa_con_un_numero_de_caracteres_fuera_del_rango_menos_de_tres_y_mas_de_cien() {
