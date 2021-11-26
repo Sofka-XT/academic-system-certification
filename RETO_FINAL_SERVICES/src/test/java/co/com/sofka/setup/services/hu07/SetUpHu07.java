@@ -1,11 +1,8 @@
 package co.com.sofka.setup.services.hu07;
 
 
-import io.restassured.http.ContentType;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
-
-import java.util.HashMap;
 
 
 public class SetUpHu07 {
