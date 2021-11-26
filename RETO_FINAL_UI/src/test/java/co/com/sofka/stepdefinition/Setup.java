@@ -7,14 +7,20 @@ import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.annotations.Managed;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import static co.com.sofka.util.Log4jValues.LOG4J_PROPERTIES_FILE_PATH;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+
 public class Setup {
 
     protected static final String USER_DIR = System.getProperty("user.dir");
+    protected static String originalWindow;
 
     @Managed()
     protected static WebDriver driver;
@@ -31,8 +37,18 @@ public class Setup {
 
     protected void actorSetupTheBrowser(String actorName) {
         setUpLog4j2();
+
+        /*WebDriverManager.firefoxdriver().setup();
+        driver = new FirefoxDriver();*/
+
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--incognito");
+        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+
+        driver = new ChromeDriver(capabilities);
+        //driver = new ChromeDriver();
         setupBrowser(driver);
         setupUser(actorName, driver);
 
@@ -42,5 +58,4 @@ public class Setup {
         PropertyConfigurator.configure(
                 USER_DIR + LOG4J_PROPERTIES_FILE_PATH.getValue());
     }
-
 }
