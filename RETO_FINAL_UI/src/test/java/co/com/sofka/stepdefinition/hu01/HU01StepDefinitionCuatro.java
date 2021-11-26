@@ -1,22 +1,30 @@
 package co.com.sofka.stepdefinition.hu01;
 
+import co.com.sofka.stepdefinition.Setup;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.serenitybdd.screenplay.actions.Open;
 
-public class HU01StepDefinitionCuatro {
-    @When("se autentica en la plataforma")
-    public void seAutenticaEnLaPlataforma() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+import static co.com.sofka.questions.hu01.LoginValidationButton.loginValidation;
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static org.hamcrest.CoreMatchers.equalTo;
+
+public class HU01StepDefinitionCuatro extends Setup {
+    @When("ingresa a cualquier ruta")
+    public void ingresaACualquierRuta() {
+        theActorInTheSpotlight().attemptsTo(
+                Open.url("https://academic-system-sofkau--pr47-hu01-login-5odzidx4.web.app/#/dashboard/apprentice")
+        );
     }
-    @When("Refresaca la pagina")
-    public void refresacaLaPagina() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-    @Then("deberia poder visualizar la pagina a la que accede")
-    public void deberiaPoderVisualizarLaPaginaALaQueAccede() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Then("deberia visualizar la pagina de login")
+    public void deberiaVisualizarLaPaginaDeLogin() {
+        theActorInTheSpotlight().should(
+                seeThat(
+                        loginValidation()
+                                .loginValidationMessage("Iniciar sesión con Google")
+                                .is(),equalTo(true)
+                )
+        );
     }
 }

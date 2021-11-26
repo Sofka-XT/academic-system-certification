@@ -1,4 +1,4 @@
-package co.com.sofka.tasks.loginWithGoogle;
+package co.com.sofka.tasks.hu01.loginWithGoogle;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;

@@ -5,23 +5,23 @@ import net.serenitybdd.screenplay.Question;
 
 import static co.com.sofka.userinterfaces.hu01.DashBoardPage.*;
 
-public class LoginQuestion implements Question<Boolean> {
+public class LoginValidationRole implements Question<Boolean> {
     private String role;
 
     @Override
     public Boolean answeredBy(Actor actor) {
-        return (ROLE.resolveFor(actor)./*isPresent()*/containsOnlyText(role));
+        return (ROLE_COACH.resolveFor(actor).containsOnlyText(role));
     }
 
-    public LoginQuestion loginQuestionMessage(String role){
+    public LoginValidationRole loginQuestionMessage(String role){
         this.role=role;
         return this;
     }
 
-    public LoginQuestion is(){
+    public LoginValidationRole is(){
         return this;
     }
-    public static LoginQuestion loginQuestion(){
-        return new LoginQuestion();
+    public static LoginValidationRole loginQuestion(){
+        return new LoginValidationRole();
     }
 }

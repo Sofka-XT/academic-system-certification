@@ -1,4 +1,4 @@
-package co.com.sofka.tasks.loginPage;
+package co.com.sofka.tasks.hu01.loginPage;
 
 import co.com.sofka.userinterfaces.hu01.LoginPage;
 import net.serenitybdd.screenplay.Actor;

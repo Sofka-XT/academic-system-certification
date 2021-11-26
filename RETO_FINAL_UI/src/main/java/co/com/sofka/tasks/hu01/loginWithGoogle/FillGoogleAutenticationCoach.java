@@ -1,4 +1,4 @@
-package co.com.sofka.tasks.loginWithGoogle;
+package co.com.sofka.tasks.hu01.loginWithGoogle;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -9,9 +9,9 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import static co.com.sofka.userinterfaces.hu01.LoginPage.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class FillGoogleAutenticationForm implements Task {
+public class FillGoogleAutenticationCoach implements Task {
 
-    public FillGoogleAutenticationForm is()
+    public FillGoogleAutenticationCoach is()
     {
         return this;
     }
@@ -31,8 +31,8 @@ public class FillGoogleAutenticationForm implements Task {
         );
     }
 
-    public static FillGoogleAutenticationForm fillAutenticationForm()
+    public static FillGoogleAutenticationCoach fillAutenticationForm()
     {
-        return new FillGoogleAutenticationForm();
+        return new FillGoogleAutenticationCoach();
     }
 }

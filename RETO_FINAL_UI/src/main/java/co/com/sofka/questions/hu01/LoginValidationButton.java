@@ -5,7 +5,7 @@ import net.serenitybdd.screenplay.Question;
 
 import static co.com.sofka.userinterfaces.hu01.LoginPage.LOGIN_BUTTON;
 
-public class LoginValidation implements Question<Boolean> {
+public class LoginValidationButton implements Question<Boolean> {
 
     private String loginButton;
 
@@ -13,14 +13,14 @@ public class LoginValidation implements Question<Boolean> {
     public Boolean answeredBy(Actor actor) {
         return (LOGIN_BUTTON.resolveFor(actor).containsOnlyText(loginButton));
     }
-    public LoginValidation loginValidationMessage(String loginButton){
+    public LoginValidationButton loginValidationMessage(String loginButton){
         this.loginButton=loginButton;
         return this;
     }
-    public LoginValidation is(){
+    public LoginValidationButton is(){
         return this;
     }
-    public static LoginValidation loginValidation(){
-        return new LoginValidation();
+    public static LoginValidationButton loginValidation(){
+        return new LoginValidationButton();
     }
 }

@@ -1,21 +1,22 @@
-package co.com.sofka.stepdefinition.prueba;
+package co.com.sofka.stepdefinition.hu01;
 
 import co.com.sofka.stepdefinition.Setup;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import java.util.Set;
 
-import static co.com.sofka.questions.hu01.LoginValidation.loginValidation;
+import static co.com.sofka.questions.hu01.LoginValidationButton.loginValidation;
+import static co.com.sofka.tasks.hu01.loginWithGoogle.DoLogoutAsCoach.doLogoutAsCoach;
+import static co.com.sofka.tasks.hu01.loginWithGoogle.FillGoogleAutenticationApprentice.fillGoogleAutenticationApprentice;
+import static co.com.sofka.tasks.hu01.loginWithGoogle.FillGoogleAutenticationCoach.fillAutenticationForm;
+import static co.com.sofka.tasks.hu01.loginWithGoogle.LoginWithGoogle.loginWithGoogle;
 import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
-import static co.com.sofka.tasks.loginWithGoogle.DoLogoutAsCoach.doLogoutAsCoach;
-import static co.com.sofka.tasks.loginWithGoogle.FillGoogleAutenticationForm.fillAutenticationForm;
-import static co.com.sofka.tasks.loginWithGoogle.LoginWithGoogle.loginWithGoogle;
-import static co.com.sofka.userinterfaces.hu01.DashBoardPage.ROLE;
+import static co.com.sofka.userinterfaces.hu01.DashBoardPage.ROLE_APPRENDICE;
+import static co.com.sofka.userinterfaces.hu01.DashBoardPage.ROLE_COACH;
 import static co.com.sofka.userinterfaces.hu01.LoginPage.LOGIN_BUTTON;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -23,8 +24,7 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisi
 import static org.hamcrest.CoreMatchers.equalTo;
 
 
-public class HU01StepDefinitionDos extends Setup {
-
+public class HU01StepDefinition extends Setup {
 
     private static final String ACTOR_NAME = "User";
 
@@ -55,16 +55,42 @@ public class HU01StepDefinitionDos extends Setup {
         getDriver().switchTo().window(currentWindow);
 
     }
-    @Then("deberia visualizar la pagina principal correspondiente a su rol")
-    public void deberiaVisualizarLaPaginaPrincipalCorrespondienteASuRol() {
-        WaitUntil.the(ROLE, isVisible()).forNoMoreThan(10).seconds();
+    @Then("deberia visualizar la pagina principal correspondiente a coach")
+    public void deberiaVisualizarLaPaginaPrincipalCorrespondienteACoach() {
+        WaitUntil.the(ROLE_COACH, isVisible()).forNoMoreThan(10).seconds();
         theActorInTheSpotlight().attemptsTo(
-                WaitUntil.the(ROLE, isVisible()).forNoMoreThan(10).seconds(),
-                Ensure.that(ROLE).text().isEqualToIgnoringCase("COACH")
+                WaitUntil.the(ROLE_COACH, isVisible()).forNoMoreThan(10).seconds(),
+                Ensure.that(ROLE_COACH).text().isEqualToIgnoringCase("COACH")
         );
 
     }
+    @When("realiza login con credenciales de aprendiz")
+    public void realizaLoginConCredencialesDeAprendiz() {
+        theActorInTheSpotlight().attemptsTo(
+                loginWithGoogle()
+        );
+        String currentWindow = getDriver().getWindowHandle();
+        Set<String> allWindows = getDriver().getWindowHandles();
+        for (String window : allWindows) {
+            if (!window.contentEquals(currentWindow)) {
+                getDriver().switchTo().window(window);
+                break;
+            }
+        }
+        theActorInTheSpotlight().attemptsTo(
+                fillGoogleAutenticationApprentice()
+        );
+        getDriver().switchTo().window(currentWindow);
+    }
 
+    @Then("deberia visualizar la pagina principal correspondiente a aprendiz")
+    public void eberiaVisualizarLaPaginaPrincipalCorrespondienteAAprendiz() {
+        WaitUntil.the(ROLE_APPRENDICE, isVisible()).forNoMoreThan(10).seconds();
+        theActorInTheSpotlight().attemptsTo(
+                WaitUntil.the(ROLE_APPRENDICE, isVisible()).forNoMoreThan(10).seconds(),
+                Ensure.that(ROLE_APPRENDICE).text().isEqualToIgnoringCase("APPRENTICE")
+        );
+    }
     @When("realiza login exitosamente")
     public void realizaLoginExitosamente() {
 
@@ -84,6 +110,7 @@ public class HU01StepDefinitionDos extends Setup {
         );
         getDriver().switchTo().window(currentWindow);
     }
+
     @When("realiza logout")
     public void realizaLogout() {
         theActorInTheSpotlight().attemptsTo(
@@ -102,44 +129,4 @@ public class HU01StepDefinitionDos extends Setup {
         );
 
     }
-
-    @When("se autentica en la plataforma")
-    public void seAutenticaEnLaPlataforma() {
-        System.out.println(driver.getCurrentUrl());
-        theActorInTheSpotlight().attemptsTo(
-                loginWithGoogle()
-        );
-        String currentWindow = getDriver().getWindowHandle();
-        Set<String> allWindows = getDriver().getWindowHandles();
-        for(String window : allWindows){
-            if(!window.contentEquals(currentWindow)){
-                getDriver().switchTo().window(window);
-                break;
-            }
-        }
-        theActorInTheSpotlight().attemptsTo(
-                fillAutenticationForm()
-        );
-        getDriver().switchTo().window(currentWindow);
-
-
-    }
-    @When("Refresaca la pagina")
-    public void refresacaLaPagina() {
-
-    }
-    @Then("deberia poder visualizar la pagina a la que accede")
-    public void deberiaPoderVisualizarLaPaginaALaQueAccede() {
-        WaitUntil.the(ROLE, isVisible()).forNoMoreThan(10).seconds();
-
-
-        theActorInTheSpotlight().attemptsTo(
-                WaitUntil.the(ROLE, isVisible()).forNoMoreThan(10).seconds(),
-                Ensure.that(ROLE).text().isEqualToIgnoringCase("COACH"),
-                Open.url(driver.getCurrentUrl()),
-                WaitUntil.the(ROLE, isVisible()).forNoMoreThan(10).seconds(),
-                Ensure.that(ROLE).text().isEqualToIgnoringCase("COACH")
-                );
-    }
-
 }
