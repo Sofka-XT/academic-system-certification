@@ -13,6 +13,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.hamcrest.Matcher;
 
+import static co.com.sofka.tasks.hu06.DeleteProgram.deleteProgram;
 import static co.com.sofka.tasks.hu06.GetOneProgram.getOneProgram;
 import static co.com.sofka.tasks.hu06.PostSendProgram.postSendProgram;
 import static co.com.sofka.tasks.hu06.PutEdirProgram.putEdirSoloNombre;
@@ -30,10 +31,18 @@ public class HU06CA003StepDefinition extends Hu06 {
     @Given("El coah se encuentre el la pagina de edicion de proegramas")
     public void elCoahSeEncuentreElLaPaginaDeEdicionDeProegramas() {
         setUp();
+        inicializar();
+        actor.attemptsTo(
+                postSendProgram()
+                        .usingUpdateInfo(
+                                modelo.getFullJson()
+                        )
+        );
     }
 
     @When("El coach edite el nombre de un programa con un numero de caracteres adecuado")
     public void elCoachEditeElNombreDeUnProgramaConUnNumeroDeCaracteresAdecuado() {
+
         inicializar();
         actor.attemptsTo(
                 putEdirSoloNombre()
@@ -120,8 +129,14 @@ public class HU06CA003StepDefinition extends Hu06 {
 
     @Then("entonces se debe retornar un status FAIL")
     public void entoncesSeDebeRetornarUnStatusFAIL() {
+        modelo.setIdPrograma("619f01b4de1ee71e4736955c");
         actor.should(
                 seeThat("el codigo de respuesta", ResponseCode.was(),equalTo(SC_INTERNAL_SERVER_ERROR))
+        );
+
+        actor.attemptsTo(
+                deleteProgram()
+                        .usingIdProgramaDelete(modelo.getIdPrograma())
         );
 
     }
