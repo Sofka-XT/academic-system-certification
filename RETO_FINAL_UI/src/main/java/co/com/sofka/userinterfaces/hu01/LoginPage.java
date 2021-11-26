@@ -3,8 +3,7 @@ package co.com.sofka.userinterfaces.hu01;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
 
-import static org.openqa.selenium.By.id;
-import static org.openqa.selenium.By.xpath;
+import static org.openqa.selenium.By.*;
 
 public class LoginPage extends PageObject {
     public static final Target LOGIN_BUTTON = Target
@@ -13,8 +12,7 @@ public class LoginPage extends PageObject {
 
     public static final Target EMAIL_GOOGLE = Target
             .the("emailGoogle")
-            .located(xpath("//*[@id=\"identifierId\"]"));
-
+            .located(xpath("//input[@id='identifierId']"));
     public static final Target NEXT_EMAIL_BUTTON = Target
             .the("nextButton")
             .located(xpath("//*[@id=\"identifierNext\"]/div/button/span"));
