@@ -3,9 +3,14 @@ package co.com.sofka.userinterfaces.hu005;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
 
+import static org.openqa.selenium.By.linkText;
 import static org.openqa.selenium.By.xpath;
 
 public class CourseInfo extends PageObject {
+
+    public static final Target COURSE_CREATE = Target
+            .the("Crear curso")
+            .located(linkText("CREAR CURSO"));
 
     public static final Target COURSE_NAME = Target
             .the("Nombre curso")

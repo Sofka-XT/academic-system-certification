@@ -11,11 +11,6 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisi
 
 public class FillGoogleAutenticationForm implements Task {
 
-    public FillGoogleAutenticationForm is()
-    {
-        return this;
-    }
-
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
@@ -28,6 +23,7 @@ public class FillGoogleAutenticationForm implements Task {
                 Enter.theValue("Admin123!").into(PASSWORD),
                 WaitUntil.the(NEXT_PASSWORD_BUTTON, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(NEXT_PASSWORD_BUTTON)
+
         );
     }
 

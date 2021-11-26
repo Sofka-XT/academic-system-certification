@@ -9,7 +9,9 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import java.util.Set;
 
 import static co.com.sofka.tasks.hu05.BrowserToCourse.browserToCurso;
+import static co.com.sofka.tasks.hu05.FillCourseForm.fillCourseForm;
 import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
+import static co.com.sofka.tasks.loginWithGoogle.DoLogoutAsCoach.doLogoutAsCoach;
 import static co.com.sofka.tasks.loginWithGoogle.FillGoogleAutenticationForm.fillAutenticationForm;
 import static co.com.sofka.tasks.loginWithGoogle.LoginWithGoogle.loginWithGoogle;
 import static co.com.sofka.userinterfaces.hu01.DashBoardPage.LOGOUTCOUCH;
@@ -48,7 +50,13 @@ public class Hu05CreateCourseStepDefinition extends Setup {
 
         );
         getDriver().switchTo().window(currentWindow);
-        WaitUntil.the(LOGOUTCOUCH, isVisible()).forNoMoreThan(10).seconds();
+        theActorInTheSpotlight().attemptsTo(
+                fillCourseForm()
+        );
+
+
+
+
 
     }
 
