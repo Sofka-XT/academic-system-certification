@@ -16,9 +16,17 @@ public class HU06CA003Modelo {
         return this;
     }
 
+    public String getIdPrograma() {
+        return idPrograma;
+    }
+
     public HU06CA003Modelo setNombrePrograma(String nombrePrograma) {
         this.nombrePrograma = nombrePrograma;
         return this;
+    }
+
+    public String getNombrePrograma() {
+        return nombrePrograma;
     }
 
     public HU06CA003Modelo setIdCurso(String idCurso) {
