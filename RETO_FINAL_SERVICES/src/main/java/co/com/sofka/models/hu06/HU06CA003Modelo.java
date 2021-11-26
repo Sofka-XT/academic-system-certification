@@ -11,51 +11,68 @@ public class HU06CA003Modelo {
 
     private String fullJson;
 
-    public HU06CA003Modelo setIdPrograma(String idPrograma) {
-        this.idPrograma = idPrograma;
-        return this;
-    }
-
     public String getIdPrograma() {
         return idPrograma;
     }
 
-    public HU06CA003Modelo setNombrePrograma(String nombrePrograma) {
-        this.nombrePrograma = nombrePrograma;
-        return this;
+    public void setIdPrograma(String idPrograma) {
+        this.idPrograma = idPrograma;
     }
 
     public String getNombrePrograma() {
         return nombrePrograma;
     }
 
-    public HU06CA003Modelo setIdCurso(String idCurso) {
+    public void setNombrePrograma(String nombrePrograma) {
+        this.nombrePrograma = nombrePrograma;
+    }
+
+    public String getIdCurso() {
+        return idCurso;
+    }
+
+    public void setIdCurso(String idCurso) {
         this.idCurso = idCurso;
-        return this;
     }
 
-    public HU06CA003Modelo setNombreCurso(String nombreCurso) {
+    public String getNombreCurso() {
+        return nombreCurso;
+    }
+
+    public void setNombreCurso(String nombreCurso) {
         this.nombreCurso = nombreCurso;
-        return this;
     }
 
-    public HU06CA003Modelo setIdCategoria(String idCategoria) {
+    public String getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(String idCategoria) {
         this.idCategoria = idCategoria;
-        return this;
     }
 
-    public HU06CA003Modelo setDiasCategoria(int diasCategoria) {
+    public int getDiasCategoria() {
+        return diasCategoria;
+    }
+
+    public void setDiasCategoria(int diasCategoria) {
         this.diasCategoria = diasCategoria;
-        return this;
     }
 
-    public HU06CA003Modelo setNombreCategoria(String nombreCategoria) {
+    public String getNombreCategoria() {
+        return nombreCategoria;
+    }
+
+    public void setNombreCategoria(String nombreCategoria) {
         this.nombreCategoria = nombreCategoria;
-        return this;
+    }
+
+    public void setFullJson(String fullJson) {
+        this.fullJson = fullJson;
     }
 
     public String getFullJson() {
-        return "{\n" +
+        fullJson="{\n" +
                 "        \"id\": \""+idPrograma+"\",\n" +
                 "        \"name\": \""+nombrePrograma+"\",\n" +
                 "        \"courses\": [\n" +
@@ -72,10 +89,50 @@ public class HU06CA003Modelo {
                 "            }\n" +
                 "        ]\n" +
                 "    }";
+        return fullJson;
     }
 
-    public static HU06CA003Modelo modelado(){
-        return new HU06CA003Modelo();
+    public String getFullJson2Program(){
+        fullJson ="{\n" +
+                "        \"id\": \""+idPrograma+"\",\n" +
+                "        \"name\": \""+nombrePrograma+"\",\n" +
+                "        \"courses\": [\n" +
+                "            {\n" +
+                "                \"courseId\": \""+idCurso+"\",\n" +
+                "                \"courseName\": \""+nombreCurso+"\",\n" +
+                "                \"categories\": [\n" +
+                "                    {\n" +
+                "                       \"categoryId\": \""+idCategoria+"\",\n" +
+                "                        \"days\": "+diasCategoria+",\n" +
+                "                        \"categoryName\": \""+nombreCategoria+"\"\n" +
+                "                    },\n" +
+                "                    {\n" +
+                "                        \"categoryId\": \"44445555\",\n" +
+                "                        \"days\": 5,\n" +
+                "                        \"categoryName\": \"programación funcional 4\"\n" +
+                "                    }\n" +
+                "                ]\n" +
+                "            },\n" +
+                "            {\n" +
+                "                \"courseId\": \"3333344444\",\n" +
+                "                \"courseName\": \"testeo funcional\",\n" +
+                "                \"categories\": [\n" +
+                "                    {\n" +
+                "                        \"categoryId\": \"222\",\n" +
+                "                        \"days\": 3,\n" +
+                "                        \"categoryName\": \"programación funciona 2\"\n" +
+                "                    },\n" +
+                "                    {\n" +
+                "                        \"categoryId\": \"44455\",\n" +
+                "                        \"days\": 5,\n" +
+                "                        \"categoryName\": \"programación funcion1\"\n" +
+                "                    }\n" +
+                "                ]\n" +
+                "            }\n" +
+                "        ]\n" +
+                "    }";
+        return fullJson;
     }
+
 
 }

@@ -17,10 +17,6 @@ Feature: Yo como coach
     When El coach proceda a agregar un curso en un programa con los parametros adecuados
     Then entonces el curso se debe guardar correctamente en el programa indicado
 
-  Scenario: Agregar un curso fallido
-    When El coach proceda a agregar un curso en un programa con parametros erroneos
-    Then entonces el curso no se debe guardar en el programa  y debe retornar un status FAIL
-
   Scenario: Editar Programa sin cursos
     When El coach proceda a eliminar todos los cursos de un programa
     Then entonces se debe retornar un status FAIL
