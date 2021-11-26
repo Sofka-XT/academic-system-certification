@@ -1,16 +1,21 @@
 package co.com.sofka.stepdefinition.hu06;
 
+import co.com.sofka.models.hu06.HU06CA003Modelo;
+import co.com.sofka.models.hu06.Programa;
+import co.com.sofka.questions.hu06.GetProgramaById;
 import co.com.sofka.setup.services.hu06.Hu06;
+
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import static co.com.sofka.models.hu06.HU06CA003Modelo.modelado;
 import static co.com.sofka.tasks.hu06.PutEdirProgram.putEdirSoloNombre;
 
 public class HU06CA003StepDefinition extends Hu06 {
 
+    private HU06CA003Modelo modelo = new HU06CA003Modelo();
+    private Programa programaRecivido;
 
     @Given("El coah se encuentre el la pagina de edicion de proegramas")
     public void elCoahSeEncuentreElLaPaginaDeEdicionDeProegramas() {
@@ -19,23 +24,30 @@ public class HU06CA003StepDefinition extends Hu06 {
 
     @When("El coach edite el nombre de un programa con un numero de caracteres adecuado")
     public void elCoachEditeElNombreDeUnProgramaConUnNumeroDeCaracteresAdecuado() {
+
+        modelo.setIdPrograma("619f01b4de1ee71e4736955c");
+        modelo.setNombrePrograma("Programa prueba Json 3");
+        modelo.setIdCurso("889911");
+        modelo.setNombreCurso("Curso prueba Json 3");
+        modelo.setIdCategoria("556677");
+        modelo.setNombreCategoria("Categoria prueba Json 3");
+        modelo.setDiasCategoria(6);
+
+        System.out.println(modelo.getFullJson());
+
         actor.attemptsTo(
                 putEdirSoloNombre()
-                        .usingUpdateInfo(modelado()
-                                .setIdPrograma("619f01b4de1ee71e4736955c")
-                                .setNombrePrograma("Programa prueba Json")
-                                .setIdCurso("889911")
-                                .setNombreCurso("Curso prueba Json")
-                                .setIdCategoria("556677")
-                                .setNombreCategoria("Categoria prueba Json")
-                                .setDiasCategoria(6)
-                                .getFullJson())
+                        .usingUpdateInfo(
+                                modelo.getFullJson()
+                        )
         );
+
     }
 
     @Then("entonces el los cambios definidos se deben guardar correctamente y  retornar un status OK")
     public void entoncesElLosCambiosDefinidosSeDebenGuardarCorrectamenteYRetornarUnStatusOK() {
-
+        programaRecivido = new GetProgramaById().answeredBy(actor);
+        System.out.println(programaRecivido.getName());
     }
 
     @When("El coach edite el nombre de un programa con un numero de caracteres fuera del rango \\(menos de tres y mas de cien)")

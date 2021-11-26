@@ -23,7 +23,7 @@ public class HU06CA002StepDefinition extends Hu06 {
     public void laPeticionSeRealiceConUnIdCorrectoYExistente() {
         actor.attemptsTo(
                 deleteProgram()
-                        .usingIdProgramaDelete("619f941541583e43bde0d299")
+                        .usingIdProgramaDelete("619f9415415833bde0d299")
         );
     }
 

@@ -13,10 +13,11 @@ public class GetAllProgram implements Task {
     public static Performable page() {
         return instrumented(GetAllProgram.class);
     }
+
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Get.resource("/program/getAll")
         );
-        }
+    }
 }
