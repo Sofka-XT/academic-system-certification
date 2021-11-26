@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberSerenityRunner.class)
 @CucumberOptions(
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        features = {"src\\test\\resources\\resources\\features\\hu06\\listar\\editar.feature"},
+        features = {"src\\test\\resources\\resources\\features\\hu06\\editar.feature"},
         glue = {"co\\com\\sofka\\stepdefinition\\hu06"}
 
 )
