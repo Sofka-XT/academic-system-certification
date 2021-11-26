@@ -7,11 +7,10 @@ import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 
-public class Setup {
+public class SetUp {
 
     @Managed()
 
@@ -33,5 +32,9 @@ public class Setup {
         driver = new ChromeDriver();
         setupBrowser(driver);
         setupUser(actorName, driver);
+    }
+
+    protected WebDriver getDriver(){
+        return driver;
     }
 }

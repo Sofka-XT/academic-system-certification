@@ -4,8 +4,8 @@ Feature: HU07
   Para: poder asignar aprendices y coaches.
 
   Background:
-    Given que tengo acceso al gestor de
+    Given que el coach se encuentra logueado
 
   Scenario: Crear un training en sofkau
-    When quiero crear un training nuevo
-    Then deberia crear el training de manera correcta
+    When el coah quiere crear un nuevo training
+    Then el sistema deberia crear el training de manera correcta
