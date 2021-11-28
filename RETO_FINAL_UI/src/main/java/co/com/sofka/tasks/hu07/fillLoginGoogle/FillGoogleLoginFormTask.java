@@ -22,11 +22,11 @@ public class FillGoogleLoginFormTask implements Task {
         actor.attemptsTo(
                 WaitUntil.the(EMAIL_GOOGLE, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(EMAIL_GOOGLE),
-                Enter.theValue("pruebasAutomatizacionQA@gmail.com").into(EMAIL_GOOGLE),
+                Enter.theValue("jdaniel.g.puerta@gmail.com").into(EMAIL_GOOGLE),
                 Click.on(NEXT_EMAIL_BUTTON),
                 WaitUntil.the(PASSWORD, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(PASSWORD),
-                Enter.theValue("Admin123!").into(PASSWORD),
+                Enter.theValue("AdminQA*").into(PASSWORD),
                 WaitUntil.the(NEXT_PASSWORD_BUTTON, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(NEXT_PASSWORD_BUTTON)
         );
