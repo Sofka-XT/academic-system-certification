@@ -10,17 +10,18 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class GetResource implements Task {
 
-    private final String RESOURCE = "/Training";
+    private  String RESOURCE = "/Training";
     private final String FILTER;
 
-    public GetResource(String status)
+    public GetResource(String status, String resource)
     {
         this.FILTER =status;
+        this.RESOURCE = resource;
     }
 
-    public static Performable fromPage(String status)
+    public static Performable fromPage(String status, String resource)
     {
-        return instrumented(GetResource.class,status);
+        return instrumented(GetResource.class,status,resource);
     }
 
     @Override

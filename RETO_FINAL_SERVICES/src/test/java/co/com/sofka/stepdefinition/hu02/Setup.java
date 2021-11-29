@@ -11,10 +11,8 @@ import static co.com.sofka.util.Log4jValues.LOG4J_PROPERTIES_FILE_PATH;
 
 public class Setup {
     protected static final String URL_BASE = "https://vast-everglades-55825.herokuapp.com";
-    protected static final String RESOURCE_TRAINING = "/Training";
-    protected static final String RESOURCE_TRAINING_ID = "/619faddb0d77e51895711689";
     protected static final String USER_DIR = System.getProperty("user.dir");
-    protected static final String ACTOR_NAME = "Aprendiz";
+    protected static final String ACTOR_NAME = "Usuario";
 
     protected Actor actor;
 
