@@ -10,7 +10,6 @@ public class BrowseToCreate implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Scroll.to(SUBMIT_CREATE),
                 Click.on(SUBMIT_CREATE)
         );
     }

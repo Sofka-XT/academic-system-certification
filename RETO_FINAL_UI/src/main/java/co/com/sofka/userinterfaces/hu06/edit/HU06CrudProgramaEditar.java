@@ -3,8 +3,7 @@ package co.com.sofka.userinterfaces.hu06.edit;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
 
-import static org.openqa.selenium.By.id;
-import static org.openqa.selenium.By.xpath;
+import static org.openqa.selenium.By.*;
 
 public class HU06CrudProgramaEditar extends PageObject {
 
@@ -44,10 +43,25 @@ public class HU06CrudProgramaEditar extends PageObject {
             .the("eliminarUnCurso")
             .located(xpath("  "));
 
-    ////////////
+
+    //////////
 
     public static final Target ELIMINAR_UN_PROGRAMA= Target
             .the("eliminarUnPrograma")
-            .located(xpath(" "));
+            .located(xpath("//div[@class=\"card-body\"]//*[text()=\"Program Test\"]//following-sibling::div/button"));
+
+    //editar xpath para volverlo variables con el nombre
+
+    public static final Target CONFIRMAR_CAMBIOS= Target
+            .the("ConfirmarCambios")
+            .located(xpath("//*[@class=\"swal2-confirm swal2-styled\"]"));
+
+
+    public static final Target EXISTE_PROGRAMA= Target
+            .the("ExisteElPrpgrama")
+            .located(xpath("//*[text()=\"Program Test\"]"));
+
+
+
 
 }

@@ -10,6 +10,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import static co.com.sofka.tasks.hu06.DeleteProgram.deleteProgram;
+import static co.com.sofka.tasks.hu06.GetOneProgram.getOneProgram;
 import static co.com.sofka.tasks.hu06.PostSendProgram.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.apache.http.HttpStatus.SC_OK;
@@ -30,8 +31,8 @@ public class HU06CA001StepDefinition extends Hu06 {
 
     @When("El coach envía la solicitud con el nombre “Prueba programa” y un curso asociado “Fullstack” con una categoría asociada")
     public void elCoachEnviaLaSolicitudConElNombrePruebaProgramaYUnCursoAsociadoFullstackConUnaCategoriaAsociada() {
-        modelo.setIdPrograma("test1");
-        modelo.setNombrePrograma("test1");
+        modelo.setIdPrograma("testprueba");
+        modelo.setNombrePrograma("testprueba");
         modelo.setIdCurso("test1");
         modelo.setNombreCurso("test1");
         modelo.setIdCategoria("test1");
@@ -52,6 +53,12 @@ public class HU06CA001StepDefinition extends Hu06 {
         actor.should(
                 seeThat("el codigo de respuesta", ResponseCode.was(),equalTo(SC_OK))
         );
+
+        actor.attemptsTo(
+                getOneProgram()
+                        .usingIdPrograma(modelo.getIdPrograma())
+        );
+
         actor.should(
                 seeThat("el titulo debe coincidir",act ->programaRecibido.getName(),equalTo(modelo.getNombrePrograma()))
         );

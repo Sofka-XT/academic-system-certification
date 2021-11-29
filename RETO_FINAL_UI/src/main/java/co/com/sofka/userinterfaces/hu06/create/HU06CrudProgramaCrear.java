@@ -14,15 +14,22 @@ public class HU06CrudProgramaCrear extends PageObject {
 
     public static final Target PROGRAM_NAME = Target
             .the("NombreDePrograma")
-            .located(id("  "));
+            .located(name("name"));
 
     public static final Target SelectCourse = Target
             .the("SeleccionarCurso")
-            .located(xpath("  "));
+            .located(cssSelector(".form-select"));
 
     public static final Target SAVE_PROGRAM= Target
             .the("Guardar")
-            .located(id(" "));
+            .located(xpath("//button[@type='submit']"));
+
+    public static final Target OK_PROGRAM= Target
+            .the("Ok")
+            .located(xpath("//div[6]/button"));
+
+
+    //(//button[@type='button'])[2]
 
     //Validate
     public static final Target MESSAGE_VALIDATION= Target
