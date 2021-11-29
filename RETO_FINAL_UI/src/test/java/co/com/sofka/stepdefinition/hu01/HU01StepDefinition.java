@@ -10,13 +10,13 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import java.util.Set;
 
 import static co.com.sofka.questions.hu01.LoginValidationButton.loginValidation;
-import static co.com.sofka.tasks.hu01.loginWithGoogle.DoLogoutAsCoach.doLogoutAsCoach;
+import static co.com.sofka.tasks.hu01.loginWithGoogle.DoLogout.doLogoutAsCoach;
 import static co.com.sofka.tasks.hu01.loginWithGoogle.FillGoogleAutenticationApprentice.fillGoogleAutenticationApprentice;
 import static co.com.sofka.tasks.hu01.loginWithGoogle.FillGoogleAutenticationCoach.fillAutenticationForm;
+import static co.com.sofka.tasks.hu01.loginWithGoogle.FillGoogleAutenticationFail.fillGoogleAutenticationFail;
 import static co.com.sofka.tasks.hu01.loginWithGoogle.LoginWithGoogle.loginWithGoogle;
 import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
-import static co.com.sofka.userinterfaces.hu01.DashBoardPage.ROLE_APPRENDICE;
-import static co.com.sofka.userinterfaces.hu01.DashBoardPage.ROLE_COACH;
+import static co.com.sofka.userinterfaces.hu01.DashBoardPage.*;
 import static co.com.sofka.userinterfaces.hu01.LoginPage.LOGIN_BUTTON;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -43,8 +43,8 @@ public class HU01StepDefinition extends Setup {
         );
         String currentWindow = getDriver().getWindowHandle();
         Set<String> allWindows = getDriver().getWindowHandles();
-        for(String window : allWindows){
-            if(!window.contentEquals(currentWindow)){
+        for (String window : allWindows) {
+            if (!window.contentEquals(currentWindow)) {
                 getDriver().switchTo().window(window);
                 break;
             }
@@ -55,6 +55,7 @@ public class HU01StepDefinition extends Setup {
         getDriver().switchTo().window(currentWindow);
 
     }
+
     @Then("deberia visualizar la pagina principal correspondiente a coach")
     public void deberiaVisualizarLaPaginaPrincipalCorrespondienteACoach() {
         WaitUntil.the(ROLE_COACH, isVisible()).forNoMoreThan(10).seconds();
@@ -64,6 +65,7 @@ public class HU01StepDefinition extends Setup {
         );
 
     }
+
     @When("realiza login con credenciales de aprendiz")
     public void realizaLoginConCredencialesDeAprendiz() {
         theActorInTheSpotlight().attemptsTo(
@@ -91,6 +93,35 @@ public class HU01StepDefinition extends Setup {
                 Ensure.that(ROLE_APPRENDICE).text().isEqualToIgnoringCase("APPRENTICE")
         );
     }
+
+    @When("ingresa gmail erroneo o no registrado")
+    public void ingresaGmailErroneoONoRegistrado() {
+        theActorInTheSpotlight().attemptsTo(
+                loginWithGoogle()
+        );
+        String currentWindow = getDriver().getWindowHandle();
+        Set<String> allWindows = getDriver().getWindowHandles();
+        for (String window : allWindows) {
+            if (!window.contentEquals(currentWindow)) {
+                getDriver().switchTo().window(window);
+                break;
+            }
+        }
+        theActorInTheSpotlight().attemptsTo(
+                fillGoogleAutenticationFail()
+        );
+        getDriver().switchTo().window(currentWindow);
+    }
+
+    @Then("se tendra que mostrar un mensaje de error")
+    public void seTendraQueMostrarUnMensajeDeError() {
+        WaitUntil.the(FAIL_LOGIN, isVisible()).forNoMoreThan(10).seconds();
+        theActorInTheSpotlight().attemptsTo(
+                WaitUntil.the(FAIL_LOGIN, isVisible()).forNoMoreThan(10).seconds(),
+                Ensure.that(FAIL_LOGIN).text().isEqualToIgnoringCase("Usuario no encontrado")
+        );
+    }
+
     @When("realiza login exitosamente")
     public void realizaLoginExitosamente() {
 
@@ -99,8 +130,8 @@ public class HU01StepDefinition extends Setup {
         );
         String currentWindow = getDriver().getWindowHandle();
         Set<String> allWindows = getDriver().getWindowHandles();
-        for(String window : allWindows){
-            if(!window.contentEquals(currentWindow)){
+        for (String window : allWindows) {
+            if (!window.contentEquals(currentWindow)) {
                 getDriver().switchTo().window(window);
                 break;
             }
@@ -117,6 +148,7 @@ public class HU01StepDefinition extends Setup {
                 doLogoutAsCoach()
         );
     }
+
     @Then("se tendra que mostrar la login page")
     public void seTendraQueMostrarLaLoginPage() {
         WaitUntil.the(LOGIN_BUTTON, isVisible()).forNoMoreThan(10).seconds();
@@ -124,7 +156,7 @@ public class HU01StepDefinition extends Setup {
                 seeThat(
                         loginValidation()
                                 .loginValidationMessage("Iniciar sesión con Google")
-                                .is(),equalTo(true)
+                                .is(), equalTo(true)
                 )
         );
 

@@ -19,7 +19,6 @@ public class LoginPage extends PageObject {
             .the("nextButton")
             .located(xpath("//*[@id=\"identifierNext\"]/div/button/span"));
 
-
     public static final Target PASSWORD = Target
             .the("password")
             .located(xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input"));

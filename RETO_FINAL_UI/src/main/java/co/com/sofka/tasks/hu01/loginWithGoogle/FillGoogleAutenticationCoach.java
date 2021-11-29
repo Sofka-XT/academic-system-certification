@@ -30,7 +30,6 @@ public class FillGoogleAutenticationCoach implements Task {
                 Click.on(NEXT_PASSWORD_BUTTON)
         );
     }
-
     public static FillGoogleAutenticationCoach fillAutenticationForm()
     {
         return new FillGoogleAutenticationCoach();

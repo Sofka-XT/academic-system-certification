@@ -10,9 +10,10 @@ import static co.com.sofka.userinterfaces.hu01.LoginPage.*;
 import static co.com.sofka.userinterfaces.hu01.LoginPage.NEXT_PASSWORD_BUTTON;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class FillGoogleAutenticationApprentice implements Task {
+public class FillGoogleAutenticationFail implements Task {
 
-    public FillGoogleAutenticationApprentice is()
+
+    public FillGoogleAutenticationFail is()
     {
         return this;
     }
@@ -22,7 +23,7 @@ public class FillGoogleAutenticationApprentice implements Task {
         actor.attemptsTo(
                 WaitUntil.the(EMAIL_GOOGLE, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(EMAIL_GOOGLE),
-                Enter.theValue("aprendizQApruebas@gmail.com").into(EMAIL_GOOGLE),
+                Enter.theValue("automatizacionQAaprendiz@gmail.com").into(EMAIL_GOOGLE),
                 Click.on(NEXT_EMAIL_BUTTON),
                 WaitUntil.the(PASSWORD, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(PASSWORD),
@@ -31,9 +32,8 @@ public class FillGoogleAutenticationApprentice implements Task {
                 Click.on(NEXT_PASSWORD_BUTTON)
         );
     }
-
-    public static FillGoogleAutenticationApprentice fillGoogleAutenticationApprentice()
+    public static FillGoogleAutenticationFail fillGoogleAutenticationFail()
     {
-        return new FillGoogleAutenticationApprentice();
+        return new FillGoogleAutenticationFail();
     }
 }

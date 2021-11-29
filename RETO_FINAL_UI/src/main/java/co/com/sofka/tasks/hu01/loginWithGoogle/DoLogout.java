@@ -5,13 +5,12 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static co.com.sofka.userinterfaces.hu01.DashBoardPage.LOGOUTCOUCH;
-import static co.com.sofka.userinterfaces.hu01.DashBoardPage.SIGNOUT;
+import static co.com.sofka.userinterfaces.hu01.DashBoardPage.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class DoLogoutAsCoach implements Task {
+public class DoLogout implements Task {
 
-    public DoLogoutAsCoach is()
+    public DoLogout is()
     {
         return this;
     }
@@ -19,16 +18,14 @@ public class DoLogoutAsCoach implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(LOGOUTCOUCH, isVisible()).forNoMoreThan(10).seconds(),
-                //Scroll.to(LOGOUTCOUCH),
-                Click.on(LOGOUTCOUCH),
+                Click.on(LOGOUTBUTTON),
                 WaitUntil.the(SIGNOUT, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(SIGNOUT)
         );
     }
 
-    public static DoLogoutAsCoach doLogoutAsCoach()
+    public static DoLogout doLogoutAsCoach()
     {
-        return new DoLogoutAsCoach();
+        return new DoLogout();
     }
 }

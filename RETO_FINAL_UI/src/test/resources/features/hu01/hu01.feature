@@ -21,9 +21,14 @@ Feature: HU01 - autenticacion
     When  ingresa a cualquier ruta
     Then  deberia visualizar la pagina de login
 
-  Scenario: cinco - Cierre de sesion
+  Scenario: cinco - Login orientado al fallo
+    When  ingresa gmail erroneo o no registrado
+    Then  se tendra que mostrar un mensaje de error
+
+  Scenario: seis - Cierre de sesion
     When  realiza login exitosamente
     And   realiza logout
     Then  se tendra que mostrar la login page
+
 
 
