@@ -12,10 +12,6 @@ import static co.com.sofka.util.Log4jValues.LOG4J_PROPERTIES_FILE_PATH;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-
 
 public class Setup {
 
@@ -38,20 +34,10 @@ public class Setup {
     protected void actorSetupTheBrowser(String actorName) {
         setUpLog4j2();
 
-        /*WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();*/
-
         WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--incognito");
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-
-        driver = new ChromeDriver(capabilities);
-        //driver = new ChromeDriver();
+        driver = new ChromeDriver();
         setupBrowser(driver);
         setupUser(actorName, driver);
-
     }
 
     protected void setUpLog4j2() {

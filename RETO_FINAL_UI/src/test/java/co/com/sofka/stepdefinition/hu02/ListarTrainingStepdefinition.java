@@ -11,6 +11,7 @@ import java.util.Set;
 import static co.com.sofka.exceptions.ValidationTextDoNotMatch.VALIDATION_DO_NOT_MATCH;
 import static co.com.sofka.questions.hu02.ListarTrainingActivoQuestions.listarTrainingActivoQuestions;
 import static co.com.sofka.questions.hu02.ListarTrainingQuestions.listarTrainingQuestions;
+import static co.com.sofka.tasks.hu02.BrowseToListarTraining.browseToListarTraining;
 import static co.com.sofka.tasks.hu02.BrowseToListarTrainingAprendiz.browseToListarTrainingAprendiz;
 import static co.com.sofka.tasks.hu02.BrowseToListarTrainingCoach.browseToListarTrainingCoach;
 import static co.com.sofka.tasks.hu02.FindTraining.findTraining;
@@ -28,7 +29,7 @@ public class ListarTrainingStepdefinition extends Setup {
 
     protected static final String ACTOR_NAME_APRENDIZ = "aprendiz";
     protected static final String ACTOR_NAME_COACH = "coach";
-    protected static final String TRAINING_NAME = "Training Qa c4";
+    protected static final String TRAINING_NAME = "Training Dev 2021";
 
     protected static final String ASSERTION_TRAINING_NAME = "Training Activos";
     protected static final String MESSAGE_ERROR_LISTAR_TRAINING = "No se listan los Training Activos";
@@ -40,19 +41,16 @@ public class ListarTrainingStepdefinition extends Setup {
         actorSetupTheBrowser(ACTOR_NAME_APRENDIZ);
         loginWithGmail(ACTOR_NAME_APRENDIZ);
     }
-
     @When("el aprendiz desea visualizar los training activos")
     public void elAprendizDeseaVisualizarLosTrainingActivos() {
         theActorInTheSpotlight().attemptsTo(
                 browseToListarTrainingAprendiz()
         );
     }
-
     @Then("el sistema deberia permitir la visualizacion de los training activos al aprendiz")
     public void elSistemaDeberiaPermitirLaVisualizacionDeLosTrainingActivosAlAprendiz() {
         assertionTraining();
     }
-
 
 
     @Given("que el coach se encuentra logueado y en la pagina principal")
@@ -60,14 +58,12 @@ public class ListarTrainingStepdefinition extends Setup {
         actorSetupTheBrowser(ACTOR_NAME_COACH);
         loginWithGmail(ACTOR_NAME_COACH);
     }
-
     @When("el coach desea visualizar los training activos")
     public void elCoachDeseaVisualizarLosTrainingActivos() {
         theActorInTheSpotlight().attemptsTo(
                 browseToListarTrainingCoach()
         );
     }
-
     @Then("el sistema deberia permitir la visualizacion de los training activos al coach")
     public void elSistemaDeberiaPermitirLaVisualizacionDeLosTrainingActivosAlCoach() {
         assertionTraining();
@@ -80,14 +76,13 @@ public class ListarTrainingStepdefinition extends Setup {
         actorSetupTheBrowser(ACTOR_NAME_COACH);
         loginWithGmail(ACTOR_NAME_COACH);
     }
-
     @When("el usuario quiere visualizar en la lista de training activos el training activo {string}")
     public void elUsuarioQuiereVisualizarEnLaListaDeTrainingActivosElTrainingActivo(String string) {
         theActorInTheSpotlight().attemptsTo(
-                browseToListarTrainingCoach()
+                browseToListarTrainingCoach(),
+                findTraining().usingTrainingName(TRAINING_NAME)
         );
     }
-
     @Then("el sistema deberia mostrar el training activo consultado en las listas de training activos")
     public void elSistemaDeberiaMostrarElTrainingActivoConsultadoEnLasListasDeTrainingActivos() {
         theActorInTheSpotlight().should(
@@ -103,6 +98,21 @@ public class ListarTrainingStepdefinition extends Setup {
     }
 
 
+    @Given("que el coach se encuentra autenticado y en la pagina principal")
+    public void queElCoachSeEncuentraAutenticadoYEnLaPaginaPrincipal() {
+        actorSetupTheBrowser(ACTOR_NAME_COACH);
+        loginWithGmail(ACTOR_NAME_COACH);
+    }
+    @When("el coach desea visualizar los training activos ingresando desde una ruta alternativa")
+    public void elCoachDeseaVisualizarLosTrainingActivosIngresandoDesdeUnaRutaAlternativa() {
+        theActorInTheSpotlight().attemptsTo(
+                browseToListarTraining()
+        );
+    }
+    @Then("el sistema deberia permitir la visualizacion de los training activos al coach como en la ruta principal")
+    public void elSistemaDeberiaPermitirLaVisualizacionDeLosTrainingActivosAlCoachComoEnLaRutaPrincipal() {
+        assertionTraining();
+    }
 
 
 
@@ -125,11 +135,12 @@ public class ListarTrainingStepdefinition extends Setup {
         }
 
         if(user.equalsIgnoreCase(ACTOR_NAME_APRENDIZ)){
-            email = "automatizacionqaaprendiz@gmail.com";
+            email = "aprendizqapruebas@gmail.com";
         }
 
         theActorInTheSpotlight().attemptsTo(
                 loginGoogle().usingUserName(email)
+                        .usingPassword("Admin123!")
         );
 
         getDriver().switchTo().window(originalWindow);
@@ -146,6 +157,7 @@ public class ListarTrainingStepdefinition extends Setup {
                                 String.format(VALIDATION_DO_NOT_MATCH, MESSAGE_ERROR_LISTAR_TRAINING)
                         )
         );
+
     }
 
 }

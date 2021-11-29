@@ -3,8 +3,7 @@ package co.com.sofka.questions.hu02;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
-import static co.com.sofka.userinterfaces.hu02.ListarTrainingPage.TARGET_TRAINING_COACH;
-
+import static co.com.sofka.userinterfaces.hu02.ListarTrainingPage.TARGET_TRAINING;
 
 public class ListarTrainingActivoQuestions implements Question<Boolean> {
 
@@ -21,7 +20,7 @@ public class ListarTrainingActivoQuestions implements Question<Boolean> {
 
     @Override
     public Boolean answeredBy(Actor actor) {
-        return (TARGET_TRAINING_COACH.resolveFor(actor).containsOnlyText(training));
+        return (TARGET_TRAINING.resolveFor(actor).containsOnlyText(training));
     }
 
     public static ListarTrainingActivoQuestions listarTrainingActivoQuestions() {

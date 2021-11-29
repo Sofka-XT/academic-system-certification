@@ -2,10 +2,9 @@ package co.com.sofka.tasks.hu02;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.actions.Scroll;
+import net.serenitybdd.screenplay.actions.Click;
 
-import static co.com.sofka.userinterfaces.hu02.ListarTrainingPage.TARGET_TRAINING_COACH;
+import static co.com.sofka.userinterfaces.hu02.ListarTrainingPage.TARGET_TRAINING;
 
 public class FindTraining implements Task {
     private String training;
@@ -18,8 +17,7 @@ public class FindTraining implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Scroll.to(TARGET_TRAINING_COACH),
-                Enter.theValue(this.training).into(TARGET_TRAINING_COACH)
+                Click.on(TARGET_TRAINING)
         );
     }
 

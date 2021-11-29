@@ -10,23 +10,22 @@ public class ListarTrainingPage extends PageObject {
 
     public static final Target OPCION_MENU_APRENDIZ = Target
             .the("opcion menu listarTraining")
-            .located(xpath("//*[@id=\"dashboard\"]/aside/nav/ul/a[1]"));
+            .located(xpath("//*[contains(@activeclassname,'active') and contains(@href, 'activetraining')]"));
 
     public static final Target ASSERTION_TRAINING_ACTIVO = Target
             .the("opcion menu listarTraining")
             .located(xpath("//*[@id=\"container_dashboard\"]/div/h1"));
 
-    public static final Target TARGET_TRAINING_COACH = Target
-            .the("tarjeta Training Activo coach")
-            .located(xpath("//*[@id=\"container_dashboard\"]/div/div/div[1]/div/a/h6"));
-
-    public static final Target TARGET_TRAINING_APRENDIZ = Target
-            .the("tarjeta Training Activo aprendiz")
-            .located(xpath("//*[@id=\"container_dashboard\"]/div/div/div[1]/div/a/h6"));
+    public static final Target TARGET_TRAINING = Target
+            .the("tarjeta Training Activo")
+            .located(xpath("//*[contains(h6,'Dev 2021')]"));
 
     public static final Target OPCION_MENU_COACH = Target
             .the("opcion menu listarTraining para coach")
-            .located(xpath("//*[@id=\"sideBar_menu flex_column_center\"]/ul/a[6]"));
+            .located(xpath("//*[contains(@href,'activetrainingcoach') and contains(@activeclassname,'active')]"));
 
+    public static final Target OPCION_MENU_COACH_PRINCIPAL = Target
+            .the("opcion menu listarTraining para coach presentacion principal")
+            .located(xpath("//*[contains(@href,'activetrainingcoach') and not (contains(@activeclassname,'active'))]"));
 
 }
