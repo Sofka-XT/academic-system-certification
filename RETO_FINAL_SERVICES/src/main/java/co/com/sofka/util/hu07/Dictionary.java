@@ -6,6 +6,7 @@ public enum Dictionary {
     GET_ALL_TRAININGS("/Trainings"),
     GET_ONE_TRAINING("/Training"),
     UPDATE_TRAINING("/updateTraining"),
+    THE_RESPONSE_MUST("la respuesta a la peticion del servicio debe ser: "),
     THE_RESPONSE_CODE("El código de respuesta HTTP/HTTPS debe ser: ");
 
 
