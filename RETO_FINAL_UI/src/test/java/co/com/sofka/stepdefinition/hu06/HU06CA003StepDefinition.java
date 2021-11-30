@@ -1,18 +1,33 @@
 package co.com.sofka.stepdefinition.hu06;
 
+import co.com.sofka.questions.hu06.editarPrograma.AssertToEditNameQuestion;
 import co.com.sofka.stepdefinition.Setup;
+import co.com.sofka.tasks.hu06.BrowseToList;
 import co.com.sofka.tasks.hu06.edit.BrowseToEdit;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 
+import java.util.Set;
+
+import static co.com.sofka.questions.hu06.delete.AssertToDeleteQuestions.assertToDeleteQuestions;
+import static co.com.sofka.questions.hu06.editarPrograma.AssertToEditNameQuestion.assertToEditNameQuestion;
+import static co.com.sofka.tasks.hu06.BrowseToList.browseToList;
+import static co.com.sofka.tasks.hu06.create.BrowseToCreate.browseToCreate;
 import static co.com.sofka.tasks.hu06.edit.BrowseToEdit.browseToEdit;
 
 import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarSolonombre.editarSolonombre;
 import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarTaskEliminar.eliminarCurso;
 import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarTaskNoName.editarProgramaAgregandoCursos;
+import static co.com.sofka.tasks.hu06.loginWithGoogle.FillGoogleAutenticationCoach.fillAutenticationForm;
+import static co.com.sofka.tasks.hu06.loginWithGoogle.LoginWithGoogle.loginWithGoogle;
 import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
+import static co.com.sofka.userinterfaces.hu06.login.DashBoardPage.ROLE_COACH;
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 public class HU06CA003StepDefinition extends Setup {
 
@@ -25,8 +40,28 @@ public class HU06CA003StepDefinition extends Setup {
         theActorInTheSpotlight().attemptsTo(
                 openLandingPage()
         );
+
         theActorInTheSpotlight().attemptsTo(
-                browseToEdit()
+                loginWithGoogle()
+        );
+
+        String currentWindow = getDriver().getWindowHandle();
+        Set<String> allWindows = getDriver().getWindowHandles();
+        for(String window : allWindows){
+            if(!window.contentEquals(currentWindow)){
+                getDriver().switchTo().window(window);
+                break;
+            }
+        }
+        theActorInTheSpotlight().attemptsTo(
+                fillAutenticationForm()
+        );
+        getDriver().switchTo().window(currentWindow);
+
+        WaitUntil.the(ROLE_COACH, isVisible()).forNoMoreThan(10).seconds();
+
+        theActorInTheSpotlight().attemptsTo(
+                browseToList()
         );
     }
 
@@ -34,13 +69,18 @@ public class HU06CA003StepDefinition extends Setup {
     public void el_coah_proceda_a_editar_el_nombre_de_un_programa_ya_existente_y_pulse_el_boton_de_guardar() {
         theActorInTheSpotlight().attemptsTo(
                 editarSolonombre()
-                        .setNombrePrograma("")
+                        .setNombrePrograma("Program Testt")
         );
     }
 
     @Then("este cambio se debe guardar exitosamente en dicho programa")
     public void esteCambioSeDebeGuardarExitosamenteEnDichoPrograma() {
-
+        theActorInTheSpotlight().should(
+                seeThat(
+                        assertToEditNameQuestion()
+                                .is(),equalTo(true)
+                )
+        );
     }
 
     @When("el coah proceda a editar el nombre de un programa y deje este campo vacio")

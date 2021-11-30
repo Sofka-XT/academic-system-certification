@@ -23,7 +23,9 @@ import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
 import static co.com.sofka.userinterfaces.hu06.login.DashBoardPage.ROLE_COACH;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+
 import static  co.com.sofka.tasks.hu06.create.BrowseToCreate.browseToCreate;
+
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static org.hamcrest.CoreMatchers.equalTo;
 
