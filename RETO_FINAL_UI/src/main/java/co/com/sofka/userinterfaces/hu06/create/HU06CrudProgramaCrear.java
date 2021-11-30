@@ -41,4 +41,9 @@ public class HU06CrudProgramaCrear extends PageObject {
             .the("MensajeDeError")
             .located(id("swal2-title"));
 
+    public static final Target EDICION_DE_PROGRAMA= Target
+            .the("edichonDePrograma")
+            .located(id("//*[text()=\" Editar Programa \"]"));
+
+
 }

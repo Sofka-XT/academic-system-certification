@@ -46,8 +46,6 @@ public class HU06CrudProgramaEditarTask implements Task {
                 Scroll.to(DURACION_CATEGORIA1_CUrSO),
                 Enter.theValue(this.duracionCurso1).into(DURACION_CATEGORIA1_CUrSO),
 
-                Scroll.to(DURACION_CATEGORIA2_CUrSO),
-                Enter.theValue(this.duracionCurso2).into(DURACION_CATEGORIA2_CUrSO),
 
                 Scroll.to(SUBMIT),
                 Click.on(SUBMIT)

@@ -7,6 +7,7 @@ import static org.openqa.selenium.By.*;
 
 public class HU06CrudProgramaEditar extends PageObject {
 
+
     public static final Target BTN_EDITAR_PROGRAMA = Target
             .the("btnEditarPrograma")
             .located(xpath("//div[@class=\"card-body\"]//*[text()=\"Program Test\"]//following-sibling::div/a/button"));
@@ -15,6 +16,9 @@ public class HU06CrudProgramaEditar extends PageObject {
             .the("editarNombrePrograma")
             .located(xpath("//*[@class=\"program-inputs-name\"]"));
 
+    public static final Target NUMERO_DE_DIAS = Target
+            .the("numeroDias")
+            .located(xpath("//*[@class=\"totaldays-name-num\"]"));
 
     public static final Target DESPLEGAR_LISTA_CURSOS = Target
             .the("desplegarListaCursos")
@@ -22,7 +26,7 @@ public class HU06CrudProgramaEditar extends PageObject {
 
     public static final Target SELECTION_A_CURSE = Target
             .the("seleccionarUnCurso")
-            .located(xpath("//*[@class=\"select-container\"]/div/select/option[3]"));
+            .located(xpath("//*[@class=\"select-container\"]/div/select/option[4]"));
 
     public static final Target AGREGAR_A_CURSO = Target
             .the("agregarCurso")
@@ -30,39 +34,47 @@ public class HU06CrudProgramaEditar extends PageObject {
 
     public static final Target DURACION_CATEGORIA1_CUrSO = Target
             .the("duracionCategoria1Curso")
-            .located(xpath("  "));
+            .located(xpath("//*[@id=\"container_dashboard\"]/div/form/div/div[2]/div/div/div[2]/div/div[2]/ul/div[1]/div/input"));
 
-    public static final Target DURACION_CATEGORIA2_CUrSO = Target
-            .the("duracionCategoria2Curso")
-            .located(xpath("  "));
+    public static final Target DURACION_CATEGORIA1_CUrSO2 = Target
+            .the("duracionCategoria1Curso2")
+            .located(xpath("//*[@id=\"container_dashboard\"]/div/form/div/div[2]/div/div/div[2]/div/div[2]/ul/div[2]/div/input"));
 
     public static final Target SUBMIT = Target
             .the("submit")
-            .located(xpath("//*[text()=\"Enviar\"]"));
+            .located(xpath("//button[@type='submit']"));
 
-    public static final Target CONFIRMAR_EDICION = Target
-            .the("confirmarEdicion")
-            .located(xpath("//*[@class=\"swal2-confirm swal2-styled swal2-default-outline\"]"));
 
     public static final Target ELIMINAR_UN_CURSO = Target
             .the("eliminarUnCurso")
             .located(xpath("//div[@id='container_dashboard']/div/form/div/div[2]/div/div/div[2]/div/div/button"));
 
 
-
-
-
     //////////
+
+    public static final Target TABLERO = Target
+            .the("talbleroEditar")
+            .located(xpath("//*[@class=\"form-container\"]n"));
+
 
     public static final Target ELIMINAR_UN_PROGRAMA= Target
             .the("eliminarUnPrograma")
             .located(xpath("//div[@class=\"card-body\"]//*[text()=\"Program Test\"]//following-sibling::div/button"));
 
+    public static final Target ELIMINAR_UN_PROGRAMA2= Target
+            .the("eliminarUnPrograma2")
+            .located(xpath("//div[@class=\"card-body\"]//*[text()=\"Program Testt\"]//following-sibling::div/button"));
+
     //editar xpath para volverlo variables con el nombre
 
     public static final Target CONFIRMAR_CAMBIOS= Target
             .the("ConfirmarCambios")
-            .located(xpath("//*[@class=\"swal2-confirm swal2-styled\"]"));
+            .located(xpath("//*[text()=\"Si, Editalo!\"]"));
+
+
+    public static final Target CONFIRMAR_CAMBIOS2= Target
+            .the("ConfirmarCambios2")
+            .located(xpath("//*[text()=\"Sí, borrar!\"]"));
 
 
     public static final Target EXISTE_PROGRAMA= Target
@@ -73,6 +85,9 @@ public class HU06CrudProgramaEditar extends PageObject {
             .the("ExisteElPrpgrama")
             .located(xpath("//*[text()=\"Program Testt\"]"));
 
+    public static final Target NO_NAME_CHANGE= Target
+            .the("noNameChange")
+            .located(xpath("//*[@value=\"Program Test\"]"));
 
 
 

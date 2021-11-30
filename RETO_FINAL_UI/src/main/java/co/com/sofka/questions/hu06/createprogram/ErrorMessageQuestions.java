@@ -4,7 +4,6 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
 import static co.com.sofka.userinterfaces.hu06.create.HU06CrudProgramaCrear.MESSAGE_ERROR;
-import static co.com.sofka.userinterfaces.hu06.create.HU06CrudProgramaCrear.MESSAGE_VALIDATION;
 
 public class ErrorMessageQuestions implements Question {
     public ErrorMessageQuestions is(){

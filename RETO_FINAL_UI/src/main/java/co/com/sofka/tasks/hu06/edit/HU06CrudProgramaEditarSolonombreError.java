@@ -2,18 +2,16 @@ package co.com.sofka.tasks.hu06.edit;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Clear;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 
-import static co.com.sofka.userinterfaces.hu06.create.HU06CrudProgramaCrear.PROGRAM_NAME;
 import static co.com.sofka.userinterfaces.hu06.edit.HU06CrudProgramaEditar.*;
 
-public class HU06CrudProgramaEditarSolonombre implements Task {
+public class HU06CrudProgramaEditarSolonombreError implements Task {
     private String nombrePrograma;
 
-    public HU06CrudProgramaEditarSolonombre setNombrePrograma(String nombrePrograma) {
+    public HU06CrudProgramaEditarSolonombreError setNombrePrograma(String nombrePrograma) {
         this.nombrePrograma = nombrePrograma;
         return this;
     }
@@ -29,16 +27,12 @@ public class HU06CrudProgramaEditarSolonombre implements Task {
                 Enter.theValue(this.nombrePrograma).into(EDIT_NAME_PROGRAM),
 
                 Scroll.to(SUBMIT),
-                Click.on(SUBMIT),
-
-                Scroll.to(CONFIRMAR_CAMBIOS),
-                Click.on(CONFIRMAR_CAMBIOS)
-
+                Click.on(SUBMIT)
         );
     }
 
-    public static HU06CrudProgramaEditarSolonombre editarSolonombre(){
-        return new HU06CrudProgramaEditarSolonombre();
+    public static HU06CrudProgramaEditarSolonombreError editarSolonombreError(){
+        return new HU06CrudProgramaEditarSolonombreError();
     }
 
 }

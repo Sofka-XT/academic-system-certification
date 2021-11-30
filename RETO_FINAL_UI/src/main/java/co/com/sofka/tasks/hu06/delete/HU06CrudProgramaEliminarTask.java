@@ -24,7 +24,7 @@ public class HU06CrudProgramaEliminarTask implements Task {
         actor.attemptsTo(
                 Scroll.to(ELIMINAR_UN_PROGRAMA),
                 Click.on(ELIMINAR_UN_PROGRAMA),
-                Click.on(CONFIRMAR_CAMBIOS)
+                Click.on(CONFIRMAR_CAMBIOS2)
         );
     }
 
