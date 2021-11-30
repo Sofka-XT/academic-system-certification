@@ -10,11 +10,11 @@ public class HU06CrudProgramaEditar extends PageObject {
 
     public static final Target BTN_EDITAR_PROGRAMA = Target
             .the("btnEditarPrograma")
-            .located(xpath("//div[@class=\"card-body\"]//*[text()=\"Program Test\"]//following-sibling::div/a/button"));
+            .located(xpath("//div[@class=\"card-body\"]//*[text()=\"Program Test\"]//following-sibling::div/a"));
 
     public static final Target EDIT_NAME_PROGRAM = Target
             .the("editarNombrePrograma")
-            .located(xpath("//*[@class=\"program-inputs-name\"]"));
+            .located(xpath("//*[@name=\"programName\"]"));
 
     public static final Target NUMERO_DE_DIAS = Target
             .the("numeroDias")
@@ -25,6 +25,10 @@ public class HU06CrudProgramaEditar extends PageObject {
             .located(xpath("//*[@class=\"select-container\"]/div"));
 
     public static final Target SELECTION_A_CURSE = Target
+            .the("seleccionarUnCurso")
+            .located(xpath("//*[@class=\"select-container\"]/div/select/option[3]"));
+
+    public static final Target SELECTION_A_CURSE2 = Target
             .the("seleccionarUnCurso")
             .located(xpath("//*[@class=\"select-container\"]/div/select/option[4]"));
 
@@ -51,11 +55,6 @@ public class HU06CrudProgramaEditar extends PageObject {
 
 
     //////////
-
-    public static final Target TABLERO = Target
-            .the("talbleroEditar")
-            .located(xpath("//*[@class=\"form-container\"]n"));
-
 
     public static final Target ELIMINAR_UN_PROGRAMA= Target
             .the("eliminarUnPrograma")

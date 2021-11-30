@@ -24,8 +24,8 @@ import static co.com.sofka.tasks.hu06.edit.BrowseToEdit.browseToEdit;
 
 import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarSolonombre.editarSolonombre;
 import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarSolonombreError.editarSolonombreError;
+import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarTask.editarProgramaCompleto;
 import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarTaskEliminar.eliminarCurso;
-import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarTaskNoName.editarProgramaAgregandoCursos;
 import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaOk.ok;
 import static co.com.sofka.tasks.hu06.loginWithGoogle.FillGoogleAutenticationCoach.fillAutenticationForm;
 import static co.com.sofka.tasks.hu06.loginWithGoogle.LoginWithGoogle.loginWithGoogle;
@@ -133,9 +133,9 @@ public class HU06CA003StepDefinition extends Setup {
     @When("el coah proceda a asignar un curso en un programa especifico")
     public void el_coah_proceda_a_asignar_un_curso_en_un_programa_especifico() {
         theActorInTheSpotlight().attemptsTo(
-                browseToList(),
-                editarProgramaAgregandoCursos()
-                    .usingDuracionCurso1("2")
+                editarProgramaCompleto()
+                        .usingNombrePrograma("Program Testt")
+                        .usingDuracionCurso1("2")
         );
     }
 
