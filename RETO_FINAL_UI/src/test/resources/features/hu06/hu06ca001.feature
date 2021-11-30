@@ -10,7 +10,7 @@ Feature: Historia de Usuario 06 CA001
 
   Scenario: Verificar la creación del programa suministrando los datos obligatorios
     When El mentor ingresa el nombre del programa y escoge un curso o los cursos necesarios para el programa
-    Then Se creará exitosamente el programa y se debe notificar.
+    Then Se creará exitosamente el programa y se debe notificar para finalizar se debe borrar.
 
   Scenario: Verificar la creación del programa suministrando los datos obligatorios
     When El mentor no ingresa el nombre del programa y no selecciona ningún curso

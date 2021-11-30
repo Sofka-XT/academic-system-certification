@@ -10,6 +10,8 @@ import java.util.Set;
 
 import static co.com.sofka.questions.hu06.delete.AssertToDeleteQuestions.assertToDeleteQuestions;
 import static co.com.sofka.tasks.hu06.BrowseToList.browseToList;
+import static co.com.sofka.tasks.hu06.create.BrowseToCreate.browseToCreate;
+import static co.com.sofka.tasks.hu06.create.HU06CrudProgramaCrearTask.createProgram;
 import static co.com.sofka.tasks.hu06.delete.HU06CrudProgramaEliminarTask.eliminarPrograma;
 import static co.com.sofka.tasks.hu06.loginWithGoogle.FillGoogleAutenticationCoach.fillAutenticationForm;
 import static co.com.sofka.tasks.hu06.loginWithGoogle.LoginWithGoogle.loginWithGoogle;
@@ -47,6 +49,14 @@ public class HU06CA002StepDefinition extends Setup {
         getDriver().switchTo().window(currentWindow);
 
         WaitUntil.the(ROLE_COACH, isVisible()).forNoMoreThan(10).seconds();
+
+        theActorInTheSpotlight().attemptsTo(
+                browseToCreate()
+        );
+        theActorInTheSpotlight().attemptsTo(
+                createProgram()
+                        .usingNameProgram("Program Test")
+        );
 
         theActorInTheSpotlight().attemptsTo(
                 browseToList()

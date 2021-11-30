@@ -74,7 +74,7 @@ public class HU06CA001StepDefinition extends Setup {
 
     }
 
-    @Then("Se creará exitosamente el programa y se debe notificar.")
+    @Then("Se creará exitosamente el programa y se debe notificar para finalizar se debe borrar.")
     public void seCrearaExitosamenteElProgramaYSeDebeNotificar() {
 
         theActorInTheSpotlight().should(
