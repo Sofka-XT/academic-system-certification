@@ -11,6 +11,7 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import java.util.Set;
 
+import static co.com.sofka.questions.hu06.createprogram.AssertToListQuestions.assertToListQuestions;
 import static co.com.sofka.questions.hu06.createprogram.ErrorMessageQuestions.errorMessageQuestions;
 import static co.com.sofka.questions.hu06.delete.AssertToDeleteQuestions.assertToDeleteQuestions;
 import static co.com.sofka.questions.hu06.editarPrograma.AssertToEditNameQuestion.assertToEditNameQuestion;
@@ -142,10 +143,10 @@ public class HU06CA003StepDefinition extends Setup {
     @Then("el curso asignado en dicho programa debe guardarse correctamente y en el orden estipilado de agregacion")
     public void el_curso_asignado_en_dicho_programa_debe_guardarse_correctamente_y_en_el_orden_estipilado_de_agregacion() {
 
-
-        theActorInTheSpotlight().attemptsTo(
-                browseToList(),
-                eliminarPrograma()
+        theActorInTheSpotlight().should(
+                seeThat(assertToListQuestions()
+                        .is(), equalTo(true)
+                )
         );
     }
 

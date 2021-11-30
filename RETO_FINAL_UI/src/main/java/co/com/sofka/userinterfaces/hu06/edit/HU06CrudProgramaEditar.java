@@ -26,7 +26,7 @@ public class HU06CrudProgramaEditar extends PageObject {
 
     public static final Target SELECTION_A_CURSE = Target
             .the("seleccionarUnCurso")
-            .located(xpath("//*[@class=\"select-container\"]/div/select/option[3]"));
+            .located(xpath("//*[@class=\"select-container\"]/div/select/option[5]"));
 
     public static final Target SELECTION_A_CURSE2 = Target
             .the("seleccionarUnCurso")

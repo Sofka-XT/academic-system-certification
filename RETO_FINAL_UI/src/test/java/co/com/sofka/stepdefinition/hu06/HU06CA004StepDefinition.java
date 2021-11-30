@@ -63,7 +63,6 @@ public class HU06CA004StepDefinition extends Setup {
 
     @Then("me debe llevar a la ruta de programas activos donde se listara los programas activos.")
     public void meDebeLlevarALaRutaDeProgramasActivosDondeSeListaraLosProgramasActivos() {
-
         theActorInTheSpotlight().should(
                 seeThat(assertToListQuestions()
                         .is(), equalTo(true)

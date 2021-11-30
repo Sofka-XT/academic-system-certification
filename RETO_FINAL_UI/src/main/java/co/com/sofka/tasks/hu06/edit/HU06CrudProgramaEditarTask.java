@@ -2,11 +2,9 @@ package co.com.sofka.tasks.hu06.edit;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.ClickOnTarget;
-import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.actions.Scroll;
+import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.waits.Wait;
+import org.openqa.selenium.Keys;
 
 import static co.com.sofka.userinterfaces.hu06.edit.HU06CrudProgramaEditar.*;
 
@@ -34,10 +32,24 @@ public class HU06CrudProgramaEditarTask implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
 
-                Click.on(BTN_EDITAR_PROGRAMA),
+//                Click.on(BTN_EDITAR_PROGRAMA),
+//
+//                Enter.theValue(this.nombrePrograma).into(EDIT_NAME_PROGRAM),
+//
 
-                Scroll.to(EDIT_NAME_PROGRAM),
+//
+//                Scroll.to(SUBMIT),
+//                Click.on(SUBMIT),
+//
+//                Scroll.to(CONFIRMAR_CAMBIOS),
+//                Click.on(CONFIRMAR_CAMBIOS)
+
+                //////
+                Click.on(BTN_EDITAR_PROGRAMA),
+//
                 Enter.theValue(this.nombrePrograma).into(EDIT_NAME_PROGRAM),
+                Enter.theValue(this.duracionCurso1).into(DURACION_CATEGORIA1_CUrSO),
+
 
                 Scroll.to(DESPLEGAR_LISTA_CURSOS),
                 Click.on(DESPLEGAR_LISTA_CURSOS),
@@ -48,15 +60,14 @@ public class HU06CrudProgramaEditarTask implements Task {
                 Scroll.to(AGREGAR_A_CURSO),
                 Click.on(AGREGAR_A_CURSO),
 
-                Scroll.to(DURACION_CATEGORIA1_CUrSO),
-                Enter.theValue(this.duracionCurso1).into(DURACION_CATEGORIA1_CUrSO),
+                Hit.the(Keys.TAB).into(AGREGAR_A_CURSO),
 
-
-                
                 Scroll.to(SUBMIT),
                 Click.on(SUBMIT),
 
+                Scroll.to(CONFIRMAR_CAMBIOS),
                 Click.on(CONFIRMAR_CAMBIOS)
+
 
                 );
     }
