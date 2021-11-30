@@ -17,7 +17,7 @@ public class DashBoardPage extends PageObject {
 
     public static final Target FAIL_LOGIN = Target
             .the("failLogin")
-            .located(id("swal2-html-container"));
+            .located(xpath("//*[@id=\"swal2-html-container\"]"));
 
     public static final Target LOGOUTBUTTON = Target
             .the("logout")

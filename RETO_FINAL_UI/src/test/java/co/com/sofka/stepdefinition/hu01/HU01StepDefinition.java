@@ -20,6 +20,7 @@ import static co.com.sofka.userinterfaces.hu01.DashBoardPage.*;
 import static co.com.sofka.userinterfaces.hu01.LoginPage.LOGIN_BUTTON;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static org.hamcrest.CoreMatchers.equalTo;
 
@@ -27,6 +28,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 public class HU01StepDefinition extends Setup {
 
     private static final String ACTOR_NAME = "User";
+    String currentWindow ="";
 
     @Given("el usuario se encuentra en la pagina login")
     public void elUsuarioSeEncuentraEnLaPaginaLogin() {
@@ -41,55 +43,63 @@ public class HU01StepDefinition extends Setup {
         theActorInTheSpotlight().attemptsTo(
                 loginWithGoogle()
         );
-        String currentWindow = getDriver().getWindowHandle();
-        Set<String> allWindows = getDriver().getWindowHandles();
-        for (String window : allWindows) {
-            if (!window.contentEquals(currentWindow)) {
-                getDriver().switchTo().window(window);
-                break;
-            }
-        }
+        cambiarAGoogleLogin();
         theActorInTheSpotlight().attemptsTo(
                 fillAutenticationForm()
         );
-        getDriver().switchTo().window(currentWindow);
-
+        volverAPaginaLogin();
     }
 
     @Then("deberia visualizar la pagina principal correspondiente a coach")
     public void deberiaVisualizarLaPaginaPrincipalCorrespondienteACoach() {
-        WaitUntil.the(ROLE_COACH, isVisible()).forNoMoreThan(10).seconds();
+        WaitUntil.the(ROLE_COACH, isVisible()).forNoMoreThan(20).seconds();
         theActorInTheSpotlight().attemptsTo(
-                WaitUntil.the(ROLE_COACH, isVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(ROLE_COACH, isVisible()).forNoMoreThan(20).seconds(),
                 Ensure.that(ROLE_COACH).text().isEqualToIgnoringCase("COACH")
         );
 
     }
+
+    public void cambiarAGoogleLogin(){
+        try{
+            currentWindow = getDriver().getWindowHandle();
+            Set<String> allWindows = getDriver().getWindowHandles();
+            for (String window : allWindows) {
+                if (!window.contentEquals(currentWindow)) {
+                    getDriver().switchTo().window(window);
+                    break;
+                }
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    public void volverAPaginaLogin(){
+        getDriver().switchTo().window(currentWindow);
+    }
+
+
+
 
     @When("realiza login con credenciales de aprendiz")
     public void realizaLoginConCredencialesDeAprendiz() {
         theActorInTheSpotlight().attemptsTo(
                 loginWithGoogle()
         );
-        String currentWindow = getDriver().getWindowHandle();
-        Set<String> allWindows = getDriver().getWindowHandles();
-        for (String window : allWindows) {
-            if (!window.contentEquals(currentWindow)) {
-                getDriver().switchTo().window(window);
-                break;
-            }
-        }
+        cambiarAGoogleLogin();
         theActorInTheSpotlight().attemptsTo(
                 fillGoogleAutenticationApprentice()
         );
-        getDriver().switchTo().window(currentWindow);
+        volverAPaginaLogin();
     }
 
     @Then("deberia visualizar la pagina principal correspondiente a aprendiz")
     public void eberiaVisualizarLaPaginaPrincipalCorrespondienteAAprendiz() {
-        WaitUntil.the(ROLE_APPRENDICE, isVisible()).forNoMoreThan(10).seconds();
+        WaitUntil.the(ROLE_APPRENDICE, isVisible()).forNoMoreThan(20).seconds();
         theActorInTheSpotlight().attemptsTo(
-                WaitUntil.the(ROLE_APPRENDICE, isVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(ROLE_APPRENDICE, isVisible()).forNoMoreThan(20).seconds(),
                 Ensure.that(ROLE_APPRENDICE).text().isEqualToIgnoringCase("APPRENTICE")
         );
     }
@@ -99,47 +109,32 @@ public class HU01StepDefinition extends Setup {
         theActorInTheSpotlight().attemptsTo(
                 loginWithGoogle()
         );
-        String currentWindow = getDriver().getWindowHandle();
-        Set<String> allWindows = getDriver().getWindowHandles();
-        for (String window : allWindows) {
-            if (!window.contentEquals(currentWindow)) {
-                getDriver().switchTo().window(window);
-                break;
-            }
-        }
+        cambiarAGoogleLogin();
         theActorInTheSpotlight().attemptsTo(
                 fillGoogleAutenticationFail()
         );
-        getDriver().switchTo().window(currentWindow);
+        volverAPaginaLogin();
     }
 
     @Then("se tendra que mostrar un mensaje de error")
     public void seTendraQueMostrarUnMensajeDeError() {
-        WaitUntil.the(FAIL_LOGIN, isVisible()).forNoMoreThan(10).seconds();
+        WaitUntil.the(FAIL_LOGIN, isVisible()).forNoMoreThan(20).seconds();
         theActorInTheSpotlight().attemptsTo(
-                WaitUntil.the(FAIL_LOGIN, isVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(FAIL_LOGIN, isVisible()).forNoMoreThan(20).seconds(),
                 Ensure.that(FAIL_LOGIN).text().isEqualToIgnoringCase("Usuario no encontrado")
         );
     }
 
     @When("realiza login exitosamente")
     public void realizaLoginExitosamente() {
-
         theActorInTheSpotlight().attemptsTo(
                 loginWithGoogle()
         );
-        String currentWindow = getDriver().getWindowHandle();
-        Set<String> allWindows = getDriver().getWindowHandles();
-        for (String window : allWindows) {
-            if (!window.contentEquals(currentWindow)) {
-                getDriver().switchTo().window(window);
-                break;
-            }
-        }
+        cambiarAGoogleLogin();
         theActorInTheSpotlight().attemptsTo(
                 fillAutenticationForm()
         );
-        getDriver().switchTo().window(currentWindow);
+        volverAPaginaLogin();
     }
 
     @When("realiza logout")
@@ -151,7 +146,7 @@ public class HU01StepDefinition extends Setup {
 
     @Then("se tendra que mostrar la login page")
     public void seTendraQueMostrarLaLoginPage() {
-        WaitUntil.the(LOGIN_BUTTON, isVisible()).forNoMoreThan(10).seconds();
+        WaitUntil.the(LOGIN_BUTTON, isVisible()).forNoMoreThan(20).seconds();
         theActorInTheSpotlight().should(
                 seeThat(
                         loginValidation()
@@ -159,6 +154,5 @@ public class HU01StepDefinition extends Setup {
                                 .is(), equalTo(true)
                 )
         );
-
     }
 }
