@@ -2,6 +2,9 @@ package co.com.sofka.userinterfaces.hu07;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import static org.openqa.selenium.By.*;
 
@@ -16,12 +19,14 @@ public class CreateTrainingPage extends PageObject {
             .located(xpath("//input[@id='training__starting-date']"));
 
     public static final Target UPLOAD_FILE = Target.the("Subir Archivo")
-            .located(cssSelector("div.dashboard div.container_dashboard div.trainings__main-container form.trainings__form:nth-child(1) div.training__input-form:nth-child(4) div.training__input-container div.training__file-input > div:nth-child(2)"));
+            .located(xpath("//*[@id=\"container_dashboard\"]/div/form/div[4]/div/div/input"));
 
     public static final Target LIST_PROGRAM = Target.the("Elegir un Programa")
-            .located(xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]"));
+            .located(xpath("//*[@id=\"training\"]/div/div[2]/div[1]/div"));
 
     public static final Target SUBMIT_TRAINING = Target.the("Crear")
-            .located(id("submit_training"));
+            .located(xpath("/html/body/div/div/div[2]/div/form/div[1]/button"));
 
+    public static final Target BTN_LOGOUT = Target.the("logout")
+            .located(xpath("//*[@id=\"logout-link\"]/img\n"));
 }

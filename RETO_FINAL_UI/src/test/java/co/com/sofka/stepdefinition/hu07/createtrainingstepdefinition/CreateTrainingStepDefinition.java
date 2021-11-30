@@ -40,7 +40,7 @@ public class CreateTrainingStepDefinition extends SetUp {
                 //createTrainingTask().setValueSelectCoach(VALUE_COACH)
                 //createTrainingTask().setDateStart(FECHA_INICIO_TRAINING)
         );
-        Thread.sleep(10000);
+
         //aquí tarea de llenar el formulario de training
     }
 

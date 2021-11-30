@@ -1,24 +1,35 @@
 package co.com.sofka.tasks.hu07.createTraining;
 
+import co.com.sofka.SetUp;
+import lombok.SneakyThrows;
 import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
+import net.serenitybdd.screenplay.rest.questions.LastResponse;
+import net.serenitybdd.screenplay.targets.Target;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import org.openqa.selenium.WebElement;
+import org.sikuli.hotkey.Keys;
+
 
 import java.awt.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static co.com.sofka.userinterfaces.hu07.CreateTrainingPage.*;
 import static co.com.sofka.userinterfaces.hu07.HomePage.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class CreateTrainingTask implements Task {
+public class CreateTrainingTask extends SetUp implements Task {
 
     private String dateStart;//Formato dd/mm/aaaa
     private String nameTraining;
     private String valueSelectCoach; // 1-Raul, 2-Pablo, 3-Oscar, 4-Luis, 5-Mario
     private String path = System.getProperty("user.dir")+"\\src\\test\\resources\\File\\aprendices.csv";
-    private static String path_image = System.getProperty("user.dir")+"\\src\\test\\resources\\File\\img_1.PNG";
-    //Robot robot = new Robot();
+    private static String path_image ="\\src\\test\\resources\\File\\img_1.PNG";
+
+    Path p1 = Paths.get(path);
 
 
     public CreateTrainingTask setValueSelectCoach(String valueSelectCoach) {
@@ -36,8 +47,10 @@ public class CreateTrainingTask implements Task {
         return this;
     }
 
+    @SneakyThrows
     @Override
     public <T extends Actor> void performAs(T actor) {
+        Robot robot = new Robot();
 
         actor.attemptsTo(
                 WaitUntil.the(CREAR_TRAINING, isVisible()).forNoMoreThan(10).seconds(),
@@ -54,12 +67,15 @@ public class CreateTrainingTask implements Task {
                 WaitUntil.the(FECHA_INICIO, isVisible()).forNoMoreThan(10).seconds(),
                 Scroll.to(FECHA_INICIO),
                 Clear.field(FECHA_INICIO),
-                Enter.theValue("12/03/2022").into(FECHA_INICIO)
-                //WaitUntil.the(UPLOAD_FILE, isVisible()).forNoMoreThan(10).seconds(),
-                //Enter.theValue(path).into(UPLOAD_FILE)
+                Enter.theValue("12/03/2022").into(FECHA_INICIO),
+                new UploadToTarget(p1,UPLOAD_FILE),
+                Click.on(LIST_PROGRAM),
 
+                WaitUntil.the(SUBMIT_TRAINING, isVisible()).forNoMoreThan(10).seconds(),
+                Scroll.to(SUBMIT_TRAINING),
+                SendKeys.of("\ue054").into(CREAR_TRAINING),
+                Click.on(SUBMIT_TRAINING)
         );
-
     }
 
     public static CreateTrainingTask createTrainingTask(){

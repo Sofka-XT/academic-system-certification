@@ -61,6 +61,7 @@ dependencies {
     implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.0'
 
     implementation("io.github.bonigarcia:webdrivermanager:5.0.3")
+    implementation 'com.sikulix:sikulixapi:2.0.5'
 
 }
 
