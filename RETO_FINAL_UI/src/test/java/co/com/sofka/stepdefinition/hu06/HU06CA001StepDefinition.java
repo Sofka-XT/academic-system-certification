@@ -11,11 +11,11 @@ import java.util.Set;
 import static co.com.sofka.questions.hu06.createprogram.AssertToListQuestions.assertToListQuestions;
 import static co.com.sofka.questions.hu06.createprogram.ErrorMessageQuestions.errorMessageQuestions;
 import static co.com.sofka.questions.hu06.delete.AssertToDeleteQuestions.assertToDeleteQuestions;
+import static co.com.sofka.tasks.hu06.BrowseToList.browseToList;
 import static co.com.sofka.tasks.hu06.create.HU06CrudProgramaCrearTask.createProgram;
 import static co.com.sofka.tasks.hu06.create.HU06CrudProgramaCrearTaskNoCurses.createProgramWithoutCourses;
 import static co.com.sofka.tasks.hu06.create.HU06CrudProgramaCrearTaskNoCursesNoName.createProgramWithoutCoursesOrName;
 import static co.com.sofka.tasks.hu06.create.HU06CrudProgramaCrearTaskNoName.createProgramNoName;
-import static co.com.sofka.tasks.hu06.delete.BrowseToDelete.browseToDelete;
 import static co.com.sofka.tasks.hu06.delete.HU06CrudProgramaEliminarTask.eliminarPrograma;
 import static co.com.sofka.tasks.hu06.loginWithGoogle.FillGoogleAutenticationCoach.fillAutenticationForm;
 import static co.com.sofka.tasks.hu06.loginWithGoogle.LoginWithGoogle.loginWithGoogle;
@@ -85,7 +85,7 @@ public class HU06CA001StepDefinition extends Setup {
 
 
         theActorInTheSpotlight().attemptsTo(
-                browseToDelete()
+                browseToList()
         );
 
         theActorInTheSpotlight().attemptsTo(
