@@ -52,7 +52,12 @@ public class HU06CrudProgramaEditarTask implements Task {
                 Enter.theValue(this.duracionCurso1).into(DURACION_CATEGORIA1_CUrSO),
 
 
+                
+                Scroll.to(SUBMIT),
+                Click.on(SUBMIT),
+
                 Click.on(CONFIRMAR_CAMBIOS)
+
                 );
     }
 
