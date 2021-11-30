@@ -21,7 +21,3 @@ Feature: Historia de Usuario 06 CA003
     When el coah proceda a asignar un curso en un programa especifico
     Then el curso asignado en dicho programa debe guardarse correctamente y en el orden estipilado de agregacion
 
-  Scenario: Correta elminacion de cursos
-    When el coah proceda a eliminar un curso en un programa especifico
-    Then el curso eliminado de dicho programa debe retirarse  correctamente y en el orden estipilado se debe conservar
-

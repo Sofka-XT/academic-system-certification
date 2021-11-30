@@ -2,9 +2,8 @@ package co.com.sofka.tasks.hu06.edit;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.actions.Scroll;
+import net.serenitybdd.screenplay.actions.*;
+import org.openqa.selenium.Keys;
 
 import static co.com.sofka.userinterfaces.hu06.edit.HU06CrudProgramaEditar.*;
 
@@ -41,11 +40,20 @@ public class HU06CrudProgramaEditarTaskNoName implements Task {
                 Scroll.to(DURACION_CATEGORIA1_CUrSO),
                 Enter.theValue(this.duracionCurso1).into(DURACION_CATEGORIA1_CUrSO),
 
+
+
+                Click.on(TABLERO),
+
+//                Scroll.to(DURACION_CATEGORIA1_CUrSO2),
+//                Enter.theValue(this.duracionCurso1).into(DURACION_CATEGORIA1_CUrSO2),
+
+                //Hit.the(Keys.ARROW_DOWN).into(DURACION_CATEGORIA1_CUrSO),
+
                 Scroll.to(SUBMIT),
                 Click.on(SUBMIT),
 
-                //Scroll.to(CONFIRMAR_EDICION),
-                Click.on(CONFIRMAR_EDICION)
+                Scroll.to(CONFIRMAR_CAMBIOS),
+                Click.on(CONFIRMAR_CAMBIOS)
 
                 );
     }

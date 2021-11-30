@@ -14,6 +14,7 @@ import java.util.Set;
 import static co.com.sofka.questions.hu06.createprogram.ErrorMessageQuestions.errorMessageQuestions;
 import static co.com.sofka.questions.hu06.delete.AssertToDeleteQuestions.assertToDeleteQuestions;
 import static co.com.sofka.questions.hu06.editarPrograma.AssertToEditNameQuestion.assertToEditNameQuestion;
+import static co.com.sofka.questions.hu06.editarPrograma.AssertToEditNoNameQuestion.assertToEditNoNameQuestion;
 import static co.com.sofka.tasks.hu06.BrowseToList.browseToList;
 import static co.com.sofka.tasks.hu06.create.BrowseToCreate.browseToCreate;
 import static co.com.sofka.tasks.hu06.create.HU06CrudProgramaCrearTask.createProgram;
@@ -117,13 +118,12 @@ public class HU06CA003StepDefinition extends Setup {
     public void debe_saltar_una_alerta_que_haga_saber_al_usuario_el_fallo_cometido() {
         theActorInTheSpotlight().should(
                 seeThat(
-                        errorMessageQuestions()
+                        assertToEditNoNameQuestion()
                                 .is(),equalTo(true)
                 )
         );
 
         theActorInTheSpotlight().attemptsTo(
-                ok(),
                 browseToList(),
                 eliminarPrograma()
         );
@@ -141,36 +141,13 @@ public class HU06CA003StepDefinition extends Setup {
     @Then("el curso asignado en dicho programa debe guardarse correctamente y en el orden estipilado de agregacion")
     public void el_curso_asignado_en_dicho_programa_debe_guardarse_correctamente_y_en_el_orden_estipilado_de_agregacion() {
 
-//        theActorInTheSpotlight().should(
-//                seeThat(
-//                        errorMessageQuestions()
-//                                .is(),equalTo(true)
-//                )
-//        );
-//        theActorInTheSpotlight().attemptsTo(
-//                browseToList(),
-//                eliminarPrograma()
-//        );
-    }
-
-    @When("el coah proceda a eliminar un curso en un programa especifico")
-    public void el_coah_proceda_a_eliminar_un_curso_en_un_programa_especifico() {
 
         theActorInTheSpotlight().attemptsTo(
-                editarProgramaAgregandoCursos()
-                        .usingDuracionCurso1("2")
+                browseToList(),
+                eliminarPrograma()
         );
-
-        theActorInTheSpotlight().attemptsTo(
-                eliminarCurso()
-        );
-
-
     }
 
-    @Then("el curso eliminado de dicho programa debe retirarse  correctamente y en el orden estipilado se debe conservar")
-    public void el_curso_eliminado_de_dicho_programa_debe_retirarse_correctamente_y_en_el_orden_estipilado_se_debe_conservar() {
 
-    }
 
 }

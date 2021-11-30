@@ -31,8 +31,8 @@ public class HU06CrudProgramaEditarSolonombre implements Task {
                 Scroll.to(SUBMIT),
                 Click.on(SUBMIT),
 
-                Scroll.to(CONFIRMAR_EDICION),
-                Click.on(CONFIRMAR_EDICION)
+                Scroll.to(CONFIRMAR_CAMBIOS),
+                Click.on(CONFIRMAR_CAMBIOS)
 
         );
     }

@@ -14,7 +14,7 @@ public class HU06CrudProgramaCrear extends PageObject {
 
     public static final Target PROGRAM_NAME = Target
             .the("NombreDePrograma")
-            .located(name("name"));
+            .located(name("programName"));
 
     public static final Target SelectCourse = Target
             .the("SeleccionarCurso")
@@ -40,5 +40,10 @@ public class HU06CrudProgramaCrear extends PageObject {
     public static final Target MESSAGE_ERROR= Target
             .the("MensajeDeError")
             .located(id("swal2-title"));
+
+    public static final Target EDICION_DE_PROGRAMA= Target
+            .the("edichonDePrograma")
+            .located(id("//*[text()=\" Editar Programa \"]"));
+
 
 }
