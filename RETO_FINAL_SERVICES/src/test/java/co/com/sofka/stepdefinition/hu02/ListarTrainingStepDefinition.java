@@ -26,11 +26,11 @@ public class ListarTrainingStepDefinition extends Setup {
 
     private static final Gson gson = new Gson();
     protected TrainingItem trainingItem;
-    protected static final String RESOURCE_TRAINING_ID = "/619faddb0d77e51895711689";
+    protected static final String RESOURCE_TRAINING_ID = "/61a1346bfb95976275096464";
     protected static final String RESOURCE_LISTAR_TRAINING = "/list-actives";
 
-    protected static final String ASSERTION_TRAINING_ID = "619faddb0d77e51895711689";
-    protected static final String ASSERTION_TRAINING_NAME = "Training Qa c4";
+    protected static final String ASSERTION_TRAINING_ID = "61a1346bfb95976275096464";
+    protected static final String ASSERTION_TRAINING_NAME = "Training Dev 2021";
     protected static String ASSERTION_LISTAR_TRAINING = "";
 
     private static final Type typeListaTrainingActivos =
