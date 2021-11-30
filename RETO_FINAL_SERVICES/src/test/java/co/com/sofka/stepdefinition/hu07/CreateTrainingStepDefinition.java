@@ -8,25 +8,28 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.rest.questions.LastResponse;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import static co.com.sofka.util.hu07.Dictionary.THE_RESPONSE_CODE;
-import static javax.servlet.http.HttpServletResponse.SC_ACCEPTED;
-import static javax.servlet.http.HttpServletResponse.SC_OK;
+import static javax.servlet.http.HttpServletResponse.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 public class CreateTrainingStepDefinition extends SetUpHu07 {
 
-    static String trainingId;
+    DateTimeFormatter fechaHora = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+    String dateTime = fechaHora.format(LocalDateTime.now()).toString();
+    private final String FECHA_CORRECTA="2021-12-21";
+    private final String FECHA_INCORRECTA="2021-30-21";
 
-    public String getTrainingId() {
-        return trainingId;
-    }
+    static String trainingId;
 
     @When("quiero crear un training nuevo")
     public void quiero_crear_un_training_nuevo() {
         setUp();
         actor.attemptsTo(
-                CreateTrainingTask.withInfo(crearBody())
+                CreateTrainingTask.withInfo(crearBody(FECHA_CORRECTA))
         );
 
         trainingId = new GetOneTrainingQuestion().answeredBy(actor).getTrainingId().toString();
@@ -34,20 +37,35 @@ public class CreateTrainingStepDefinition extends SetUpHu07 {
 
     @Then("deberia crear el training de manera correcta")
     public void deberia_crear_el_training_de_manera_correcta() {
-        LastResponse.received().answeredBy(actor).prettyPrint();
         actor.should(
                 seeThat(THE_RESPONSE_CODE.getValue(),ResponseCode.was(),equalTo(SC_OK))
         );
     }
 
-    public String crearBody()
+    @When("quiero crear un training con una fecha invalida")
+    public void quiero_crear_un_training_con_una_fecha_invalida() {
+        setUp();
+        actor.attemptsTo(
+                CreateTrainingTask.withInfo(crearBody(FECHA_INCORRECTA))
+        );
+    }
+
+    @Then("deberia ver un mensaje de error en la creacion")
+    public void deberia_ver_un_mensaje_de_error_en_la_creacion() {
+        actor.should(
+                seeThat(THE_RESPONSE_CODE.getValue(),ResponseCode.was(),equalTo(SC_BAD_REQUEST))
+        );
+    }
+
+    public String crearBody(String fecha)
     {
         String bodyTraining ="{\n" +
-                "    \"name\": \"Training Qa c33\",\n" +
-                "    \"startingDate\": \"2021-12-21\",\n" +
+                "    \"trainingId\":\"61a5a744ac1c3a028ffa9ae7\",\n" +
+                "    \"name\": \"Training actualizado: "+ dateTime +"\",\n" +
+                "    \"startingDate\": \""+fecha+"\",\n" +
                 "    \"apprentices\": [{\n" +
-                "        \"id\": \"123kisdha8\",\n" +
-                "        \"name\": \"Santi\",\n" +
+                "        \"id\": \"123456789\",\n" +
+                "        \"name\": \"uvbadasd\",\n" +
                 "        \"phoneNumber\": \"21232454\",\n" +
                 "        \"emailAddress\": \"santiago@gmail.com\"\n" +
                 "\n" +

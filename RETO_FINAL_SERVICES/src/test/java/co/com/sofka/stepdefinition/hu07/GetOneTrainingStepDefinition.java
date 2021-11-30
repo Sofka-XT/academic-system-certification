@@ -13,7 +13,6 @@ import net.serenitybdd.screenplay.rest.questions.LastResponse;
 
 import static co.com.sofka.util.hu07.Dictionary.*;
 
-import static javax.servlet.http.HttpServletResponse.SC_OK;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.CoreMatchers.equalTo;
 
@@ -27,6 +26,12 @@ public class GetOneTrainingStepDefinition extends SetUpHu07 {
     private String startingDate;
 
 
+    //Assertion
+    private final String ID_ASSERTION ="61a1346bfb95976275096464";
+    private final String TRAINING_NAME_ASSERTION ="Training Dev 2021";
+    private final String STARTING_DATE_ASSERTION ="2021-11-26";
+
+
     @Given("que tengo acceso a la aplicacion api")
     public void que_tengo_acceso_a_la_aplicacion_api() {
         setUp();
@@ -35,16 +40,32 @@ public class GetOneTrainingStepDefinition extends SetUpHu07 {
     @When("quiero ver un training nuevo")
     public void quiero_ver_un_training_nuevo() {
         actor.attemptsTo(
-                GetOneTrainingTask.fromPage("/619efc1119e2a93c03dd905a")
+                GetOneTrainingTask.fromPage("/"+ID_ASSERTION)
         );
         guardarDatosTraining();
     }
 
     @Then("deberia ver el training de manera correcta")
     public void deberia_ver_el_training_de_manera_correcta() {
-        LastResponse.received().answeredBy(actor).prettyPrint();
         actor.should(
-                seeThat(THE_RESPONSE_CODE.getValue(),act ->  name,equalTo("Training Qa c33"))
+                seeThat(THE_RESPONSE_CODE.getValue(),ResponseCode.was(),equalTo(200)),
+                seeThat(THE_RESPONSE_MUST.getValue(),act ->name,equalTo(TRAINING_NAME_ASSERTION)),
+                seeThat(THE_RESPONSE_MUST.getValue(),act->trainingId,equalTo(ID_ASSERTION)),
+                seeThat(THE_RESPONSE_MUST.getValue(),act->startingDate,equalTo(STARTING_DATE_ASSERTION))
+                );
+    }
+
+    @When("solicito ver un training de forma incorrecta")
+    public void solicitoVerUnTrainingDeFormaIncorrecta() {
+        actor.attemptsTo(
+                GetOneTrainingTask.fromPage("")
+        );
+    }
+
+    @Then("deberia ver un mensaje de error")
+    public void deberia_ver_un_mensaje_de_error() {
+        actor.should(
+                seeThat(THE_RESPONSE_CODE.getValue(),ResponseCode.was(),equalTo(404))
         );
     }
 
@@ -52,10 +73,8 @@ public class GetOneTrainingStepDefinition extends SetUpHu07 {
     {
         apprenticesItem = new GetOneTrainingQuestion().answeredBy(actor)
                 .getApprentices().stream().findFirst().orElse(null);
-
         coachesItem = new GetOneTrainingQuestion().answeredBy(actor)
                 .getCoaches().stream().findFirst().orElse(null);
-
         name = new GetOneTrainingQuestion().answeredBy(actor).getName().toString();
         program = new GetOneTrainingQuestion().answeredBy(actor).getProgram().toString();
         startingDate = new GetOneTrainingQuestion().answeredBy(actor).getStartingDate().toString();
