@@ -20,7 +20,7 @@ Feature: Historia de Usuario 06 CA001
     When El mentor no ingresa el nombre del programa y selecciona un curso
     Then Se debe notificar que no es posible crear el programa sin el que suministre el nombre.
 
-  Scenario: VVerificar el fallo al momento de no ingresar ningún curso al programa
+  Scenario: Verificar el fallo al momento de no ingresar ningún curso al programa
     When El mentor ingresa el nombre del programa y no selecciona ningún curso
     Then Se debe notificar que no es posible crear el programa sin el asignar al menos un curso.
 

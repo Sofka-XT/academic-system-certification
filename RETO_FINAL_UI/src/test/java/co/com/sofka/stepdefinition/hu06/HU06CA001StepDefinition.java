@@ -68,10 +68,13 @@ public class HU06CA001StepDefinition extends Setup {
     @When("El mentor ingresa el nombre del programa y escoge un curso o los cursos necesarios para el programa")
     public void elMentorIngresaElNombreDelProgramaYEscogeUnCursoOLosCursosNecesariosParaElPrograma() {
         theActorInTheSpotlight().attemptsTo(
+                browseToCreate()
+        );
+
+        theActorInTheSpotlight().attemptsTo(
                 createProgram()
                         .usingNameProgram("Program Test")
-                );
-
+        );
 
     }
 
