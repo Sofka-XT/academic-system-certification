@@ -26,7 +26,7 @@ public class CreateTrainingStepDefinition extends SetUpHu07 {
     static String trainingId;
 
     @When("quiero crear un training nuevo")
-    public void quiero_crear_un_training_nuevo() {
+    public void quieroCrearUnTrainingNuevo() {
         setUp();
         actor.attemptsTo(
                 CreateTrainingTask.withInfo(crearBody(FECHA_CORRECTA))
@@ -36,14 +36,14 @@ public class CreateTrainingStepDefinition extends SetUpHu07 {
     }
 
     @Then("deberia crear el training de manera correcta")
-    public void deberia_crear_el_training_de_manera_correcta() {
+    public void deberiaCrearElTrainingDeManeraCorrecta() {
         actor.should(
                 seeThat(THE_RESPONSE_CODE.getValue(),ResponseCode.was(),equalTo(SC_OK))
         );
     }
 
     @When("quiero crear un training con una fecha invalida")
-    public void quiero_crear_un_training_con_una_fecha_invalida() {
+    public void quieroCrearUnTrainingConUnaFechaInvalida() {
         setUp();
         actor.attemptsTo(
                 CreateTrainingTask.withInfo(crearBody(FECHA_INCORRECTA))
@@ -51,7 +51,7 @@ public class CreateTrainingStepDefinition extends SetUpHu07 {
     }
 
     @Then("deberia ver un mensaje de error en la creacion")
-    public void deberia_ver_un_mensaje_de_error_en_la_creacion() {
+    public void deberiaVerUnMensajeDeErrorEnlaCreacion() {
         actor.should(
                 seeThat(THE_RESPONSE_CODE.getValue(),ResponseCode.was(),equalTo(SC_BAD_REQUEST))
         );
