@@ -8,7 +8,7 @@ import static org.openqa.selenium.By.linkText;
 
 public class HomePage extends PageObject {
     public static final Target CREAR_TRAINING = Target.the("create_training")
-            .located(linkText("CREAR TRAINING"));
+            .located(linkText("CREAR TRAININ"));
 
 
 }
