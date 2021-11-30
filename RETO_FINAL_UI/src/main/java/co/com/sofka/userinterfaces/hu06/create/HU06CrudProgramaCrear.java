@@ -14,7 +14,7 @@ public class HU06CrudProgramaCrear extends PageObject {
 
     public static final Target PROGRAM_NAME = Target
             .the("NombreDePrograma")
-            .located(name("name"));
+            .located(name("programName"));
 
     public static final Target SelectCourse = Target
             .the("SeleccionarCurso")

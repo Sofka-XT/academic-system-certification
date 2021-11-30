@@ -10,6 +10,7 @@ import java.util.Set;
 
 import static co.com.sofka.questions.hu06.createprogram.AssertToListQuestions.assertToListQuestions;
 import static co.com.sofka.questions.hu06.createprogram.ErrorMessageQuestions.errorMessageQuestions;
+import static co.com.sofka.questions.hu06.createprogram.ErrorMessageQuestionsTwo.errorMessageQuestionsTwo;
 import static co.com.sofka.questions.hu06.delete.AssertToDeleteQuestions.assertToDeleteQuestions;
 import static co.com.sofka.tasks.hu06.BrowseToList.browseToList;
 import static co.com.sofka.tasks.hu06.create.HU06CrudProgramaCrearTask.createProgram;
@@ -114,7 +115,7 @@ public class HU06CA001StepDefinition extends Setup {
     public void seDebeNotificarQueNoEsPosibleCrearElPrograma() {
 
         theActorInTheSpotlight().should(
-                seeThat(errorMessageQuestions()
+                seeThat(errorMessageQuestionsTwo()
                         .is(), equalTo(true)
                 )
         );
@@ -134,7 +135,7 @@ public class HU06CA001StepDefinition extends Setup {
     @Then("Se debe notificar que no es posible crear el programa sin el que suministre el nombre.")
     public void seDebeNotificarQueNoEsPosibleCrearElProgramaSinElQueSuministreElNombre() {
         theActorInTheSpotlight().should(
-                seeThat(errorMessageQuestions()
+                seeThat(errorMessageQuestionsTwo()
                         .is(), equalTo(true)
                 )
         );
