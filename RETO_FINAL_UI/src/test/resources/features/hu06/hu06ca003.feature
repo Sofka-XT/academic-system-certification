@@ -8,14 +8,14 @@ Feature: Historia de Usuario 06 CA003
 
   Background:
     Given que el coach se encuentra en la seccion de editar programa
-
-  Scenario: Verificacion de correcta edicion de nombre de programa
-    When el coah proceda a editar el nombre de un programa ya existente y pulse el boton de guardar
-    Then este cambio se debe guardar exitosamente en dicho programa
-
-  Scenario:  Verificacion de Error con falta de nombre de programa
-    When el coah proceda a editar el nombre de un programa y deje este campo vacio
-    Then debe saltar una alerta que haga saber al usuario el fallo cometido
+#
+#  Scenario: Verificacion de correcta edicion de nombre de programa
+#    When el coah proceda a editar el nombre de un programa ya existente y pulse el boton de guardar
+#    Then este cambio se debe guardar exitosamente en dicho programa
+#
+#  Scenario:  Verificacion de Error con falta de nombre de programa
+#    When el coah proceda a editar el nombre de un programa y deje este campo vacio
+#    Then debe saltar una alerta que haga saber al usuario el fallo cometido
 
   Scenario: Correcta asignacion de cursos
     When el coah proceda a asignar un curso en un programa especifico
