@@ -32,12 +32,13 @@ public class HU06CrudProgramaCrear extends PageObject {
     //(//button[@type='button'])[2]
 
     //Validate
+
     public static final Target MESSAGE_VALIDATION= Target
             .the("MensajeDeValidacion")
-            .located(id(" "));
+            .located(id("container_dashboard"));
 
     public static final Target MESSAGE_ERROR= Target
             .the("MensajeDeError")
-            .located(id(" "));
+            .located(id("swal2-title"));
 
 }

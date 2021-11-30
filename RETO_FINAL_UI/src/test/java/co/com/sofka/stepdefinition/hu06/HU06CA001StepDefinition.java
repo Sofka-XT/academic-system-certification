@@ -8,8 +8,14 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import java.util.Set;
 
+import static co.com.sofka.questions.hu06.createprogram.AssertToListQuestions.assertToListQuestions;
+import static co.com.sofka.questions.hu06.createprogram.ErrorMessageQuestions.errorMessageQuestions;
 import static co.com.sofka.questions.hu06.delete.AssertToDeleteQuestions.assertToDeleteQuestions;
 import static co.com.sofka.tasks.hu06.create.HU06CrudProgramaCrearTask.createProgram;
+import static co.com.sofka.tasks.hu06.create.HU06CrudProgramaCrearTaskNoCurses.createProgramWithoutCourses;
+import static co.com.sofka.tasks.hu06.create.HU06CrudProgramaCrearTaskNoCursesNoName.createProgramWithoutCoursesOrName;
+import static co.com.sofka.tasks.hu06.create.HU06CrudProgramaCrearTaskNoName.createProgramNoName;
+import static co.com.sofka.tasks.hu06.delete.BrowseToDelete.browseToDelete;
 import static co.com.sofka.tasks.hu06.delete.HU06CrudProgramaEliminarTask.eliminarPrograma;
 import static co.com.sofka.tasks.hu06.loginWithGoogle.FillGoogleAutenticationCoach.fillAutenticationForm;
 import static co.com.sofka.tasks.hu06.loginWithGoogle.LoginWithGoogle.loginWithGoogle;
@@ -63,14 +69,28 @@ public class HU06CA001StepDefinition extends Setup {
                         .usingNameProgram("Program Test")
                 );
 
+
     }
 
     @Then("Se creará exitosamente el programa y se debe notificar.")
     public void seCrearaExitosamenteElProgramaYSeDebeNotificar() {
 
+        theActorInTheSpotlight().should(
+                seeThat(assertToListQuestions()
+                        .is(), equalTo(true)
+                )
+        );
+
+
+        theActorInTheSpotlight().attemptsTo(
+                browseToDelete()
+        );
+
         theActorInTheSpotlight().attemptsTo(
                 eliminarPrograma()
         );
+
+
         theActorInTheSpotlight().should(
                 seeThat(assertToDeleteQuestions()
                         .is(), equalTo(false)
@@ -79,94 +99,61 @@ public class HU06CA001StepDefinition extends Setup {
 
 
 
-    /*
-
-        theActorInTheSpotlight().should(
-                seeThat(programCreationMessage()
-                        .is(), equalTo(true)
-                )
-                        .orComplainWith(
-                                ValidationTextDoNotMatch.class
-                        )
-        );
-     */
     }
 
     @When("El mentor no ingresa el nombre del programa y no selecciona ningún curso")
     public void elMentorNoIngresaElNombreDelProgramaYNoSeleccionaNingunCurso() {
-    /*
-
         theActorInTheSpotlight().attemptsTo(
-                createProgramWithoutCourses()
-                        .usingNameProgram("")
+                createProgramWithoutCoursesOrName()
         );
-
-
-     */
-
     }
 
     @Then("Se debe notificar que no es posible crear el programa.")
     public void seDebeNotificarQueNoEsPosibleCrearElPrograma() {
-    /*
 
         theActorInTheSpotlight().should(
-                seeThat(programErrorMessage()
+                seeThat(errorMessageQuestions()
                         .is(), equalTo(true)
                 )
-                        .orComplainWith(
-                                ValidationTextDoNotMatch.class
-                        )
         );
 
-     */
     }
 
     @When("El mentor no ingresa el nombre del programa y selecciona un curso")
     public void elMentorNoIngresaElNombreDelProgramaYSeleccionaUnCurso() {
-        /*
-        theActorInTheSpotlight().attemptsTo(
-                createProgramNoName()
-        );
 
-         */
+
+                theActorInTheSpotlight().attemptsTo(
+                        createProgramNoName()
+                );
+
     }
 
     @Then("Se debe notificar que no es posible crear el programa sin el que suministre el nombre.")
     public void seDebeNotificarQueNoEsPosibleCrearElProgramaSinElQueSuministreElNombre() {
-        /*
         theActorInTheSpotlight().should(
-                seeThat(programErrorMessage()
+                seeThat(errorMessageQuestions()
                         .is(), equalTo(true)
                 )
-                        .orComplainWith(
-                                ValidationTextDoNotMatch.class
-                        )
         );
-
-         */
     }
 
     @When("El mentor ingresa el nombre del programa y no selecciona ningún curso")
     public void elMentorIngresaElNombreDelProgramaYNoSeleccionaNingunCurso() {
-        /*
+
+
         theActorInTheSpotlight().attemptsTo(
-                createProgramWithoutCoursesOrName()
+                createProgramWithoutCourses()
+                        .usingNameProgram("Program Test")
         );
 
-         */
     }
     @Then("Se debe notificar que no es posible crear el programa sin el asignar al menos un curso.")
     public void seDebeNotificarQueNoEsPosibleCrearElProgramaSinElAsignarAlMenosUnCurso() {
-        /*
         theActorInTheSpotlight().should(
-                seeThat(programErrorMessage()
+                seeThat(errorMessageQuestions()
                         .is(), equalTo(true)
                 )
-                        .orComplainWith(
-                                ValidationTextDoNotMatch.class
-                        )
         );
-        */
     }
 }
