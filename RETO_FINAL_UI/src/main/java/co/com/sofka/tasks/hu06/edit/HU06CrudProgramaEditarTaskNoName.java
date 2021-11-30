@@ -27,10 +27,12 @@ public class HU06CrudProgramaEditarTaskNoName implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
 
-                Scroll.to(DESPLEGAR_LISTA_CURSOS),
+                Click.on(BTN_EDITAR_PROGRAMA),
+
+                //Scroll.to(DESPLEGAR_LISTA_CURSOS),
                 Click.on(DESPLEGAR_LISTA_CURSOS),
 
-                Scroll.to(SELECTION_A_CURSE),
+                //Scroll.to(SELECTION_A_CURSE),
                 Click.on(SELECTION_A_CURSE),
 
                 Scroll.to(AGREGAR_A_CURSO),
@@ -39,11 +41,12 @@ public class HU06CrudProgramaEditarTaskNoName implements Task {
                 Scroll.to(DURACION_CATEGORIA1_CUrSO),
                 Enter.theValue(this.duracionCurso1).into(DURACION_CATEGORIA1_CUrSO),
 
-                Scroll.to(DURACION_CATEGORIA2_CUrSO),
-                Enter.theValue(this.duracionCurso2).into(DURACION_CATEGORIA2_CUrSO),
-
                 Scroll.to(SUBMIT),
-                Click.on(SUBMIT)
+                Click.on(SUBMIT),
+
+                //Scroll.to(CONFIRMAR_EDICION),
+                Click.on(CONFIRMAR_EDICION)
+
                 );
     }
 

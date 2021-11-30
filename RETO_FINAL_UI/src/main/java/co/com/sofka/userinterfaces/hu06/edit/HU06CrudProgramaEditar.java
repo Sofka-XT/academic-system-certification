@@ -7,6 +7,7 @@ import static org.openqa.selenium.By.*;
 
 public class HU06CrudProgramaEditar extends PageObject {
 
+
     public static final Target BTN_EDITAR_PROGRAMA = Target
             .the("btnEditarPrograma")
             .located(xpath("//div[@class=\"card-body\"]//*[text()=\"Program Test\"]//following-sibling::div/a/button"));
@@ -15,6 +16,9 @@ public class HU06CrudProgramaEditar extends PageObject {
             .the("editarNombrePrograma")
             .located(xpath("//*[@class=\"program-inputs-name\"]"));
 
+    public static final Target NUMERO_DE_DIAS = Target
+            .the("numeroDias")
+            .located(xpath("//*[@class=\"totaldays-name-num\"]"));
 
     public static final Target DESPLEGAR_LISTA_CURSOS = Target
             .the("desplegarListaCursos")
@@ -30,15 +34,11 @@ public class HU06CrudProgramaEditar extends PageObject {
 
     public static final Target DURACION_CATEGORIA1_CUrSO = Target
             .the("duracionCategoria1Curso")
-            .located(xpath("  "));
-
-    public static final Target DURACION_CATEGORIA2_CUrSO = Target
-            .the("duracionCategoria2Curso")
-            .located(xpath("  "));
+            .located(xpath("//*[@id=\"container_dashboard\"]/div/form/div/div[2]/div/div/div[2]/div/div[2]/ul/div[1]/div/input"));
 
     public static final Target SUBMIT = Target
             .the("submit")
-            .located(xpath("//*[text()=\"Enviar\"]"));
+            .located(xpath("//*[@id=\"container_dashboard\"]/div/form/button"));
 
     public static final Target CONFIRMAR_EDICION = Target
             .the("confirmarEdicion")
@@ -58,11 +58,16 @@ public class HU06CrudProgramaEditar extends PageObject {
             .the("eliminarUnPrograma")
             .located(xpath("//div[@class=\"card-body\"]//*[text()=\"Program Test\"]//following-sibling::div/button"));
 
+    public static final Target ELIMINAR_UN_PROGRAMA2= Target
+            .the("eliminarUnPrograma2")
+            .located(xpath("//div[@class=\"card-body\"]//*[text()=\"Program Testt\"]//following-sibling::div/button"));
+
     //editar xpath para volverlo variables con el nombre
 
     public static final Target CONFIRMAR_CAMBIOS= Target
             .the("ConfirmarCambios")
             .located(xpath("//*[@class=\"swal2-confirm swal2-styled\"]"));
+
 
 
     public static final Target EXISTE_PROGRAMA= Target
@@ -72,7 +77,6 @@ public class HU06CrudProgramaEditar extends PageObject {
     public static final Target NUEVO_NOMBRE_PROGRAMA= Target
             .the("ExisteElPrpgrama")
             .located(xpath("//*[text()=\"Program Testt\"]"));
-
 
 
 

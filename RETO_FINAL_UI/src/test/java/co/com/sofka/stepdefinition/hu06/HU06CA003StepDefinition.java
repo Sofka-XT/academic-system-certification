@@ -11,15 +11,21 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import java.util.Set;
 
+import static co.com.sofka.questions.hu06.createprogram.ErrorMessageQuestions.errorMessageQuestions;
 import static co.com.sofka.questions.hu06.delete.AssertToDeleteQuestions.assertToDeleteQuestions;
 import static co.com.sofka.questions.hu06.editarPrograma.AssertToEditNameQuestion.assertToEditNameQuestion;
 import static co.com.sofka.tasks.hu06.BrowseToList.browseToList;
 import static co.com.sofka.tasks.hu06.create.BrowseToCreate.browseToCreate;
+import static co.com.sofka.tasks.hu06.create.HU06CrudProgramaCrearTask.createProgram;
+import static co.com.sofka.tasks.hu06.delete.HU06CrudProgramaEliminarTask.eliminarPrograma;
+import static co.com.sofka.tasks.hu06.delete.HU06CrudProgramaEliminarTask2.eliminarPrograma2;
 import static co.com.sofka.tasks.hu06.edit.BrowseToEdit.browseToEdit;
 
 import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarSolonombre.editarSolonombre;
+import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarSolonombreError.editarSolonombreError;
 import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarTaskEliminar.eliminarCurso;
 import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarTaskNoName.editarProgramaAgregandoCursos;
+import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaOk.ok;
 import static co.com.sofka.tasks.hu06.loginWithGoogle.FillGoogleAutenticationCoach.fillAutenticationForm;
 import static co.com.sofka.tasks.hu06.loginWithGoogle.LoginWithGoogle.loginWithGoogle;
 import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
@@ -61,8 +67,19 @@ public class HU06CA003StepDefinition extends Setup {
         WaitUntil.the(ROLE_COACH, isVisible()).forNoMoreThan(10).seconds();
 
         theActorInTheSpotlight().attemptsTo(
+                browseToCreate()
+        );
+
+        theActorInTheSpotlight().attemptsTo(
+                createProgram()
+                        .usingNameProgram("Program Test")
+        );
+
+        theActorInTheSpotlight().attemptsTo(
                 browseToList()
         );
+
+
     }
 
     @When("el coah proceda a editar el nombre de un programa ya existente y pulse el boton de guardar")
@@ -81,18 +98,35 @@ public class HU06CA003StepDefinition extends Setup {
                                 .is(),equalTo(true)
                 )
         );
+
+        theActorInTheSpotlight().attemptsTo(
+                eliminarPrograma2()
+        );
+
     }
 
     @When("el coah proceda a editar el nombre de un programa y deje este campo vacio")
     public void elCoahProcedaAEditarElNombreDeUnProgramaYDejeEsteCampoVacio() {
         theActorInTheSpotlight().attemptsTo(
-                editarSolonombre()
+                editarSolonombreError()
                         .setNombrePrograma("")
         );
     }
 
     @Then("debe saltar una alerta que haga saber al usuario el fallo cometido")
     public void debe_saltar_una_alerta_que_haga_saber_al_usuario_el_fallo_cometido() {
+        theActorInTheSpotlight().should(
+                seeThat(
+                        errorMessageQuestions()
+                                .is(),equalTo(true)
+                )
+        );
+
+        theActorInTheSpotlight().attemptsTo(
+                ok(),
+                browseToList(),
+                eliminarPrograma()
+        );
 
     }
 
@@ -100,21 +134,38 @@ public class HU06CA003StepDefinition extends Setup {
     public void el_coah_proceda_a_asignar_un_curso_en_un_programa_especifico() {
         theActorInTheSpotlight().attemptsTo(
             editarProgramaAgregandoCursos()
-                    .usingDuracionCurso1("1")
-                    .usingDurationCurso2("2")
+                    .usingDuracionCurso1("2")
         );
     }
 
     @Then("el curso asignado en dicho programa debe guardarse correctamente y en el orden estipilado de agregacion")
     public void el_curso_asignado_en_dicho_programa_debe_guardarse_correctamente_y_en_el_orden_estipilado_de_agregacion() {
 
+//        theActorInTheSpotlight().should(
+//                seeThat(
+//                        errorMessageQuestions()
+//                                .is(),equalTo(true)
+//                )
+//        );
+//        theActorInTheSpotlight().attemptsTo(
+//                browseToList(),
+//                eliminarPrograma()
+//        );
     }
 
     @When("el coah proceda a eliminar un curso en un programa especifico")
     public void el_coah_proceda_a_eliminar_un_curso_en_un_programa_especifico() {
+
         theActorInTheSpotlight().attemptsTo(
-            eliminarCurso()
+                editarProgramaAgregandoCursos()
+                        .usingDuracionCurso1("2")
         );
+
+        theActorInTheSpotlight().attemptsTo(
+                eliminarCurso()
+        );
+
+
     }
 
     @Then("el curso eliminado de dicho programa debe retirarse  correctamente y en el orden estipilado se debe conservar")
