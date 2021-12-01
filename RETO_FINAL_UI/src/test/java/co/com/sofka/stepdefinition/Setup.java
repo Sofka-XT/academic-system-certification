@@ -39,8 +39,13 @@ public class Setup {
         setupUser(actorName, driver);
     }
 
+ 
     protected void setUpLog4j2() {
         PropertyConfigurator.configure(
                 USER_DIR + LOG4J_PROPERTIES_FILE_PATH.getValue());
+
+    protected WebDriver getDriver(){
+        return driver;
+
     }
 }
