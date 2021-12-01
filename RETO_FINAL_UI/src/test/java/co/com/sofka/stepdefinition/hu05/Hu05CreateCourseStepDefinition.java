@@ -4,20 +4,15 @@ import co.com.sofka.stepdefinition.Setup;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import java.util.Set;
 
-import static co.com.sofka.tasks.hu05.BrowserToCourse.browserToCurso;
+import static co.com.sofka.tasks.hu01.loginWithGoogle.FillGoogleAutenticationCoach.fillAutenticationForm;
+import static co.com.sofka.tasks.hu01.loginWithGoogle.LoginWithGoogle.loginWithGoogle;
 import static co.com.sofka.tasks.hu05.FillCourseForm.fillCourseForm;
 import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
-import static co.com.sofka.tasks.loginWithGoogle.DoLogoutAsCoach.doLogoutAsCoach;
-import static co.com.sofka.tasks.loginWithGoogle.FillGoogleAutenticationForm.fillAutenticationForm;
-import static co.com.sofka.tasks.loginWithGoogle.LoginWithGoogle.loginWithGoogle;
-import static co.com.sofka.userinterfaces.hu01.DashBoardPage.LOGOUTCOUCH;
 import static co.com.sofka.util.hu005.User.COACH;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 
 public class Hu05CreateCourseStepDefinition extends Setup {

@@ -12,11 +12,12 @@ public class LoginPage extends PageObject {
 
     public static final Target EMAIL_GOOGLE = Target
             .the("emailGoogle")
-            .located(xpath("//input[@id='identifierId']"));
+
+            .located(id("identifierId"));
+
     public static final Target NEXT_EMAIL_BUTTON = Target
             .the("nextButton")
             .located(xpath("//*[@id=\"identifierNext\"]/div/button/span"));
-
 
     public static final Target PASSWORD = Target
             .the("password")

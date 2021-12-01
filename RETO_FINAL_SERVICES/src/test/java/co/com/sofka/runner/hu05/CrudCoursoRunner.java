@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty","html:target/cucumber-report/cucumber.html"},
         features = {"src/test/resources/features/hu05"},
         glue = {"co.com.sofka.stepdefinition.hu05"},
+
         tags = "not @ignore"
 )
 public class CrudCoursoRunner {
