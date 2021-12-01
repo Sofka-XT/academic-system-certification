@@ -18,7 +18,7 @@ public class ListarTrainingPage extends PageObject {
 
     public static final Target TARGET_TRAINING = Target
             .the("tarjeta Training Activo")
-            .located(xpath("//*[contains(h6,'Dev 2021')]"));
+            .located(xpath("//*[contains(@href,'61a1346bfb95976275096464')]"));
 
     public static final Target OPCION_MENU_COACH = Target
             .the("opcion menu listarTraining para coach")

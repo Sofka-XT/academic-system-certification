@@ -4,7 +4,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Scroll;
-import static co.com.sofka.userinterfaces.landingpage.LoginPage.LOGIN_BUTTON;
+import static co.com.sofka.userinterfaces.hu02.LoginPage.LOGIN_BUTTON;
 
 public class Login implements Task {
 

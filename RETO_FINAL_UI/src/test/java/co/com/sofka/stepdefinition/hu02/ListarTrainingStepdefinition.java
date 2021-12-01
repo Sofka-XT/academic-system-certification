@@ -1,6 +1,6 @@
 package co.com.sofka.stepdefinition.hu02;
 
-import co.com.sofka.exceptions.ValidationTextDoNotMatch;
+import co.com.sofka.exceptions.hu02.ValidationTextDoNotMatch;
 import co.com.sofka.stepdefinition.Setup;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,7 +8,7 @@ import io.cucumber.java.en.When;
 
 import java.util.Set;
 
-import static co.com.sofka.exceptions.ValidationTextDoNotMatch.VALIDATION_DO_NOT_MATCH;
+import static co.com.sofka.exceptions.hu02.ValidationTextDoNotMatch.VALIDATION_DO_NOT_MATCH;
 import static co.com.sofka.questions.hu02.ListarTrainingActivoQuestions.listarTrainingActivoQuestions;
 import static co.com.sofka.questions.hu02.ListarTrainingQuestions.listarTrainingQuestions;
 import static co.com.sofka.tasks.hu02.BrowseToListarTraining.browseToListarTraining;
@@ -34,6 +34,7 @@ public class ListarTrainingStepdefinition extends Setup {
     protected static final String ASSERTION_TRAINING_NAME = "Training Activos";
     protected static final String MESSAGE_ERROR_LISTAR_TRAINING = "No se listan los Training Activos";
     protected static final String MESSAGE_ERROR = "No se muestran los datos del Training Activo buscado";
+    protected static String originalWindow;
 
 
     @Given("que el aprendiz se encuentra logueado y en la pagina principal")

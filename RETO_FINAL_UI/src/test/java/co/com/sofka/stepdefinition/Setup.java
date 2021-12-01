@@ -16,7 +16,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Setup {
 
     protected static final String USER_DIR = System.getProperty("user.dir");
-    protected static String originalWindow;
 
     @Managed()
     protected static WebDriver driver;

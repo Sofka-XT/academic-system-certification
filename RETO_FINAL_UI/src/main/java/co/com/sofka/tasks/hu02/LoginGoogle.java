@@ -7,7 +7,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static co.com.sofka.userinterfaces.landingpage.LoginPage.*;
+import static co.com.sofka.userinterfaces.hu02.LoginPage.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class LoginGoogle implements Task {

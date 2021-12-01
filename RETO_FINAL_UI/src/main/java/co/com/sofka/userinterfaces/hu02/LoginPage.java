@@ -1,4 +1,4 @@
-package co.com.sofka.userinterfaces.landingpage;
+package co.com.sofka.userinterfaces.hu02;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
