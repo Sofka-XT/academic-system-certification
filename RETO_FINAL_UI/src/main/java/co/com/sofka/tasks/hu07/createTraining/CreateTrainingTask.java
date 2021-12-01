@@ -3,14 +3,10 @@ package co.com.sofka.tasks.hu07.createTraining;
 import co.com.sofka.SetUp;
 import lombok.SneakyThrows;
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
-import net.serenitybdd.screenplay.rest.questions.LastResponse;
 import net.serenitybdd.screenplay.targets.Target;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-import org.openqa.selenium.WebElement;
-import org.sikuli.hotkey.Keys;
 
 
 import java.awt.*;
@@ -20,6 +16,7 @@ import java.nio.file.Paths;
 import static co.com.sofka.userinterfaces.hu07.CreateTrainingPage.*;
 import static co.com.sofka.userinterfaces.hu07.HomePage.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static org.openqa.selenium.By.xpath;
 
 public class CreateTrainingTask extends SetUp implements Task {
 
@@ -29,7 +26,12 @@ public class CreateTrainingTask extends SetUp implements Task {
     private String path = System.getProperty("user.dir")+"\\src\\test\\resources\\File\\aprendices.csv";
     private static String path_image ="\\src\\test\\resources\\File\\img_1.PNG";
 
+    Target TRAINING_BUSQUEDA;
+    String training_busqueda_ini= "//*[@id=\"container_dashboard\"]/div/div/div[";
+    String training_busqueda_final= "]/div\n";
+
     Path p1 = Paths.get(path);
+    int contador =1;
 
 
     public CreateTrainingTask setValueSelectCoach(String valueSelectCoach) {
@@ -74,12 +76,36 @@ public class CreateTrainingTask extends SetUp implements Task {
                 WaitUntil.the(SUBMIT_TRAINING, isVisible()).forNoMoreThan(10).seconds(),
                 Scroll.to(SUBMIT_TRAINING),
                 SendKeys.of("\ue054").into(CREAR_TRAINING),
-                Click.on(SUBMIT_TRAINING)
-        );
+                Click.on(SUBMIT_TRAINING),
+
+                WaitUntil.the(TRAININGS_ACTIVOS, isVisible()).forNoMoreThan(10).seconds(),
+                Click.on(TRAININGS_ACTIVOS)
+
+                );
+        actualizarXpath(1);
+        while (TRAINING_BUSQUEDA.resolveFor(actor).isDisplayed())
+        {
+            System.err.println(TRAINING_BUSQUEDA.resolveFor(actor).getText().toString());
+            System.err.println(contador);
+            contador++;
+            actualizarXpath(contador);
+        }
     }
+
 
     public static CreateTrainingTask createTrainingTask(){
         return new CreateTrainingTask();
     }
 
+
+    public void actualizarXpath(int valor)
+    {
+        String training;
+
+
+        training=training_busqueda_ini+valor+training_busqueda_final;
+
+        TRAINING_BUSQUEDA=Target.the("search_training")
+                .located(xpath(training));
+    }
 }

@@ -9,6 +9,9 @@ import org.openqa.selenium.support.FindBy;
 import static org.openqa.selenium.By.*;
 
 public class CreateTrainingPage extends PageObject {
+
+
+
     public static final Target NAME_TRAINING = Target.the("Nombre del training")
             .located(xpath("//input[@id='form-name']"));
 
@@ -29,4 +32,7 @@ public class CreateTrainingPage extends PageObject {
 
     public static final Target BTN_LOGOUT = Target.the("logout")
             .located(xpath("//*[@id=\"logout-link\"]/img\n"));
+
+
+
 }

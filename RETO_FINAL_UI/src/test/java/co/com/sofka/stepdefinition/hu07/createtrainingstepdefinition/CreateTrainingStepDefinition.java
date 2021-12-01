@@ -4,6 +4,8 @@ import co.com.sofka.stepdefinition.SetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.ClickOnBy;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import java.util.Set;
@@ -23,7 +25,6 @@ public class CreateTrainingStepDefinition extends SetUp {
     private static final String VALUE_COACH = "1";
     private static final String FECHA_INICIO_TRAINING = "12/02/2022";
 
-
     @Given("que el coach se encuentra logueado")
     public void queElCoachSeEncuentraLogueado() {
         actorSetupTheBrowser("Coach");
@@ -37,11 +38,7 @@ public class CreateTrainingStepDefinition extends SetUp {
     public void elCoahQuiereCrearUnNuevoTraining() throws InterruptedException {
         theActorInTheSpotlight().attemptsTo(
                 createTrainingTask().setNameTraining(NAME_PROGRAM)
-                //createTrainingTask().setValueSelectCoach(VALUE_COACH)
-                //createTrainingTask().setDateStart(FECHA_INICIO_TRAINING)
         );
-
-        //aquí tarea de llenar el formulario de training
     }
 
     @Then("el sistema deberia crear el training de manera correcta")
