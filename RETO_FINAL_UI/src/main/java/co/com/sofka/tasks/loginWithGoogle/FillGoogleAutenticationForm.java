@@ -14,7 +14,8 @@ public class FillGoogleAutenticationForm implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(EMAIL_GOOGLE, isVisible()).forNoMoreThan(10).seconds(),
+
+                WaitUntil.the(EMAIL_GOOGLE, isVisible()).forNoMoreThan(15).seconds(),
                 Click.on(EMAIL_GOOGLE),
                 Enter.theValue("pruebasAutomatizacionQA@gmail.com").into(EMAIL_GOOGLE),
                 Click.on(NEXT_EMAIL_BUTTON),

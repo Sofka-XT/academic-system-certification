@@ -30,9 +30,6 @@ public class Hu05CreateCourseStepDefinition extends Setup {
                 openLandingPage()
         );
 
-        theActorInTheSpotlight().attemptsTo(
-                browserToCurso()
-        );
 
         theActorInTheSpotlight().attemptsTo(
                 loginWithGoogle()
@@ -45,6 +42,8 @@ public class Hu05CreateCourseStepDefinition extends Setup {
                 break;
             }
         }
+
+
         theActorInTheSpotlight().attemptsTo(
                 fillAutenticationForm()
 
