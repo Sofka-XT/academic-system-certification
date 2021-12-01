@@ -2,10 +2,11 @@ package co.com.sofka.util.hu05;
 
 public enum Resources {
 
-    RESOURCE_CREATE("/course/create"),
-    RESOURCE_DELETE( "course/delete/{id}"),
-    RESOURCE_GETALL("/course/getAll"),
-    RESOURCE_UPDATE( "/course/update");
+    DELETE_COURSE("course/delete/"),
+    CREATE_COURSE("course/create"),
+    GET_ALL_COURSE("course/getAll"),
+    UPDATE_COURSE("course/update"),
+    GET_BY_ID("course/getById/");
 
     private final String value;
 
