@@ -12,6 +12,7 @@ public class LoginPage extends PageObject {
 
     public static final Target EMAIL_GOOGLE = Target
             .the("emailGoogle")
+
             .located(id("identifierId"));
 
     public static final Target NEXT_EMAIL_BUTTON = Target

@@ -1,6 +1,5 @@
 package co.com.sofka.stepdefinition.hu06;
 
-import co.com.sofka.exceptions.ValidationTextDoNotMatch;
 import co.com.sofka.stepdefinition.Setup;
 import co.com.sofka.tasks.hu06.BrowseToList;
 import io.cucumber.java.en.Given;
@@ -11,8 +10,6 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import java.util.Set;
 
 import static co.com.sofka.questions.hu06.createprogram.AssertToListQuestions.assertToListQuestions;
-import static co.com.sofka.questions.hu06.createprogram.ListHome.listHome;
-import static co.com.sofka.tasks.hu06.list.BrowseToList.browseToList;
 import static co.com.sofka.tasks.hu06.loginWithGoogle.FillGoogleAutenticationCoach.fillAutenticationForm;
 import static co.com.sofka.tasks.hu06.loginWithGoogle.LoginWithGoogle.loginWithGoogle;
 import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;

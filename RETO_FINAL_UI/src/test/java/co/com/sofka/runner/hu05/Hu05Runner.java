@@ -1,4 +1,4 @@
-package co.com.sofka.runner.hu01;
+package co.com.sofka.runner.hu05;
 
 import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
@@ -7,9 +7,10 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        features = {"src/test/resources/features/hu01"},
-        glue = {"co.com.sofka.stepdefinition.hu01"},
-        tags = "not @ignore"
+        features = {"src/test/resources/features/hu05"},
+        glue = {"co.com.sofka.stepdefinition.hu05"}
+
 )
-public class HU01Runner {
+public class Hu05Runner {
+
 }

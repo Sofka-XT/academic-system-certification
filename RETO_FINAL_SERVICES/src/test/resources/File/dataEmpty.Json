@@ -1,0 +1,38 @@
+{
+  "id": "61a5735c8a788a30add87dde",
+  "name": "",
+  "categories": [
+    {
+      "name": "",
+      "rules": [
+        {
+          "type": "",
+          "condition": "",
+          "average": "",
+          "feedback": {
+            "name": "",
+            "uri": ""
+          }
+        },
+        {
+          "type": "",
+          "condition": "",
+          "average": "",
+          "feedback": {
+            "name": "",
+            "uri": ""
+          }
+        },
+        {
+          "type": "",
+          "condition": "",
+          "average": "",
+          "feedback": {
+            "name": "",
+            "uri": ""
+          }
+        }
+      ]
+    }
+  ]
+}
