@@ -1,5 +1,5 @@
 package co.com.sofka.stepdefinition.hu06;
-import co.com.sofka.stepdefinition.SetUp;
+import co.com.sofka.stepdefinition.Setup;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -22,7 +22,7 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static org.hamcrest.CoreMatchers.equalTo;
 
-public class HU06CA002StepDefinition extends SetUp {
+public class HU06CA002StepDefinition extends Setup {
     private static final String ACTOR_NAME = "Coach";
 
     @Given("que el coach se encuentra en la seccion de eliminar programa")

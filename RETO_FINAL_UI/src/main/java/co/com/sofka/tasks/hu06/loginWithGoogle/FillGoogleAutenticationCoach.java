@@ -11,7 +11,6 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisi
 
 public class FillGoogleAutenticationCoach implements Task {
 
-
     public FillGoogleAutenticationCoach is()
     {
         return this;
@@ -20,8 +19,7 @@ public class FillGoogleAutenticationCoach implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-
-                WaitUntil.the(EMAIL_GOOGLE, isVisible()).forNoMoreThan(15).seconds(),
+                WaitUntil.the(EMAIL_GOOGLE, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(EMAIL_GOOGLE),
                 Enter.theValue("pruebasAutomatizacionQA@gmail.com").into(EMAIL_GOOGLE),
                 Click.on(NEXT_EMAIL_BUTTON),
@@ -30,7 +28,6 @@ public class FillGoogleAutenticationCoach implements Task {
                 Enter.theValue("Admin123!").into(PASSWORD),
                 WaitUntil.the(NEXT_PASSWORD_BUTTON, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(NEXT_PASSWORD_BUTTON)
-
         );
     }
 
