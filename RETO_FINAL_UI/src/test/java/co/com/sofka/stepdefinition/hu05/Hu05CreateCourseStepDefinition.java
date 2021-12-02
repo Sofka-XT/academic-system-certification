@@ -1,6 +1,6 @@
 package co.com.sofka.stepdefinition.hu05;
 
-import co.com.sofka.stepdefinition.Setup;
+import co.com.sofka.stepdefinition.SetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,7 +15,7 @@ import static co.com.sofka.util.hu005.User.COACH;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 
-public class Hu05CreateCourseStepDefinition extends Setup {
+public class Hu05CreateCourseStepDefinition extends SetUp {
     private static final String ACTOR = COACH.getValue();
 
     @Given("doy click sobre la opcion Crear curso")

@@ -1,6 +1,6 @@
 package co.com.sofka.stepdefinition.hu03;
 
-import co.com.sofka.stepdefinition.Setup;
+import co.com.sofka.stepdefinition.SetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,7 +14,7 @@ import static co.com.sofka.tasks.hu03.DoApprenticeList.doApprenticeList;
 import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
-public class ListarEstudianteTrainingActivo extends Setup {
+public class ListarEstudianteTrainingActivo extends SetUp {
 
     private static final String ACTOR_NAME = "User";
     String currentWindow = "";

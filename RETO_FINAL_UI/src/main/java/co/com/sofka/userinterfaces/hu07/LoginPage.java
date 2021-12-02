@@ -1,4 +1,4 @@
-package co.com.sofka.userinterfaces.hu01;
+package co.com.sofka.userinterfaces.hu07;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
@@ -12,15 +12,16 @@ public class LoginPage extends PageObject {
 
     public static final Target EMAIL_GOOGLE = Target
             .the("emailGoogle")
-            .located(id("identifierId"));
+            .located(xpath("//input[@id='identifierId']"));
 
     public static final Target NEXT_EMAIL_BUTTON = Target
             .the("nextButton")
             .located(xpath("//*[@id=\"identifierNext\"]/div/button/span"));
 
+
     public static final Target PASSWORD = Target
             .the("password")
-            .located(xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input"));
+            .located(name("password"));
 
     public static final Target NEXT_PASSWORD_BUTTON = Target
             .the("nextPasswordButton")
