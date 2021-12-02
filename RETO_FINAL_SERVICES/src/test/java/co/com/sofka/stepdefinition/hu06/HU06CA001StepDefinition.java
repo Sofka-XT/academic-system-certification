@@ -31,8 +31,8 @@ public class HU06CA001StepDefinition extends Hu06 {
 
     @When("El coach envía la solicitud con el nombre “Prueba programa” y un curso asociado “Fullstack” con una categoría asociada")
     public void elCoachEnviaLaSolicitudConElNombrePruebaProgramaYUnCursoAsociadoFullstackConUnaCategoriaAsociada() {
-        modelo.setIdPrograma("testpruebaNoTomar");
-        modelo.setNombrePrograma("testprueba");
+        modelo.setIdPrograma("yyyy");
+        modelo.setNombrePrograma("yyyy");
         modelo.setIdCurso("test1");
         modelo.setNombreCurso("test1");
         modelo.setIdCategoria("test1");
@@ -62,6 +62,7 @@ public class HU06CA001StepDefinition extends Hu06 {
         actor.should(
                 seeThat("el titulo debe coincidir",act ->programaRecibido.getName(),equalTo(modelo.getNombrePrograma()))
         );
+
         actor.attemptsTo(
                 deleteProgram()
                         .usingIdProgramaDelete(modelo.getIdPrograma())
