@@ -1,6 +1,6 @@
 package co.com.sofka.stepdefinition.hu06;
 
-import co.com.sofka.stepdefinition.Setup;
+import co.com.sofka.stepdefinition.SetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -30,7 +30,7 @@ import static  co.com.sofka.tasks.hu06.create.BrowseToCreate.browseToCreate;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static org.hamcrest.CoreMatchers.equalTo;
 
-public class HU06CA001StepDefinition extends Setup {
+public class HU06CA001StepDefinition extends SetUp {
 
     private static final String ACTOR_NAME = "QA";
 
