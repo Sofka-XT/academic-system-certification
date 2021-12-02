@@ -42,7 +42,6 @@ public class HU12CA001StepDefinition extends Hu06 {
                                 modelo.getFullJson()
                         )
         );
-        System.out.println(modelo.getFullJson());
     }
 
 
@@ -52,7 +51,6 @@ public class HU12CA001StepDefinition extends Hu06 {
         perfil.setNameProfile("Testprueba"+Math.round(Math.random()*100));
         perfil.setNumberProfile("66666666");
         perfil.setEmailProfile("David@gmail.com");
-        System.out.println(perfil.getFullJson());
         actor.attemptsTo(
                 postTrainingForProfile()
                         .usingUpdateInfo(
@@ -64,7 +62,6 @@ public class HU12CA001StepDefinition extends Hu06 {
 
     @Then("se deben crear exitosamente los perfiles de los aprendices")
     public void seDebenCrearExitosamenteLosPerfilesDeLosAprendices() {
-        System.out.println(perfil.getEmailProfile());
         actor.attemptsTo(
                 getOneProfile()
                         .usingIdProfile(perfil.getEmailProfile())

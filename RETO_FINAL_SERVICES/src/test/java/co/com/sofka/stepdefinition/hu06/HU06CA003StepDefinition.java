@@ -11,7 +11,6 @@ import co.com.sofka.setup.services.hu06.Hu06;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.hamcrest.Matcher;
 
 import static co.com.sofka.tasks.hu06.DeleteProgram.deleteProgram;
 import static co.com.sofka.tasks.hu06.GetOneProgram.getOneProgram;
