@@ -30,8 +30,8 @@ public class CreateTrainingPage extends PageObject {
     public static final Target SUBMIT_TRAINING = Target.the("Crear")
             .located(xpath("/html/body/div/div/div[2]/div/form/div[1]/button"));
 
-    public static final Target BTN_LOGOUT = Target.the("logout")
-            .located(xpath("//*[@id=\"logout-link\"]/img\n"));
+    public static final Target TRAINING_LIST_ACTIVE = Target.the("lista de los trainings")
+            .located(xpath("/html/body/div/div/div[2]/div/div"));
 
 
 

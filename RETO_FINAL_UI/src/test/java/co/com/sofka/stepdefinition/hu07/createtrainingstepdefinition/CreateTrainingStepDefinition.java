@@ -4,19 +4,20 @@ import co.com.sofka.stepdefinition.SetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.ClickOnBy;
+
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import java.util.Set;
 
-import static co.com.sofka.tasks.hu07.createTraining.CreateTrainingTask.createTrainingTask;
+import static co.com.sofka.tasks.hu07.createTraining.CreateTrainingTask.*;
 import static co.com.sofka.tasks.hu07.fillLoginGoogle.FillGoogleLoginFormTask.fillAutenticationForm;
 import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
 import static co.com.sofka.tasks.loginwithgoogle.LoginWithGoogle.loginWithGoogle;
 import static co.com.sofka.userinterfaces.hu07.HomePage.CREAR_TRAINING;
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 
 public class CreateTrainingStepDefinition extends SetUp {
@@ -43,7 +44,11 @@ public class CreateTrainingStepDefinition extends SetUp {
 
     @Then("el sistema deberia crear el training de manera correcta")
     public void elSistemaDeberiaCrearElTrainingDeManeraCorrecta() {
-
+        theActorInTheSpotlight().should(
+                seeThat(
+                        actor -> (String.valueOf(quantityBefore.length)) ,equalTo((String.valueOf((quantityAfter.length)-1)) )
+                )
+        );
     }
 
     public String fillLoginForm(){
