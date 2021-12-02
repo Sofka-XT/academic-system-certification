@@ -26,10 +26,10 @@
 -----------------------------------
 #### Fecha Noviembre 2021
 
-Este repositorio contienen la automatización al Proyecto Academic System.
+Este repositorio contiene la automatización de pruebas para el Proyecto Academic System.
 
 
-Esta solucion presenta la estrategia de pruebas y la impelemtación.
+Esta solucion presenta la estrategia de pruebas y la implementación.
 
 Los recursos a probar son:
 -------------------------
@@ -51,6 +51,7 @@ Los recursos a probar son:
 
 https://docs.google.com/document/d/1K9MwgIolQnTi3gp8TTrsmnEuyG0adkV2/edit?usp=sharing&ouid=113975053607794699933&rtpof=true&sd=true
 ----------------------------------------
+<<<<<<< HEAD
 
 - **Plan de pruebas HU07:**
 
@@ -59,3 +60,23 @@ https://docs.google.com/document/d/1jh5niYqKLfq8ZOk78NVh_bn78gpjJCUO/edit?usp=sh
 - **Plan de pruebas HU06:**
 
 https://docs.google.com/document/d/1sqQ5BO4Fqy3yDkalVCjXNMrtjHiA7Wof/edit?usp=sharing&ouid=110722096528972289154&rtpof=true&sd=true
+=======
+- **Plan de pruebas HU01:**
+https://docs.google.com/document/d/1y54aL207xd-dTo5vBnQW8VB_VObtgSpb/edit?usp=sharing&ouid=116493037795116622115&rtpof=true&sd=true
+
+- **Plan de pruebas HU02:**
+https://docs.google.com/document/d/10Uw2aenbdZe4vDGuDbLC11aLHH4dtDpbNkqAjt7C4O4/edit?usp=sharing
+
+- **Plan de pruebas HU04:**
+https://docs.google.com/document/d/1gFScS6ixCegKCmpntnWundBv0rZ4Wtq47MXUA4nqYfA/edit?usp=sharing
+
+- **Plan de pruebas HU06:**
+https://docs.google.com/document/d/1sqQ5BO4Fqy3yDkalVCjXNMrtjHiA7Wof/edit?usp=sharing&ouid=110722096528972289154&rtpof=true&sd=true
+
+- **Plan de pruebas HU07:**
+https://docs.google.com/document/d/1jh5niYqKLfq8ZOk78NVh_bn78gpjJCUO/edit?usp=sharing&ouid=113975053607794699933&rtpof=true&sd=true
+
+
+
+
+>>>>>>> HU005_crudCursos

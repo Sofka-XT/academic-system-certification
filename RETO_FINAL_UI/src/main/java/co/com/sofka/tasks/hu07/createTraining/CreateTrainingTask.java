@@ -1,37 +1,37 @@
 package co.com.sofka.tasks.hu07.createTraining;
 
-import co.com.sofka.SetUp;
 import lombok.SneakyThrows;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
-import net.serenitybdd.screenplay.targets.Target;
+
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 
-import java.awt.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static co.com.sofka.userinterfaces.hu07.CreateTrainingPage.*;
 import static co.com.sofka.userinterfaces.hu07.HomePage.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
-import static org.openqa.selenium.By.xpath;
+
 
 public class CreateTrainingTask extends SetUp implements Task {
+
+    private String trainingsBefore;
+    private String trainingAfter;
+    public static String[] quantityBefore;
+    public static String[] quantityAfter;
 
     private String dateStart;//Formato dd/mm/aaaa
     private String nameTraining;
     private String valueSelectCoach; // 1-Raul, 2-Pablo, 3-Oscar, 4-Luis, 5-Mario
     private String path = System.getProperty("user.dir")+"\\src\\test\\resources\\File\\aprendices.csv";
-    private static String path_image ="\\src\\test\\resources\\File\\img_1.PNG";
 
-    Target TRAINING_BUSQUEDA;
-    String training_busqueda_ini= "//*[@id=\"container_dashboard\"]/div/div/div[";
-    String training_busqueda_final= "]/div\n";
+
+
 
     Path p1 = Paths.get(path);
-    int contador =1;
 
 
     public CreateTrainingTask setValueSelectCoach(String valueSelectCoach) {
@@ -49,10 +49,23 @@ public class CreateTrainingTask extends SetUp implements Task {
         return this;
     }
 
+
     @SneakyThrows
     @Override
     public <T extends Actor> void performAs(T actor) {
-        Robot robot = new Robot();
+
+        actor.attemptsTo(
+                WaitUntil.the(TRAININGS_ACTIVOS, isVisible()).forNoMoreThan(10).seconds(),
+                Click.on(TRAININGS_ACTIVOS),
+                Scroll.to(TRAININGS_ACTIVOS)
+        );
+        Thread.sleep(2000);
+
+
+        trainingsBefore = TRAINING_LIST_ACTIVE.resolveFor(actor).getText().toString();
+        quantityBefore = trainingsBefore.split("Coaches:");
+        System.out.println((quantityBefore.length)-1);
+
 
         actor.attemptsTo(
                 WaitUntil.the(CREAR_TRAINING, isVisible()).forNoMoreThan(10).seconds(),
@@ -81,15 +94,15 @@ public class CreateTrainingTask extends SetUp implements Task {
                 WaitUntil.the(TRAININGS_ACTIVOS, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(TRAININGS_ACTIVOS)
 
+
                 );
-        actualizarXpath(1);
-        while (TRAINING_BUSQUEDA.resolveFor(actor).isPresent())
-        {
-            System.err.println(TRAINING_BUSQUEDA.resolveFor(actor).getText().toString());
-            System.err.println(contador);
-            contador++;
-            actualizarXpath(contador);
-        }
+
+        Thread.sleep(5000);
+
+        trainingAfter = TRAINING_LIST_ACTIVE.resolveFor(actor).getText().toString();
+        quantityAfter = trainingAfter.split("Coaches:");
+        System.out.println((quantityAfter.length)-1);
+
     }
 
 
@@ -98,14 +111,4 @@ public class CreateTrainingTask extends SetUp implements Task {
     }
 
 
-    public void actualizarXpath(int valor)
-    {
-        String training;
-
-
-        training=training_busqueda_ini+valor+training_busqueda_final;
-
-        TRAINING_BUSQUEDA=Target.the("search_training")
-                .located(xpath(training));
-    }
 }
