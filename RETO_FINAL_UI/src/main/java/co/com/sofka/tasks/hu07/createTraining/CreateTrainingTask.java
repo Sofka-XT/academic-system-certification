@@ -1,6 +1,5 @@
 package co.com.sofka.tasks.hu07.createTraining;
 
-import co.com.sofka.SetUp;
 import lombok.SneakyThrows;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
