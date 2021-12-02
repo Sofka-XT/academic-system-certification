@@ -8,6 +8,7 @@ import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -16,7 +17,7 @@ import static co.com.sofka.userinterfaces.hu07.HomePage.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 
-public class CreateTrainingTask extends SetUp implements Task {
+public class CreateTrainingTask implements Task {
 
     private String trainingsBefore;
     private String trainingAfter;
