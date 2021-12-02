@@ -1,6 +1,9 @@
 package co.com.sofka.stepdefinition.hu06;
 
-import co.com.sofka.stepdefinition.SetUp;
+import co.com.sofka.questions.hu06.editarPrograma.AssertToEditNameQuestion;
+import co.com.sofka.stepdefinition.Setup;
+import co.com.sofka.tasks.hu06.BrowseToList;
+import co.com.sofka.tasks.hu06.edit.BrowseToEdit;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,6 +12,8 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import java.util.Set;
 
 import static co.com.sofka.questions.hu06.createprogram.AssertToListQuestions.assertToListQuestions;
+import static co.com.sofka.questions.hu06.createprogram.ErrorMessageQuestions.errorMessageQuestions;
+import static co.com.sofka.questions.hu06.delete.AssertToDeleteQuestions.assertToDeleteQuestions;
 import static co.com.sofka.questions.hu06.editarPrograma.AssertToEditNameQuestion.assertToEditNameQuestion;
 import static co.com.sofka.questions.hu06.editarPrograma.AssertToEditNoNameQuestion.assertToEditNoNameQuestion;
 import static co.com.sofka.tasks.hu06.BrowseToList.browseToList;
@@ -16,10 +21,13 @@ import static co.com.sofka.tasks.hu06.create.BrowseToCreate.browseToCreate;
 import static co.com.sofka.tasks.hu06.create.HU06CrudProgramaCrearTask.createProgram;
 import static co.com.sofka.tasks.hu06.delete.HU06CrudProgramaEliminarTask.eliminarPrograma;
 import static co.com.sofka.tasks.hu06.delete.HU06CrudProgramaEliminarTask2.eliminarPrograma2;
+import static co.com.sofka.tasks.hu06.edit.BrowseToEdit.browseToEdit;
 
 import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarSolonombre.editarSolonombre;
 import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarSolonombreError.editarSolonombreError;
 import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarTask.editarProgramaCompleto;
+import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarTaskEliminar.eliminarCurso;
+import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaOk.ok;
 import static co.com.sofka.tasks.hu06.loginWithGoogle.FillGoogleAutenticationCoach.fillAutenticationForm;
 import static co.com.sofka.tasks.hu06.loginWithGoogle.LoginWithGoogle.loginWithGoogle;
 import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
@@ -29,7 +37,7 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static org.hamcrest.CoreMatchers.equalTo;
 
-public class HU06CA003StepDefinition extends SetUp {
+public class HU06CA003StepDefinition extends Setup {
 
     private static final String ACTOR_NAME = "Coach";
 

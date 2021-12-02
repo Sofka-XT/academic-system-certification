@@ -46,7 +46,7 @@ dependencies {
     implementation group: 'net.serenity-bdd', name: 'serenity-ensure',               version: serenityVersion
 
     implementation group: 'net.serenity-bdd', name: 'serenity-cucumber5',            version: serenityCucumberVersion
-    implementation 'com.sikulix:sikulixapi:2.0.5'
+
     implementation group: 'net.serenity-bdd', name: 'serenity-screenplay-rest', version: serenityVersion
 
 
@@ -61,7 +61,6 @@ dependencies {
     implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.0'
 
     implementation("io.github.bonigarcia:webdrivermanager:5.0.3")
-    implementation 'com.sikulix:sikulixapi:2.0.5'
 
 }
 

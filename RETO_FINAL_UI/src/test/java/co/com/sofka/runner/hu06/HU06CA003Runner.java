@@ -12,5 +12,4 @@ import org.junit.runner.RunWith;
 )
 
 public class HU06CA003Runner {
-
 }
