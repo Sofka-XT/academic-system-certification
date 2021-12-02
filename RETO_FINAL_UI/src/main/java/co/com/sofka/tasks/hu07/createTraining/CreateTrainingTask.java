@@ -83,7 +83,7 @@ public class CreateTrainingTask extends SetUp implements Task {
 
                 );
         actualizarXpath(1);
-        while (TRAINING_BUSQUEDA.resolveFor(actor).isDisplayed())
+        while (TRAINING_BUSQUEDA.resolveFor(actor).isPresent())
         {
             System.err.println(TRAINING_BUSQUEDA.resolveFor(actor).getText().toString());
             System.err.println(contador);
