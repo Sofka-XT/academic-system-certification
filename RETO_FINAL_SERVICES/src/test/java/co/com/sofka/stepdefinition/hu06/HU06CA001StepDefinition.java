@@ -31,7 +31,7 @@ public class HU06CA001StepDefinition extends Hu06 {
 
     @When("El coach envía la solicitud con el nombre “Prueba programa” y un curso asociado “Fullstack” con una categoría asociada")
     public void elCoachEnviaLaSolicitudConElNombrePruebaProgramaYUnCursoAsociadoFullstackConUnaCategoriaAsociada() {
-        modelo.setIdPrograma("testprueba");
+        modelo.setIdPrograma("testpruebaNoTomar");
         modelo.setNombrePrograma("testprueba");
         modelo.setIdCurso("test1");
         modelo.setNombreCurso("test1");
@@ -53,7 +53,7 @@ public class HU06CA001StepDefinition extends Hu06 {
         actor.should(
                 seeThat("el codigo de respuesta", ResponseCode.was(),equalTo(SC_OK))
         );
-
+/*
         actor.attemptsTo(
                 getOneProgram()
                         .usingIdPrograma(modelo.getIdPrograma())
@@ -66,7 +66,7 @@ public class HU06CA001StepDefinition extends Hu06 {
                 deleteProgram()
                         .usingIdProgramaDelete(modelo.getIdPrograma())
         );
-
+*/
     }
 
     @When("El coach proceda a crear un curso sin nombre")
