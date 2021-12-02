@@ -6,7 +6,7 @@ import co.com.sofka.setup.services.hu07.SetUpHu07;
 import co.com.sofka.tasks.hu07.CreateTrainingTask;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.rest.questions.LastResponse;
+
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
