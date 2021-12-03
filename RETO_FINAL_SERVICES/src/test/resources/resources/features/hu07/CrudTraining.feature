@@ -6,7 +6,14 @@ Feature: HU07
   Background:
     Given que tengo acceso a la aplicacion api
 
-@ignore
+  Scenario: crear un training nuevo
+    When quiero crear un training nuevo
+    Then deberia crear el training de manera correcta
+
+  Scenario: crear un training de manera incorrecta
+    When quiero crear un training con una fecha invalida
+    Then deberia ver un mensaje de error en la creacion
+
   Scenario: ver un training
     When quiero ver un training nuevo
     Then deberia ver el training de manera correcta
@@ -22,14 +29,6 @@ Feature: HU07
   Scenario: actualizar un training de manera incorrecta
     When quiero actualizar un training ingresando una fecha invalidad
     Then deberia aparecer un mensaje de error en la actualizacion
-
-  Scenario: crear un training nuevo
-    When quiero crear un training nuevo
-    Then deberia crear el training de manera correcta
-
-  Scenario: crear un training de manera incorrecta
-    When quiero crear un training con una fecha invalida
-    Then deberia ver un mensaje de error en la creacion
 
   Scenario: eliminar un training
     When quiero eliminar un training

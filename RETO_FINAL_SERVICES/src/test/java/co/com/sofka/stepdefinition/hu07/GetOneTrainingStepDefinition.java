@@ -24,20 +24,21 @@ public class GetOneTrainingStepDefinition extends SetUpHu07 {
     private String program;
     private String startingDate;
 
+    String traniginID;
+
 
     //Assertion
-    private final String ID_ASSERTION ="61a1346bfb95976275096464";
-    private final String TRAINING_NAME_ASSERTION ="Training Dev 2021";
-    private final String STARTING_DATE_ASSERTION ="2021-11-26";
+    private String ID_ASSERTION;
+    private String TRAINING_NAME_ASSERTION;
+    private final String STARTING_DATE_ASSERTION ="2021-12-21";
 
-
-    @Given("que tengo acceso a la aplicacion api")
-    public void que_tengo_acceso_a_la_aplicacion_api() {
-        setUp();
-    }
 
     @When("quiero ver un training nuevo")
     public void quiero_ver_un_training_nuevo() {
+        setUp();
+        ID_ASSERTION= CreateTrainingStepDefinition.trainingId;
+        TRAINING_NAME_ASSERTION= CreateTrainingStepDefinition.trainingName;
+
         actor.attemptsTo(
                 GetOneTrainingTask.fromPage("/"+ID_ASSERTION)
         );
@@ -56,6 +57,7 @@ public class GetOneTrainingStepDefinition extends SetUpHu07 {
 
     @When("solicito ver un training de forma incorrecta")
     public void solicitoVerUnTrainingDeFormaIncorrecta() {
+        setUp();
         actor.attemptsTo(
                 GetOneTrainingTask.fromPage("")
         );

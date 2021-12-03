@@ -4,6 +4,7 @@ import co.com.sofka.questions.hu07.GetOneTrainingQuestion;
 import co.com.sofka.questions.hu07.ResponseCode;
 import co.com.sofka.setup.services.hu07.SetUpHu07;
 import co.com.sofka.tasks.hu07.CreateTrainingTask;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -24,6 +25,13 @@ public class CreateTrainingStepDefinition extends SetUpHu07 {
     private final String FECHA_INCORRECTA="2021-30-21";
 
     static String trainingId;
+    static String trainingName;
+
+
+    @Given("que tengo acceso a la aplicacion api")
+    public void que_tengo_acceso_a_la_aplicacion_api() {
+        setUp();
+    }
 
     @When("quiero crear un training nuevo")
     public void quieroCrearUnTrainingNuevo() {
@@ -33,6 +41,8 @@ public class CreateTrainingStepDefinition extends SetUpHu07 {
         );
 
         trainingId = new GetOneTrainingQuestion().answeredBy(actor).getTrainingId().toString();
+        trainingName = new GetOneTrainingQuestion().answeredBy(actor).getName().toString();
+
     }
 
     @Then("deberia crear el training de manera correcta")
