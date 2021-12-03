@@ -12,10 +12,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import static co.com.sofka.util.Log4jValues.LOG4J_PROPERTIES_FILE_PATH;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 
-
-
-
-
 public class SetUp {
 
     protected static final String USER_DIR = System.getProperty("user.dir");
