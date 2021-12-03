@@ -8,15 +8,12 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import java.util.Set;
 
-import static co.com.sofka.questions.hu06.createprogram.AssertToListQuestions.assertToListQuestions;
 import static co.com.sofka.questions.hu06.editarPrograma.AssertToEditNameQuestion.assertToEditNameQuestion;
 import static co.com.sofka.questions.hu06.editarPrograma.AssertToEditNoNameQuestion.assertToEditNoNameQuestion;
 import static co.com.sofka.tasks.hu06.BrowseToList.browseToList;
 import static co.com.sofka.tasks.hu06.create.BrowseToCreate.browseToCreate;
 import static co.com.sofka.tasks.hu06.create.HU06CrudProgramaCrearTask.createProgram;
 import static co.com.sofka.tasks.hu06.delete.HU06CrudProgramaEliminarTask.eliminarPrograma;
-import static co.com.sofka.tasks.hu06.delete.HU06CrudProgramaEliminarTask2.eliminarPrograma2;
-
 import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarSolonombre.editarSolonombre;
 import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarSolonombreError.editarSolonombreError;
 import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarTask.editarProgramaCompleto;
@@ -80,12 +77,13 @@ public class HU06CA003StepDefinition extends SetUp {
     public void el_coah_proceda_a_editar_el_nombre_de_un_programa_ya_existente_y_pulse_el_boton_de_guardar() {
         theActorInTheSpotlight().attemptsTo(
                 editarSolonombre()
-                        .setNombrePrograma("Program Testt")
+                        .setNombrePrograma("Program Test")
         );
     }
 
     @Then("este cambio se debe guardar exitosamente en dicho programa")
     public void esteCambioSeDebeGuardarExitosamenteEnDichoPrograma() {
+
         theActorInTheSpotlight().should(
                 seeThat(
                         assertToEditNameQuestion()
@@ -94,9 +92,9 @@ public class HU06CA003StepDefinition extends SetUp {
         );
 
         theActorInTheSpotlight().attemptsTo(
-                eliminarPrograma2()
+                browseToList(),
+                eliminarPrograma()
         );
-
     }
 
     @When("el coah proceda a editar el nombre de un programa y deje este campo vacio")
@@ -127,19 +125,30 @@ public class HU06CA003StepDefinition extends SetUp {
     public void el_coah_proceda_a_asignar_un_curso_en_un_programa_especifico() {
         theActorInTheSpotlight().attemptsTo(
                 editarProgramaCompleto()
-                        .usingNombrePrograma("Program Testt")
+                        .usingNombrePrograma("Program Test")
                         .usingDuracionCurso1("2")
         );
     }
 
     @Then("el curso asignado en dicho programa debe guardarse correctamente y en el orden estipilado de agregacion")
     public void el_curso_asignado_en_dicho_programa_debe_guardarse_correctamente_y_en_el_orden_estipilado_de_agregacion() {
+        theActorInTheSpotlight().attemptsTo(
+                browseToList()
+                );
 
         theActorInTheSpotlight().should(
-                seeThat(assertToListQuestions()
-                        .is(), equalTo(true)
+                seeThat(
+                        assertToEditNameQuestion()
+                                .is(),equalTo(true)
                 )
         );
+
+
+        theActorInTheSpotlight().attemptsTo(
+                browseToList(),
+                eliminarPrograma()
+        );
+
     }
 
 

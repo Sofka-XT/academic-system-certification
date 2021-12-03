@@ -7,11 +7,10 @@ import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.annotations.Managed;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import static co.com.sofka.util.Log4jValues.LOG4J_PROPERTIES_FILE_PATH;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
-
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SetUp {
 
@@ -38,6 +37,7 @@ public class SetUp {
         setupBrowser(driver);
         setupUser(actorName, driver);
     }
+
 
  
     protected void setUpLog4j2() {
