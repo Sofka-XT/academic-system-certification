@@ -1,7 +1,7 @@
 package co.com.sofka.stepdefinition.hu06;
 
 
-import co.com.sofka.stepdefinition.Setup;
+import co.com.sofka.stepdefinition.SetUp;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,12 +10,18 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import java.util.Set;
 
+
+import static co.com.sofka.questions.hu06.createprogram.AssertToListQuestions.assertToListQuestions;
+
 import static co.com.sofka.questions.hu06.editarPrograma.AssertToEditNameQuestion.assertToEditNameQuestion;
 import static co.com.sofka.questions.hu06.editarPrograma.AssertToEditNoNameQuestion.assertToEditNoNameQuestion;
 import static co.com.sofka.tasks.hu06.BrowseToList.browseToList;
 import static co.com.sofka.tasks.hu06.create.BrowseToCreate.browseToCreate;
 import static co.com.sofka.tasks.hu06.create.HU06CrudProgramaCrearTask.createProgram;
 import static co.com.sofka.tasks.hu06.delete.HU06CrudProgramaEliminarTask.eliminarPrograma;
+
+
+import static co.com.sofka.tasks.hu06.delete.HU06CrudProgramaEliminarTask2.eliminarPrograma2;
 
 
 import static co.com.sofka.tasks.hu06.edit.HU06CrudProgramaEditarSolonombre.editarSolonombre;
@@ -31,7 +37,7 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static org.hamcrest.CoreMatchers.equalTo;
 
-public class HU06CA003StepDefinition extends Setup {
+public class HU06CA003StepDefinition extends SetUp {
 
     private static final String ACTOR_NAME = "Coach";
 

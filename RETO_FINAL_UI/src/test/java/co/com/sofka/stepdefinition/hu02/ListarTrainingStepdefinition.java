@@ -1,7 +1,7 @@
 package co.com.sofka.stepdefinition.hu02;
 
 import co.com.sofka.exceptions.hu02.ValidationTextDoNotMatch;
-import co.com.sofka.stepdefinition.Setup;
+import co.com.sofka.stepdefinition.SetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -21,11 +21,10 @@ import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
-import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 
-public class ListarTrainingStepdefinition extends Setup {
+public class ListarTrainingStepdefinition extends SetUp {
 
     protected static final String ACTOR_NAME_APRENDIZ = "aprendiz";
     protected static final String ACTOR_NAME_COACH = "coach";

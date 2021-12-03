@@ -1,6 +1,6 @@
 package co.com.sofka.stepdefinition.hu01;
 
-import co.com.sofka.stepdefinition.Setup;
+import co.com.sofka.stepdefinition.SetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -20,12 +20,11 @@ import static co.com.sofka.userinterfaces.hu01.DashBoardPage.*;
 import static co.com.sofka.userinterfaces.hu01.LoginPage.LOGIN_BUTTON;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 
-public class HU01StepDefinition extends Setup {
+public class HU01StepDefinition extends SetUp {
 
     private static final String ACTOR_NAME = "User";
     String currentWindow ="";
@@ -156,3 +155,4 @@ public class HU01StepDefinition extends Setup {
         );
     }
 }
+
