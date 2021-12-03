@@ -1,3 +1,4 @@
+/*
 package co.com.sofka.stepdefinition.hu02;
 
 import co.com.sofka.exceptions.hu02.ValidationNotEquals;
@@ -152,3 +153,4 @@ public class ListarTrainingStepDefinition extends Setup {
 
     }
 }
+*/
