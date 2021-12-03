@@ -5,23 +5,19 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static co.com.sofka.userinterfaces.hu02.ListarTrainingPage.*;
 import static co.com.sofka.userinterfaces.hu04.ListarAprendicesPage.PERFILAR_APRENDIZ;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class BrowseToListarAprendicesFallido implements Task {
-
+public class PerfilarAprendiz implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(OPCION_MENU_COACH, isVisible()).forNoMoreThan(10).seconds(),
-                Click.on(OPCION_MENU_COACH),
-                Click.on(TARGET_TRAINING),
+                WaitUntil.the(PERFILAR_APRENDIZ, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(PERFILAR_APRENDIZ)
         );
     }
 
-    public static BrowseToListarAprendicesFallido browseToListarAprendicesFallido() {
-        return new BrowseToListarAprendicesFallido();
+    public static PerfilarAprendiz perfilarAprendiz() {
+        return new PerfilarAprendiz();
     }
 }

@@ -1,10 +1,12 @@
 package co.com.sofka.stepdefinition.hu04;
 
 import co.com.sofka.exceptions.hu02.ValidationTextDoNotMatch;
+import co.com.sofka.models.hu04.Aprendiz;
 import co.com.sofka.stepdefinition.SetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.serenitybdd.screenplay.Actor;
 
 import java.util.Set;
 
@@ -14,9 +16,10 @@ import static co.com.sofka.questions.hu04.PerfilarAprendizFalloQuestions.perfila
 import static co.com.sofka.questions.hu04.PerfilarRendimientoAprendizQuestions.perfilarRendimientoAprendizQuestions;
 import static co.com.sofka.tasks.hu02.Login.login;
 import static co.com.sofka.tasks.hu02.LoginGoogle.loginGoogle;
+import static co.com.sofka.tasks.hu04.BrowseToListarAprendices.aprendiz;
 import static co.com.sofka.tasks.hu04.BrowseToListarAprendices.browseToListarAprendices;
-import static co.com.sofka.tasks.hu04.BrowseToListarAprendicesFallido.browseToListarAprendicesFallido;
 import static co.com.sofka.tasks.hu04.FindRendimientoAprendiz.findRendimientoAprendiz;
+import static co.com.sofka.tasks.hu04.PerfilarAprendiz.perfilarAprendiz;
 import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -27,12 +30,8 @@ public class PerfilarRendimientoAprendizStepDefinition extends SetUp {
     protected static final String ACTOR_NAME_APRENDIZ = "aprendiz";
     protected static final String ACTOR_NAME_COACH = "coach";
     protected static final String ASSERTION_MENSAJE_ALERTA = "No se ha encontrado un aprendiz asociado a este correo";
-    protected static final String ASSERTION_NAME_APRENDIZ = "Daniela";
-    protected static final String ASSERTION_CELULAR_APRENDIZ = "12345678";
-    protected static final String ASSERTION_EMAIL_APRENDIZ = "Daniela@gmail.com";
     protected static final String ASSERTION_ESQUEMA_DATOS = "Estados de calificaciones";
     protected static final String MESSAGE_ERROR = "Los datos mostrados en pantalla no corresponden a los del aprendiz consultado";
-
     protected static String originalWindow;
 
     @Given("el usuario \\(coach o aprendiz) se encuentra autenticado en el sistema y en la pagina principal del mismo")
@@ -44,9 +43,9 @@ public class PerfilarRendimientoAprendizStepDefinition extends SetUp {
     @When("el coach solicita ver el perfil del aprendiz de un training activo")
     public void elCoachSolicitaVerElPerfilDelAprendizDeUnTrainingActivo() {
         theActorInTheSpotlight().attemptsTo(
-                browseToListarAprendices()
+                browseToListarAprendices(),
+                perfilarAprendiz()
         );
-        //driver.get("https://academic-system-sofkau.web.app/#/dashboard/profile/Daniela@gmail.com");
 
         theActorInTheSpotlight().attemptsTo(
                 findRendimientoAprendiz()
@@ -57,9 +56,9 @@ public class PerfilarRendimientoAprendizStepDefinition extends SetUp {
     public void elSistemaDebeMostrarElPerfilDelAprendizEnUnaNuevaSeccion() {
         theActorInTheSpotlight().should(
                 seeThat(perfilarRendimientoAprendizQuestions()
-                        .wasFilledWithNameAprendiz(ASSERTION_NAME_APRENDIZ)
-                        .wasFilledWithCelularAprendiz(ASSERTION_CELULAR_APRENDIZ)
-                        .wasFilledWithEmailAprendiz(ASSERTION_EMAIL_APRENDIZ)
+                        .wasFilledWithNameAprendiz(aprendiz.getName())
+                        .wasFilledWithCelularAprendiz(aprendiz.getMobile())
+                        .wasFilledWithEmailAprendiz(aprendiz.getEmail())
                         .is(), equalTo(true)
                 )
                         .orComplainWith(
@@ -84,9 +83,9 @@ public class PerfilarRendimientoAprendizStepDefinition extends SetUp {
     @When("el coach solicita ver el perfil del aprendiz de un training activo con correo desactualizado")
     public void elCoachSolicitaVerElPerfilDelAprendizDeUnTrainingActivoConCorreoDesactualizado() {
         theActorInTheSpotlight().attemptsTo(
-                browseToListarAprendicesFallido()
+                browseToListarAprendices()
         );
-        //driver.get("https://academic-system-sofkau.web.app/#/dashboard/profile/noemail@gmail.com");
+        driver.get("https://academic-system-sofkau.web.app/#/dashboard/profile/noemail@gmail.com");
 
     }
 
@@ -103,7 +102,6 @@ public class PerfilarRendimientoAprendizStepDefinition extends SetUp {
                         )
         );
     }
-
 
 
     protected void loginWithGmail(String user) {

@@ -13,7 +13,7 @@ public class ListarTrainingPerfilarPage extends PageObject {
 
     public static final Target TARGET_TRAINING = Target
             .the("tarjeta Training Activo")
-            .located(xpath("//*[contains(@href,'61a8d0076e218a50451e2f97')]"));
+            .located(xpath("//*[@id=\"container_dashboard\"]/div/div/div[1]/div/a"));
 
 
 }

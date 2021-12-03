@@ -1,6 +1,5 @@
 package co.com.sofka.questions.hu04;
 
-import co.com.sofka.questions.hu02.ListarTrainingActivoQuestions;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
