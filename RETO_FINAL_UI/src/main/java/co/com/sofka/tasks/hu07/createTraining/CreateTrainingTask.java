@@ -30,8 +30,6 @@ public class CreateTrainingTask implements Task {
     private String path = System.getProperty("user.dir")+"\\src\\test\\resources\\File\\aprendices.csv";
 
 
-
-
     Path p1 = Paths.get(path);
 
 
@@ -85,11 +83,11 @@ public class CreateTrainingTask implements Task {
                 Clear.field(FECHA_INICIO),
                 Enter.theValue("12/03/2022").into(FECHA_INICIO),
                 new UploadToTarget(p1,UPLOAD_FILE),
-                Click.on(LIST_PROGRAM),
+                //Click.on(LIST_PROGRAM),
 
                 WaitUntil.the(SUBMIT_TRAINING, isVisible()).forNoMoreThan(10).seconds(),
                 Scroll.to(SUBMIT_TRAINING),
-                SendKeys.of("\ue054").into(CREAR_TRAINING),
+                //SendKeys.of("\ue054").into(CREAR_TRAINING),
                 Click.on(SUBMIT_TRAINING),
 
                 WaitUntil.the(TRAININGS_ACTIVOS, isVisible()).forNoMoreThan(10).seconds(),
