@@ -60,6 +60,9 @@ https://docs.google.com/document/d/10Uw2aenbdZe4vDGuDbLC11aLHH4dtDpbNkqAjt7C4O4/
 - **Plan de pruebas HU04:**
 https://docs.google.com/document/d/1gFScS6ixCegKCmpntnWundBv0rZ4Wtq47MXUA4nqYfA/edit?usp=sharing
 
+- **Plan de pruebas HU05:**
+https://docs.google.com/document/d/1VtBIyZU4ofzeF2j0zUdfgqXS880JXEgP/edit#
+
 - **Plan de pruebas HU06:**
 https://docs.google.com/document/d/1sqQ5BO4Fqy3yDkalVCjXNMrtjHiA7Wof/edit?usp=sharing&ouid=110722096528972289154&rtpof=true&sd=true
 
