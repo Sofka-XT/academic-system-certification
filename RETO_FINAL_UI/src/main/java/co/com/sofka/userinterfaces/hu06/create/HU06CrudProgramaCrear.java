@@ -22,11 +22,11 @@ public class HU06CrudProgramaCrear extends PageObject {
 
     public static final Target SAVE_PROGRAM= Target
             .the("Guardar")
-            .located(xpath("//button[@type='submit']"));
+            .located(xpath("//*[@type=\"submit\"]"));
 
     public static final Target OK_PROGRAM= Target
             .the("Ok")
-            .located(xpath("//div[6]/button"));
+            .located(xpath("//*[text()=\"Si, Crealo!\"]"));
 
 
     //(//button[@type='button'])[2]

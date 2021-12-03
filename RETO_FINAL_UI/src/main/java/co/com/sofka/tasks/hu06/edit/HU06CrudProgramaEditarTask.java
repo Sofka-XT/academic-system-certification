@@ -45,6 +45,7 @@ public class HU06CrudProgramaEditarTask implements Task {
 //                Click.on(CONFIRMAR_CAMBIOS)
 
                 //////
+                Scroll.to(BTN_EDITAR_PROGRAMA),
                 Click.on(BTN_EDITAR_PROGRAMA),
 //
                 Enter.theValue(this.nombrePrograma).into(EDIT_NAME_PROGRAM),
@@ -60,10 +61,12 @@ public class HU06CrudProgramaEditarTask implements Task {
                 Scroll.to(AGREGAR_A_CURSO),
                 Click.on(AGREGAR_A_CURSO),
 
-                Hit.the(Keys.TAB).into(AGREGAR_A_CURSO),
+               // Hit.the(Keys.TAB).into(AGREGAR_A_CURSO),
 
-                Scroll.to(SUBMIT),
-                Click.on(SUBMIT),
+                Hit.the(Keys.ENTER).into(EDIT_NAME_PROGRAM),
+
+               // Scroll.to(SUBMIT),
+               // Click.on(SUBMIT),
 
                 Scroll.to(CONFIRMAR_CAMBIOS),
                 Click.on(CONFIRMAR_CAMBIOS)

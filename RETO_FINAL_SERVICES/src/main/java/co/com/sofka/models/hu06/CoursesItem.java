@@ -2,16 +2,16 @@ package co.com.sofka.models.hu06;
 
 import java.util.List;
 
-public class Courses {
+public class CoursesItem{
 	private String courseName;
-	private List<Categories> categories;
+	private List<CategoriesItem> categories;
 	private String courseId;
 
 	public String getCourseName(){
 		return courseName;
 	}
 
-	public List<Categories> getCategories(){
+	public List<CategoriesItem> getCategories(){
 		return categories;
 	}
 

@@ -12,7 +12,7 @@ public class AssertToEditNameQuestion implements Question {
     }
     @Override
     public Boolean answeredBy(Actor actor) {
-        return  (NUEVO_NOMBRE_PROGRAMA.resolveFor(actor).isVisible());
+        return  (NUEVO_NOMBRE_PROGRAMA.resolveFor(actor).isPresent());
     }
 
     public static AssertToEditNameQuestion assertToEditNameQuestion(){

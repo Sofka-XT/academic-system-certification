@@ -1,7 +1,6 @@
 package co.com.sofka.questions.hu06;
 
 import co.com.sofka.models.hu06.Programa;
-import net.serenitybdd.core.Serenity;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
