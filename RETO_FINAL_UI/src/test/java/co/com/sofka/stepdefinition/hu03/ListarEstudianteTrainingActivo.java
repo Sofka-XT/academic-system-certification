@@ -4,15 +4,20 @@ import co.com.sofka.stepdefinition.SetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.serenitybdd.screenplay.ensure.Ensure;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import java.util.Set;
 
 import static co.com.sofka.tasks.hu01.loginWithGoogle.FillGoogleAutenticationApprentice.fillGoogleAutenticationApprentice;
 import static co.com.sofka.tasks.hu01.loginWithGoogle.FillGoogleAutenticationCoach.fillAutenticationForm;
 import static co.com.sofka.tasks.hu01.loginWithGoogle.LoginWithGoogle.loginWithGoogle;
-import static co.com.sofka.tasks.hu03.DoApprenticeList.doApprenticeList;
+import static co.com.sofka.tasks.hu03.DoApprenticeListApprentice.doApprenticeListApprentice;
+import static co.com.sofka.tasks.hu03.DoApprenticeListCoach.doApprenticeListCoach;
 import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
+import static co.com.sofka.userinterfaces.hu03.TrainingPage.APPRENTICE_TABLE;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class ListarEstudianteTrainingActivo extends SetUp {
 
@@ -35,6 +40,13 @@ public class ListarEstudianteTrainingActivo extends SetUp {
         volverAPaginaLogin();
     }
 
+    @When("selecciona un training activo")
+    public void seleccionaUnTrainingActivo() {
+        theActorInTheSpotlight().attemptsTo(
+                doApprenticeListApprentice()
+        );
+    }
+
     @Given("el coach ingresa a la pagina de training activos")
     public void elCoachIngresaALaPaginaDeTrainingActivos() {
         actorSetupTheBrowser(ACTOR_NAME);
@@ -54,13 +66,16 @@ public class ListarEstudianteTrainingActivo extends SetUp {
     @When("escoge uno al azar")
     public void escogeUnoAlAzar() {
         theActorInTheSpotlight().attemptsTo(
-                doApprenticeList()
+                doApprenticeListCoach()
         );
     }
 
     @Then("debera visualizar la lista de estudiantes")
     public void deberaVisualizarLaListaDeEstudiantes() {
-        System.out.println("Validación");
+        theActorInTheSpotlight().attemptsTo(
+                WaitUntil.the(APPRENTICE_TABLE, isVisible()).forNoMoreThan(20).seconds(),
+                Ensure.that(APPRENTICE_TABLE).isDisplayed()
+        );
     }
 
     public void cambiarAGoogleLogin() {
