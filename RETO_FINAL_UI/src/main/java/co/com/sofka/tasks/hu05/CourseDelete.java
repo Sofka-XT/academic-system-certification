@@ -19,8 +19,8 @@ public class CourseDelete implements Task {
                 Scroll.to(SEE_COURSE),
                 DoubleClick.on(SEE_COURSE),
 
-                Scroll.to(JAVA_BOTTON),
                 Click.on(JAVA_BOTTON),
+
                 Click.on(DELETE_BOTTON),
                 Click.on(CONFIRM_BOTTON)
 

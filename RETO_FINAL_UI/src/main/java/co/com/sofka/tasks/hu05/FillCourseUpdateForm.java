@@ -87,7 +87,7 @@ public class FillCourseUpdateForm implements Task {
                 Scroll.to(SEE_COURSE),
                 DoubleClick.on(SEE_COURSE),
 
-                Scroll.to(JAVA_BOTTON),
+
                 Click.on(JAVA_BOTTON),
 
 
