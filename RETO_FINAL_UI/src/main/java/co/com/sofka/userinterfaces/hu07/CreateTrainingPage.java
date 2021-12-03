@@ -19,16 +19,16 @@ public class CreateTrainingPage extends PageObject {
             .located(xpath("//select[@id='training__coaches_select']"));
 
     public static final Target FECHA_INICIO = Target.the("Fecha de Inicio")
-            .located(xpath("//input[@id='training__starting-date']"));
+            .located(xpath("//*[@id=\"training__starting-date\"]"));
 
     public static final Target UPLOAD_FILE = Target.the("Subir Archivo")
-            .located(xpath("//*[@id=\"container_dashboard\"]/div/form/div[4]/div/div/input"));
+            .located(xpath("//*[@id=\"container_dashboard\"]/div/div[2]/div/div/input"));
 
     public static final Target LIST_PROGRAM = Target.the("Elegir un Programa")
-            .located(xpath("//*[@id=\"training\"]/div/div[2]/div[1]/div"));
+            .located(xpath("//*[@id=\"training\"]/div/div[2]/div[1]/div/picture/img"));
 
     public static final Target SUBMIT_TRAINING = Target.the("Crear")
-            .located(xpath("/html/body/div/div/div[2]/div/form/div[1]/button"));
+            .located(xpath("//*[@id=\"submit_training\"]"));
 
     public static final Target TRAINING_LIST_ACTIVE = Target.the("lista de los trainings")
             .located(xpath("/html/body/div/div/div[2]/div/div"));

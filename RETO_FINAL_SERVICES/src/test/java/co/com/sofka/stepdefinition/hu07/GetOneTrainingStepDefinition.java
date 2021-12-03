@@ -9,7 +9,6 @@ import co.com.sofka.tasks.hu07.GetOneTrainingTask;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.rest.questions.LastResponse;
 
 import static co.com.sofka.util.hu07.Dictionary.*;
 
