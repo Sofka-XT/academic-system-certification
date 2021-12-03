@@ -23,6 +23,7 @@ public class CourseDelete implements Task {
 
 
                 Click.on(JAVA_BOTTON),
+
                 Click.on(DELETE_BOTTON),
                 Click.on(CONFIRM_BOTTON)
 
