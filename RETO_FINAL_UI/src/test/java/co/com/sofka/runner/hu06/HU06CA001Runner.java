@@ -12,5 +12,6 @@ import org.junit.runner.RunWith;
         glue = {"co.com.sofka.stepdefinition.hu06"}
 )
 
-public class HU06CA001Runner {
+public class
+HU06CA001Runner {
 }
