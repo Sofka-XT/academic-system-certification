@@ -28,7 +28,7 @@ public class CreateTrainingPage extends PageObject {
             .located(xpath("//*[@id=\"training\"]/div/div[2]/div[1]/div/picture/img"));
 
     public static final Target SUBMIT_TRAINING = Target.the("Crear")
-            .located(xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[5]/button[1]"));
+            .located(xpath("//*[@id=\"submit_training\"]"));
 
     public static final Target TRAINING_LIST_ACTIVE = Target.the("lista de los trainings")
             .located(xpath("/html/body/div/div/div[2]/div/div"));
