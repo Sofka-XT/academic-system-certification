@@ -1,12 +1,10 @@
 package co.com.sofka.stepdefinition.hu04;
 
 import co.com.sofka.exceptions.hu02.ValidationTextDoNotMatch;
-import co.com.sofka.models.hu04.Aprendiz;
 import co.com.sofka.stepdefinition.SetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.Actor;
 
 import java.util.Set;
 
@@ -34,51 +32,27 @@ public class PerfilarRendimientoAprendizStepDefinition extends SetUp {
     protected static final String MESSAGE_ERROR = "Los datos mostrados en pantalla no corresponden a los del aprendiz consultado";
     protected static String originalWindow;
 
-    @Given("el usuario \\(coach o aprendiz) se encuentra autenticado en el sistema y en la pagina principal del mismo")
-    public void elUsuarioCoachOAprendizSeEncuentraAutenticadoEnElSistemaYEnLaPaginaPrincipalDelMismo() {
+    @Given("el coach se encuentra autenticado en el sistema y en la pagina principal del mismo")
+    public void elCoachSeEncuentraAutenticadoEnElSistemaYEnLaPaginaPrincipalDelMismo() {
         actorSetupTheBrowser(ACTOR_NAME_COACH);
         loginWithGmail(ACTOR_NAME_COACH);
     }
 
     @When("el coach solicita ver el perfil del aprendiz de un training activo")
     public void elCoachSolicitaVerElPerfilDelAprendizDeUnTrainingActivo() {
-        theActorInTheSpotlight().attemptsTo(
-                browseToListarAprendices(),
-                perfilarAprendiz()
-        );
-
-        theActorInTheSpotlight().attemptsTo(
-                findRendimientoAprendiz()
-        );
+        navegarHastaPerfil();
     }
 
     @Then("el sistema debe mostrar el perfil del aprendiz en una nueva seccion")
     public void elSistemaDebeMostrarElPerfilDelAprendizEnUnaNuevaSeccion() {
-        theActorInTheSpotlight().should(
-                seeThat(perfilarRendimientoAprendizQuestions()
-                        .wasFilledWithNameAprendiz(aprendiz.getName())
-                        .wasFilledWithCelularAprendiz(aprendiz.getMobile())
-                        .wasFilledWithEmailAprendiz(aprendiz.getEmail())
-                        .is(), equalTo(true)
-                )
-                        .orComplainWith(
-                                ValidationTextDoNotMatch.class,
-                                String.format(VALIDATION_DO_NOT_MATCH, MESSAGE_ERROR)
-                        )
-        );
-
-        theActorInTheSpotlight().should(
-                seeThat(perfilarAprendizEsquemaQuestions()
-                        .wasFilledWithNameEsquema(ASSERTION_ESQUEMA_DATOS)
-                        .is(), equalTo(true)
-                )
-                        .orComplainWith(
-                                ValidationTextDoNotMatch.class,
-                                String.format(VALIDATION_DO_NOT_MATCH, MESSAGE_ERROR)
-                        )
-        );
+        assertionPerfilarAprendiz();
     }
 
+    @Given("el coach se encuentra logueado en el sistema y en la pagina principal del mismo")
+    public void elCoachEncuentraLogueadoEnElSistemaYEnLaPaginaPrincipalDelMismo() {
+        actorSetupTheBrowser(ACTOR_NAME_COACH);
+        loginWithGmail(ACTOR_NAME_COACH);
+    }
 
     @When("el coach solicita ver el perfil del aprendiz de un training activo con correo desactualizado")
     public void elCoachSolicitaVerElPerfilDelAprendizDeUnTrainingActivoConCorreoDesactualizado() {
@@ -89,8 +63,8 @@ public class PerfilarRendimientoAprendizStepDefinition extends SetUp {
 
     }
 
-    @Then("el sistema debe mostrar un mensaje manifestadno que no se encuentra informacion vinculada a dicho correo")
-    public void elSistemaDebeMostrarUnMensajeManifestadnoQueNoSeEncuentraInformacionVinculadaADichoCorreo() {
+    @Then("el sistema debe mostrar un mensaje manifestando que no se encuentra informacion vinculada a dicho correo")
+    public void elSistemaDebeMostrarUnMensajeManifestandoQueNoSeEncuentraInformacionVinculadaADichoCorreo() {
         theActorInTheSpotlight().should(
                 seeThat(
                         perfilarAprendizFalloQuestions()
@@ -101,6 +75,22 @@ public class PerfilarRendimientoAprendizStepDefinition extends SetUp {
                                 String.format(VALIDATION_DO_NOT_MATCH, MESSAGE_ERROR)
                         )
         );
+    }
+
+    @Given("el aprendiz se encuentra autenticado en el sistema y en la pagina principal del mismo")
+    public void elAprendizSeEncuentraAutenticadoEnElSistemaYEnLaPaginaPrincipalDelMismo() {
+        actorSetupTheBrowser(ACTOR_NAME_APRENDIZ);
+        loginWithGmail(ACTOR_NAME_APRENDIZ);
+    }
+
+    @When("el aprendiz solicita ver su perfil en un training activo")
+    public void elAprendizSolicitaVerSuPerfilEnUnTrainingActivo() {
+        navegarHastaPerfil();
+    }
+
+    @Then("el sistema debe mostrar su perfil con su rendimiento en una nueva seccion")
+    public void elSistemaDebeMostrarSuPerfilConSuRendimientoEnUnaNuevaSeccion() {
+        assertionPerfilarAprendiz();
     }
 
 
@@ -131,6 +121,43 @@ public class PerfilarRendimientoAprendizStepDefinition extends SetUp {
         );
 
         getDriver().switchTo().window(originalWindow);
+    }
+
+    public void assertionPerfilarAprendiz(){
+        theActorInTheSpotlight().should(
+                seeThat(perfilarRendimientoAprendizQuestions()
+                        .wasFilledWithNameAprendiz(aprendiz.getName())
+                        .wasFilledWithCelularAprendiz(aprendiz.getMobile())
+                        .wasFilledWithEmailAprendiz(aprendiz.getEmail())
+                        .is(), equalTo(true)
+                )
+                        .orComplainWith(
+                                ValidationTextDoNotMatch.class,
+                                String.format(VALIDATION_DO_NOT_MATCH, MESSAGE_ERROR)
+                        )
+        );
+
+        theActorInTheSpotlight().should(
+                seeThat(perfilarAprendizEsquemaQuestions()
+                        .wasFilledWithNameEsquema(ASSERTION_ESQUEMA_DATOS)
+                        .is(), equalTo(true)
+                )
+                        .orComplainWith(
+                                ValidationTextDoNotMatch.class,
+                                String.format(VALIDATION_DO_NOT_MATCH, MESSAGE_ERROR)
+                        )
+        );
+    }
+
+    public void navegarHastaPerfil(){
+        theActorInTheSpotlight().attemptsTo(
+                browseToListarAprendices(),
+                perfilarAprendiz()
+        );
+
+        theActorInTheSpotlight().attemptsTo(
+                findRendimientoAprendiz()
+        );
     }
 
 }
