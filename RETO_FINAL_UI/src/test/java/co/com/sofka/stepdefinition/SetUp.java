@@ -13,7 +13,7 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Setup {
+public class SetUp {
 
     protected static final String USER_DIR = System.getProperty("user.dir");
 

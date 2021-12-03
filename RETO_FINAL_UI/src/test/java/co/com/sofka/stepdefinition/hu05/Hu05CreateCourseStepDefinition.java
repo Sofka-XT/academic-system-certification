@@ -1,7 +1,7 @@
 package co.com.sofka.stepdefinition.hu05;
 
 import co.com.sofka.exceptions.hu02.ValidationTextDoNotMatch;
-import co.com.sofka.stepdefinition.Setup;
+import co.com.sofka.stepdefinition.SetUp;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -23,7 +23,7 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 
-public class Hu05CreateCourseStepDefinition extends Setup {
+public class Hu05CreateCourseStepDefinition extends SetUp {
     private static final String ACTOR = COACH.getValue();
     private DataTable dataToValidate;
     @Given("doy click sobre la opcion Crear curso")

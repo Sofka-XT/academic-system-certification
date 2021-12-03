@@ -4,6 +4,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+
 import static co.com.sofka.userinterfaces.hu005.CourseUpdate.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
@@ -87,9 +88,7 @@ public class FillCourseUpdateForm implements Task {
                 Scroll.to(SEE_COURSE),
                 DoubleClick.on(SEE_COURSE),
 
-                Scroll.to(JAVA_BOTTON),
                 Click.on(JAVA_BOTTON),
-
 
                 Click.on(EDITAR_BOTTON),
 
@@ -134,7 +133,7 @@ public class FillCourseUpdateForm implements Task {
                 Scroll.to(FEEDBACK_GREEN),
                 Enter.keyValues(feedBackNameGreen).into(FEEDBACK_GREEN),
 
-                Scroll.to(EDITAR_BOTTON2),
+                Scroll.to(EDITAR_BOTTON2).andAlignToTop(),
                 Click.on(EDITAR_BOTTON2)
 
 

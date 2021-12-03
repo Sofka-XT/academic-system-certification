@@ -2,7 +2,7 @@ package co.com.sofka.stepdefinition.hu05;
 
 import co.com.sofka.exceptions.hu02.ValidationTextDoNotMatch;
 
-import co.com.sofka.stepdefinition.Setup;
+import co.com.sofka.stepdefinition.SetUp;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -23,7 +23,7 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.CoreMatchers.equalTo;
 
-public class Hu05DeleteCourseStepDefinition extends Setup {
+public class Hu05DeleteCourseStepDefinition extends SetUp {
     private static final String ACTOR = COACH.getValue();
     private  final String ValidateMessaje ="El curso se ha eliminado con éxito";
 
@@ -60,7 +60,7 @@ public class Hu05DeleteCourseStepDefinition extends Setup {
     public void navegoPorElSitioHastaEncontrarLaOpcEliminarCurso() {
 
         theActorInTheSpotlight().attemptsTo(
-                DeleteCourseForm()
+                deleteCourseForm()
 
         );
     }

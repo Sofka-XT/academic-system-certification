@@ -1,7 +1,7 @@
 package co.com.sofka.stepdefinition.hu05;
 
 import co.com.sofka.exceptions.hu02.ValidationTextDoNotMatch;
-import co.com.sofka.stepdefinition.Setup;
+import co.com.sofka.stepdefinition.SetUp;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,7 +13,6 @@ import static co.com.sofka.exceptions.hu02.ValidationTextDoNotMatch.VALIDATION_D
 import static co.com.sofka.questions.hu05.UpdateCourseQuestion.*;
 import static co.com.sofka.tasks.hu01.loginWithGoogle.FillGoogleAutenticationCoach.fillAutenticationForm;
 import static co.com.sofka.tasks.hu01.loginWithGoogle.LoginWithGoogle.loginWithGoogle;
-import static co.com.sofka.tasks.hu05.BrowsToDescrptionCourse.searchUserPracticeForm;
 import static co.com.sofka.tasks.hu05.FillCourseUpdateForm.UpdateCourseForm;
 import static co.com.sofka.tasks.landingpage.OpenLandingPage.openLandingPage;
 import static co.com.sofka.userinterfaces.hu005.CourseInfo.HEADER_NAME_CURSO;
@@ -22,7 +21,7 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.CoreMatchers.equalTo;
 
-public class Hu05UpdateCourseStepDefinition extends Setup {
+public class Hu05UpdateCourseStepDefinition extends SetUp {
     private static final String ACTOR = COACH.getValue();
     private DataTable dataToValidate;
     private String fullCategory="Categoria: ";

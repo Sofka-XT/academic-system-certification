@@ -2,7 +2,9 @@ package co.com.sofka.tasks.hu05;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.*;
+import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.DoubleClick;
+import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static co.com.sofka.userinterfaces.hu005.CourseDelete.*;
@@ -19,21 +21,17 @@ public class CourseDelete implements Task {
                 Scroll.to(SEE_COURSE),
                 DoubleClick.on(SEE_COURSE),
 
-                Scroll.to(JAVA_BOTTON),
+
                 Click.on(JAVA_BOTTON),
                 Click.on(DELETE_BOTTON),
                 Click.on(CONFIRM_BOTTON)
-
-
-
-
 
 
         );
 
     }
 
-    public static CourseDelete DeleteCourseForm() {
+    public static CourseDelete deleteCourseForm() {
         return new CourseDelete();
     }
 }
