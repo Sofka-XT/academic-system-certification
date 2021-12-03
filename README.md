@@ -67,5 +67,3 @@ https://docs.google.com/document/d/1sqQ5BO4Fqy3yDkalVCjXNMrtjHiA7Wof/edit?usp=sh
 https://docs.google.com/document/d/1jh5niYqKLfq8ZOk78NVh_bn78gpjJCUO/edit?usp=sharing&ouid=113975053607794699933&rtpof=true&sd=true
 
 
-
-
