@@ -4,7 +4,7 @@ public class ApprenticesItem{
 	private String emailAddress;
 	private String phoneNumber;
 	private String name;
-	private String id;
+	private Object id;
 
 	public String getEmailAddress(){
 		return emailAddress;
@@ -18,7 +18,7 @@ public class ApprenticesItem{
 		return name;
 	}
 
-	public String getId(){
+	public Object getId(){
 		return id;
 	}
 }

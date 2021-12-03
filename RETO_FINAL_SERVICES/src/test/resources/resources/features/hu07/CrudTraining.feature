@@ -6,6 +6,7 @@ Feature: HU07
   Background:
     Given que tengo acceso a la aplicacion api
 
+@ignore
   Scenario: ver un training
     When quiero ver un training nuevo
     Then deberia ver el training de manera correcta

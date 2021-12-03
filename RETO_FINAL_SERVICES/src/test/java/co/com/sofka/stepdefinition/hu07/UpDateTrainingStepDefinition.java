@@ -1,14 +1,11 @@
 package co.com.sofka.stepdefinition.hu07;
 
-import co.com.sofka.models.hu07.getonetraining.ApprenticesItem;
-import co.com.sofka.models.hu07.getonetraining.CoachesItem;
 import co.com.sofka.questions.hu07.GetOneTrainingQuestion;
 import co.com.sofka.questions.hu07.ResponseCode;
 import co.com.sofka.setup.services.hu07.SetUpHu07;
 import co.com.sofka.tasks.hu07.UpDateTrainingTask;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.rest.questions.LastResponse;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
