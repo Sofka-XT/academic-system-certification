@@ -47,6 +47,6 @@ public class Setup {
 
     protected WebDriver getDriver(){
         return driver;
-
     }
+
 }

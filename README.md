@@ -26,10 +26,10 @@
 -----------------------------------
 #### Fecha Noviembre 2021
 
-Este repositorio contienen la automatización al Proyecto Academic System.
+Este repositorio contiene la automatización de pruebas para el Proyecto Academic System.
 
 
-Esta solucion presenta la estrategia de pruebas y la impelemtación.
+Esta solucion presenta la estrategia de pruebas y la implementación.
 
 Los recursos a probar son:
 -------------------------
@@ -47,6 +47,16 @@ Los recursos a probar son:
 
 ----------------------------------------
 
-link plan de pruebas
 
-https://docs.google.com/document/d/1K9MwgIolQnTi3gp8TTrsmnEuyG0adkV2/edit?usp=sharing&ouid=113975053607794699933&rtpof=true&sd=true
+- **Plan de pruebas HU02:**
+https://docs.google.com/document/d/10Uw2aenbdZe4vDGuDbLC11aLHH4dtDpbNkqAjt7C4O4/edit?usp=sharing
+
+- **Plan de pruebas HU04:**
+https://docs.google.com/document/d/1gFScS6ixCegKCmpntnWundBv0rZ4Wtq47MXUA4nqYfA/edit?usp=sharing
+
+
+
+
+
+
+>>>>>>> HU005_crudCursos
