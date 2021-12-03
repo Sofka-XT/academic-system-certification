@@ -22,10 +22,10 @@ public class ListarTrainingPage extends PageObject {
 
     public static final Target OPCION_MENU_COACH = Target
             .the("opcion menu listarTraining para coach")
-            .located(xpath("//*[contains(@href,'activetrainingcoach') and contains(@activeclassname,'active')]"));
+            .located(xpath("//*[contains(@href,'activetraining') and (contains(@activeclassname,'active'))]"));
 
     public static final Target OPCION_MENU_COACH_PRINCIPAL = Target
             .the("opcion menu listarTraining para coach presentacion principal")
-            .located(xpath("//*[contains(@href,'activetrainingcoach') and not (contains(@activeclassname,'active'))]"));
+            .located(xpath("//*[contains(@href,'activetraining') and not (contains(@activeclassname,'active'))]"));
 
 }
