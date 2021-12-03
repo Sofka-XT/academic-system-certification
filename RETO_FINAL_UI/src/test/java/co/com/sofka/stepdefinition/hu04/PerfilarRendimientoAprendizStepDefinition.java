@@ -1,7 +1,7 @@
 package co.com.sofka.stepdefinition.hu04;
 
 import co.com.sofka.exceptions.hu02.ValidationTextDoNotMatch;
-import co.com.sofka.stepdefinition.Setup;
+import co.com.sofka.stepdefinition.SetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -22,7 +22,7 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.CoreMatchers.equalTo;
 
-public class PerfilarRendimientoAprendizStepDefinition extends Setup {
+public class PerfilarRendimientoAprendizStepDefinition extends SetUp {
 
     protected static final String ACTOR_NAME_APRENDIZ = "aprendiz";
     protected static final String ACTOR_NAME_COACH = "coach";
