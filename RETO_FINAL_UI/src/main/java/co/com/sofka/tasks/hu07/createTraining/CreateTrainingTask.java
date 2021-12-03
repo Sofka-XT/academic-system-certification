@@ -6,9 +6,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
 
 import net.serenitybdd.screenplay.waits.WaitUntil;
-
-
-
+import org.openqa.selenium.Keys;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -28,9 +26,6 @@ public class CreateTrainingTask implements Task {
     private String nameTraining;
     private String valueSelectCoach; // 1-Raul, 2-Pablo, 3-Oscar, 4-Luis, 5-Mario
     private String path = System.getProperty("user.dir")+"\\src\\test\\resources\\File\\aprendices.csv";
-
-
-
 
     Path p1 = Paths.get(path);
 
@@ -89,7 +84,8 @@ public class CreateTrainingTask implements Task {
 
                 WaitUntil.the(SUBMIT_TRAINING, isVisible()).forNoMoreThan(10).seconds(),
                 Scroll.to(SUBMIT_TRAINING),
-                SendKeys.of("\ue054").into(CREAR_TRAINING),
+
+                SendKeys.of("\uE00F").into(CREAR_TRAINING),
                 Click.on(SUBMIT_TRAINING),
 
                 WaitUntil.the(TRAININGS_ACTIVOS, isVisible()).forNoMoreThan(10).seconds(),

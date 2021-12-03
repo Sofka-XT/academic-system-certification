@@ -47,6 +47,15 @@ Los recursos a probar son:
 
 ----------------------------------------
 
+<<<<<<< HEAD
+=======
+## **link plan de Pruebas General:**
+
+https://docs.google.com/document/d/1K9MwgIolQnTi3gp8TTrsmnEuyG0adkV2/edit?usp=sharing&ouid=113975053607794699933&rtpof=true&sd=true
+----------------------------------------
+- **Plan de pruebas HU01:**
+https://docs.google.com/document/d/1y54aL207xd-dTo5vBnQW8VB_VObtgSpb/edit?usp=sharing&ouid=116493037795116622115&rtpof=true&sd=true
+>>>>>>> QA
 
 - **Plan de pruebas HU02:**
 https://docs.google.com/document/d/10Uw2aenbdZe4vDGuDbLC11aLHH4dtDpbNkqAjt7C4O4/edit?usp=sharing
@@ -57,6 +66,3 @@ https://docs.google.com/document/d/1gFScS6ixCegKCmpntnWundBv0rZ4Wtq47MXUA4nqYfA/
 
 
 
-
-
->>>>>>> HU005_crudCursos
