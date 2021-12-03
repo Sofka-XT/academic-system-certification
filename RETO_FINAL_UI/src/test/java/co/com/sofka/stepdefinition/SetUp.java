@@ -45,9 +45,8 @@ public class SetUp {
                 USER_DIR + LOG4J_PROPERTIES_FILE_PATH.getValue());
     }
 
-        protected WebDriver getDriver () {
-            return driver;
-
-        }
+    protected WebDriver getDriver(){
+        return driver;
+    }
 
 }

@@ -1,3 +1,4 @@
+
 package co.com.sofka.runner.hu05;
 
 import io.cucumber.junit.CucumberOptions;
@@ -12,5 +13,4 @@ import org.junit.runner.RunWith;
 
 )
 public class Hu05Runner {
-
 }

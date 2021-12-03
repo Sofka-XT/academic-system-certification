@@ -1,3 +1,4 @@
+
 Feature: HU03 - Listar aprendices de un training activo
   Yo como usuario
   Quiero visualizar al listado de aprendices dentro de un Training activo
@@ -12,3 +13,4 @@ Feature: HU03 - Listar aprendices de un training activo
     Given el apprentice ingresa a la pagina de training activos
     When selecciona un training activo
     Then debera visualizar la lista de estudiantes
+

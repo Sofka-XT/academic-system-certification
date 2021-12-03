@@ -19,6 +19,7 @@ public class CreateTrainingPage extends PageObject {
             .located(xpath("//select[@id='training__coaches_select']"));
 
     public static final Target FECHA_INICIO = Target.the("Fecha de Inicio")
+
             .located(xpath("//*[@id=\"training__starting-date\"]"));
 
     public static final Target UPLOAD_FILE = Target.the("Subir Archivo")
@@ -29,6 +30,7 @@ public class CreateTrainingPage extends PageObject {
 
     public static final Target SUBMIT_TRAINING = Target.the("Crear")
             .located(xpath("//*[@id=\"submit_training\"]"));
+
 
     public static final Target TRAINING_LIST_ACTIVE = Target.the("lista de los trainings")
             .located(xpath("/html/body/div/div/div[2]/div/div"));

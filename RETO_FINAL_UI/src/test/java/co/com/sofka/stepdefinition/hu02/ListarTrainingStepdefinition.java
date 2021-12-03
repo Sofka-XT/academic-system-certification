@@ -28,7 +28,7 @@ public class ListarTrainingStepdefinition extends SetUp {
 
     protected static final String ACTOR_NAME_APRENDIZ = "aprendiz";
     protected static final String ACTOR_NAME_COACH = "coach";
-    protected static final String TRAINING_NAME = "Training Dev 2021";
+    protected static final String TRAINING_NAME = "Training para qa";
 
     protected static final String ASSERTION_TRAINING_NAME = "Training Activos";
     protected static final String MESSAGE_ERROR_LISTAR_TRAINING = "No se listan los Training Activos";

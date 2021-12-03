@@ -30,14 +30,14 @@ public class ListarTrainingStepDefinition extends Setup {
     protected final  String RESOURCE_TRAINING = "/Training";
     protected final  String RESOURCE_PROGRAM = "/program";
     protected Program program;
-    protected static final String RESOURCE_TRAINING_ID = "/61a1346bfb95976275096464";
+    protected static final String RESOURCE_TRAINING_ID = "/61aa23ac4d2f294fb4dd3fe2";
     protected static final String RESOURCE_LISTAR_TRAINING = "/list-actives";
 
     protected static final String RESOURCE_PROGRAM_ID = "/61a133e4fb95976275096463";
     protected static final String RESOURCE_LISTAR_PROGRAMS = "/get";
 
-    protected static final String ASSERTION_TRAINING_ID = "61a1346bfb95976275096464";
-    protected static final String ASSERTION_TRAINING_NAME = "Training Dev 2021";
+    protected static final String ASSERTION_TRAINING_ID = "61aa23ac4d2f294fb4dd3fe2";
+    protected static final String ASSERTION_TRAINING_NAME = "Training para qa";
     protected static String ASSERTION_LISTAR_TRAINING = "";
 
 
